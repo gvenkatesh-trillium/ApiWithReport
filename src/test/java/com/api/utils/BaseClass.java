@@ -1,9 +1,11 @@
 package com.api.utils;
 
+import com.api.data.ProjectXData;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
 import com.aventstack.extentreports.ExtentReports;
@@ -32,11 +34,21 @@ public class BaseClass {
     public static String jsonBody;
     public static String rNum;
 
+    public static ProjectXData data = new ProjectXData();
+    public static VerifyResponse verifyResponse = new VerifyResponse();
+    public static String membershipTypeId;
+    public static String membershipGrade;
+    public static String membershipBand;
+    public static String membershipReasonForJoiningId;
+
+
+
 
     @BeforeTest
     public void setExtent() {
 
-        htmlReporter = new ExtentHtmlReporter("c:/work/report/myReport.html");
+        htmlReporter = new ExtentHtmlReporter("c:/work/Project X/ProjectXApiTestingReport.html");
+//        htmlReporter = new ExtentHtmlReporter("./target/ExtentReport/ProjectXApiTestingReport.html");
 
         htmlReporter.config().setDocumentTitle("Project X");
         htmlReporter.config().setReportName("Project X API Testing report");
@@ -67,6 +79,9 @@ public class BaseClass {
 
     @AfterMethod
     public void afterMethod(ITestResult result){
+
+
+
         if (result.getStatus() == ITestResult.FAILURE) {
 //            extentTest.log(Status.FAIL, "TEST CASE FAILED IS " + result.getThrowable());
 

@@ -13,18 +13,18 @@ import java.util.regex.Pattern;
 
 public class Membership extends BaseClass {
 
-    @Test
+    @Test(groups = "Membership.CreateContactActivatedAndValidated")
     public void CreateContactActivatedAndValidated(Method method) {
         testCase = method.getName();
-        extentTest = extent.createTest(" Create contact, Activate and Validate");
+        extentTest = extent.createTest( "Test case : Create contact, Activate and Validate");
         request.header("Content-Type", "application/json");
-        String rNum = String.valueOf(new Random().nextInt(100000 - 10 + 1) + 1);
+        rNum = String.valueOf(new Random().nextInt(100000 - 10 + 1) + 1);
         jsonBody = "{\n" +
                 "  \n" +
                 "  \"firstName\": \"API Automation FirstName\",\n" +
                 "  \"lastName\": \"API Automation LasttName\",\n" +
                 "\n" +
-                "  \"personalemail\": \"personalemail."+rNum+"GV@Automation.com\",\n" +
+                "  \"personalemail\": \"personalemail." + rNum + "GV@Automation.com\",\n" +
                 "  \"workemail\": \"string\",\n" +
                 "  \"preferredEmailAddress\": {\n" +
                 "    \"value\": 167410000,\n" +
@@ -42,30 +42,22 @@ public class Membership extends BaseClass {
                 "  \"organisationText\": \"OrganisationText\"\n" +
                 "}";
         request.body(jsonBody);
-        extentTest.log(Status.INFO," POST request Body : <br />"+ jsonBody);
+        extentTest.log(Status.INFO, " POST request Body : <br />" + jsonBody);
         response = request.post(BASE_URL + testCase);
 
         try {
-            Assert.assertEquals(response.getStatusCode(), 200);
-            extentTest.log(Status.PASS," Check POST response Code : <br />"+ response.getStatusCode());
-        } catch (AssertionError StatusCodeError) {
-            extentTest.log(Status.FAIL,"Expected Response Code \"200\" but returned : <br />"+ response.getStatusCode());
-            throw StatusCodeError;
+            contactId = response.asString().split("\"")[9];
+            eMail = response.asString().split("\"")[17];
+        } catch (Exception e) {
+            extentTest.log(Status.FAIL, "Failed to extract to Contact ID and eMail from response : <br />" + response.asString());
+            e.printStackTrace();
         }
-        try {
-            Assert.assertTrue(response.asString().contains("\"success\":" + "true"));
-            extentTest.log(Status.PASS," Check POST response Body  has Success is \"true\" and messageError is \"null\" : <br />"+ response.asString());
-        } catch (AssertionError SuccessError) {
-            extentTest.log(Status.FAIL,"Expected Response Success is \"true\" and messageError is \"null\" but returned : <br />"+ response.asString());
-            throw SuccessError;
-        }
-
-        contactId =  response.asString().split("\"")[9];
-        eMail = response.asString().split("\"")[17];
-        if(!eMail.contains("@")){
-            extentTest.log(Status.FAIL," no email found in response "+ response.asString());
+        if (!eMail.contains("@")) {
+            extentTest.log(Status.FAIL, " no email found in response : <br/>" + response.asString());
         }
         Assert.assertTrue(response.asString().contains(contactId));
+
+        verifyResponse.validateAssertion();
 
     }
 
@@ -83,21 +75,7 @@ public class Membership extends BaseClass {
         request.body(jsonBody);
         extentTest.log(Status.INFO," POST request Body : <br />"+ jsonBody);
         response = request.post(BASE_URL + testCase);
-
-        try {
-            Assert.assertEquals(response.getStatusCode(), 200);
-            extentTest.log(Status.PASS," Check POST response Code : <br />"+ response.getStatusCode());
-        } catch (AssertionError StatusCodeError) {
-            extentTest.log(Status.FAIL,"Expected Response Code \"200\" but returned : <br />"+ response.getStatusCode());
-            throw StatusCodeError;
-        }
-        try {
-            Assert.assertTrue(response.asString().contains("\"success\":" + "true"));
-            extentTest.log(Status.PASS," Check POST response Body  has Success is \"true\" and messageError is \"null\" : <br />"+ response.asString());
-        } catch (AssertionError SuccessError) {
-            extentTest.log(Status.FAIL,"Expected Response Success is \"true\" and messageError is \"null\" but returned : <br />"+ response.asString());
-            throw SuccessError;
-        }
+        verifyResponse.validateAssertion();
 
     }
 
@@ -114,20 +92,7 @@ public class Membership extends BaseClass {
         request.body(jsonBody);
         extentTest.log(Status.INFO," POST request Body : <br />"+ jsonBody);
         response = request.post(BASE_URL + testCase);
-        try {
-            Assert.assertEquals(response.getStatusCode(), 200);
-            extentTest.log(Status.PASS," Check POST response Code : <br />"+ response.getStatusCode());
-        } catch (AssertionError StatusCodeError) {
-            extentTest.log(Status.FAIL,"Expected Response Code \"200\" but returned : <br />"+ response.getStatusCode());
-            throw StatusCodeError;
-        }
-        try {
-            Assert.assertTrue(response.asString().contains("\"success\":" + "true"));
-            extentTest.log(Status.PASS," Check POST response Body  has Success is \"true\" and messageError is \"null\" : <br />"+ response.asString());
-        } catch (AssertionError SuccessError) {
-            extentTest.log(Status.FAIL,"Expected Response Success is \"true\" and messageError is \"null\" but returned : <br />"+ response.asString());
-            throw SuccessError;
-        }
+        verifyResponse.validateAssertion();
 
 
     }
@@ -148,20 +113,7 @@ public class Membership extends BaseClass {
         request.body(jsonBody);
         extentTest.log(Status.INFO," POST request Body : <br />"+ jsonBody);
         response = request.post(BASE_URL + testCase);
-        try {
-            Assert.assertEquals(response.getStatusCode(), 200);
-            extentTest.log(Status.PASS," Check POST response Code : <br />"+ response.getStatusCode());
-        } catch (AssertionError StatusCodeError) {
-            extentTest.log(Status.FAIL,"Expected Response Code \"200\" but returned : <br />"+ response.getStatusCode());
-            throw StatusCodeError;
-        }
-        try {
-            Assert.assertTrue(response.asString().contains("\"success\":" + "true"));
-            extentTest.log(Status.PASS," Check POST response Body  has Success is \"true\" and messageError is \"null\" : <br />"+ response.asString());
-        } catch (AssertionError SuccessError) {
-            extentTest.log(Status.FAIL,"Expected Response Success is \"true\" and messageError is \"null\" but returned : <br />"+ response.asString());
-            throw SuccessError;
-        }
+        verifyResponse.validateAssertion();
 
 
     }
@@ -182,21 +134,7 @@ public class Membership extends BaseClass {
         request.body(jsonBody);
         extentTest.log(Status.INFO," POST request Body : <br />"+ jsonBody);
         response = request.post(BASE_URL + testCase);
-        try {
-            Assert.assertEquals(response.getStatusCode(), 200);
-            extentTest.log(Status.PASS," Check POST response Code : <br />"+ response.getStatusCode());
-        } catch (AssertionError StatusCodeError) {
-            extentTest.log(Status.FAIL,"Expected Response Code \"200\" but returned : <br />"+ response.getStatusCode());
-            throw StatusCodeError;
-        }
-        try {
-            Assert.assertTrue(response.asString().contains("\"success\":" + "true"));
-            extentTest.log(Status.PASS," Check POST response Body  has Success is \"true\" and messageError is \"null\" : <br />"+ response.asString());
-        } catch (AssertionError SuccessError) {
-            extentTest.log(Status.FAIL,"Expected Response Success is \"true\" and messageError is \"null\" but returned : <br />"+ response.asString());
-            throw SuccessError;
-        }
-
+        verifyResponse.validateAssertion();
 
 
     }
@@ -217,20 +155,7 @@ public class Membership extends BaseClass {
         request.body(jsonBody);
         extentTest.log(Status.INFO," POST request Body : <br />"+ jsonBody);
         response = request.post(BASE_URL + testCase);
-        try {
-            Assert.assertEquals(response.getStatusCode(), 200);
-            extentTest.log(Status.PASS," Check POST response Code : <br />"+ response.getStatusCode());
-        } catch (AssertionError StatusCodeError) {
-            extentTest.log(Status.FAIL,"Expected Response Code \"200\" but returned : <br />"+ response.getStatusCode());
-            throw StatusCodeError;
-        }
-        try {
-            Assert.assertTrue(response.asString().contains("\"success\":" + "true"));
-            extentTest.log(Status.PASS," Check POST response Body  has Success is \"true\" and messageError is \"null\" : <br />"+ response.asString());
-        } catch (AssertionError SuccessError) {
-            extentTest.log(Status.FAIL,"Expected Response Success is \"true\" and messageError is \"null\" but returned : <br />"+ response.asString());
-            throw SuccessError;
-        }
+        verifyResponse.validateAssertion();
 
     }
 
@@ -251,20 +176,7 @@ public class Membership extends BaseClass {
         request.body(jsonBody);
         extentTest.log(Status.INFO," POST request Body : <br />"+ jsonBody);
         response = request.post(BASE_URL + testCase);
-        try {
-            Assert.assertEquals(response.getStatusCode(), 200);
-            extentTest.log(Status.PASS," Check POST response Code : <br />"+ response.getStatusCode());
-        } catch (AssertionError StatusCodeError) {
-            extentTest.log(Status.FAIL,"Expected Response Code \"200\" but returned : <br />"+ response.getStatusCode());
-            throw StatusCodeError;
-        }
-        try {
-            Assert.assertTrue(response.asString().contains("\"success\":" + "true"));
-            extentTest.log(Status.PASS," Check POST response Body  has Success is \"true\" and messageError is \"null\" : <br />"+ response.asString());
-        } catch (AssertionError SuccessError) {
-            extentTest.log(Status.FAIL,"Expected Response Success is \"true\" and messageError is \"null\" but returned : <br />"+ response.asString());
-            throw SuccessError;
-        }
+        verifyResponse.validateAssertion();
 
 
     }
@@ -287,21 +199,7 @@ public class Membership extends BaseClass {
         request.body(jsonBody);
         extentTest.log(Status.INFO," POST request Body : <br />"+ jsonBody);
         response = request.post(BASE_URL + testCase);
-        try {
-            Assert.assertEquals(response.getStatusCode(), 200);
-            extentTest.log(Status.PASS," Check POST response Code : <br />"+ response.getStatusCode());
-//            Assert.assertTrue(!response.asString().contains("Object reference not set to an instance of an object"));
-        } catch (AssertionError StatusCodeError) {
-            extentTest.log(Status.FAIL,"Expected Response Code \"200\" but returned : <br />"+ response.getStatusCode());
-            throw StatusCodeError;
-        }
-        try {
-            Assert.assertTrue(response.asString().contains("\"success\":" + "true"));
-            extentTest.log(Status.PASS," Check POST response Body  has Success is \"true\" and messageError is \"null\" : <br />"+ response.asString());
-        } catch (AssertionError SuccessError) {
-            extentTest.log(Status.FAIL,"Expected Response Success is \"true\" and messageError is \"null\" but returned : <br />"+ response.asString());
-            throw SuccessError;
-        }
+        verifyResponse.validateAssertion();
 
 
     }
@@ -313,24 +211,19 @@ public class Membership extends BaseClass {
         extentTest = extent.createTest("Create Membership for Contact and Validate the response");
         request.header("Content-Type", "application/json");
 
-        jsonBody = "{\n" +
-//                " \"contactId\": \" " + contactId + "\",\n" +
-//                "\"typeId\": \" " + membershipTypeId + "\",\n" +
-//                "\"gradeId\": \" " + membershipGrade + "\",\n" +
-//                "\"bandId\": \" " + membershipBand + "\",\n" +
+            jsonBody = "{\n" +
+                    " \"contactId\": \" " + contactId + "\",\n" +
+                    "\"typeId\": \" " + data.membershipType() + "\",\n" +
+                    "\"gradeId\": \" " + membershipGrade + "\",\n" +
+                    "\"bandId\": \" " + membershipBand + "\",\n" +
 
-                " \"contactId\": \" " + contactId + "\",\n" +
-                "\"typeId\": \"669b36c1-ddfc-e611-8100-005056bf72c1\",\n" +
-                "\"gradeId\": \" 0d462ccb-ddfc-e611-8100-005056bf72c1\",\n" +
-                "\"bandId\": \" cdbb5ced-ddfc-e611-8100-005056bf72c1\",\n" +
-
-                "\"methodOfPaymentId\": \"77c3741e-2b1c-e511-80c7-005056bf2f1c\",\n" +
-                "  \"paymentFrequency\": 167410000,\n" +
-                "  \"reasonCodeId\": \"00000000-0000-0000-0000-000000000000\",\n" +
-                "  \"membershipReasonForJoiningId\": \"1a0c49f4-9733-ea11-a813-000d3a7ed588\",\n" +
-                "  \"startDate\": \"2020-01-23T16:00:01.254Z\",\n" +
-                "  \"membershipStatus\": 167410000\n" +
-                "}";
+                    " \"methodOfPaymentId\": \"77c3741e-2b1c-e511-80c7-005056bf2f1c\",\n" +
+                    "  \"paymentFrequency\": 167410000,\n" +
+                    "  \"reasonCodeId\": \"00000000-0000-0000-0000-000000000000\",\n" +
+                    "  \"membershipReasonForJoiningId\": \" " + data.reasonForJoining() + "\",\n" +
+                    "  \"startDate\": \"2020-01-23T16:00:01.254Z\",\n" +
+                    "  \"membershipStatus\": 167410000\n" +
+                    "}";
         request.body(jsonBody);
         extentTest.log(Status.INFO, " POST request Body : <br />" + jsonBody);
         response = request.post(BASE_URL + testCase);
@@ -343,22 +236,7 @@ public class Membership extends BaseClass {
             membershipId = m.group();
         }
 
-        try {
-            Assert.assertEquals(response.getStatusCode(), 200);
-            extentTest.log(Status.PASS, " Check POST response Code : <br />" + response.getStatusCode());
-        } catch (AssertionError StatusCodeError) {
-            extentTest.log(Status.FAIL, "Expected Response Code \"200\" but returned : <br />" + response.getStatusCode());
-            throw StatusCodeError;
-        }
-        try {
-            Assert.assertTrue(response.asString().contains("\"success\":" + "true"));
-            Assert.assertTrue(!response.asString().contains("Object reference not set to an instance of an object"));
-            extentTest.log(Status.PASS, " Check POST response Body  has Success is \"true\" and messageError is \"null\" : <br />" + response.asString());
-        } catch (AssertionError SuccessError) {
-            extentTest.log(Status.FAIL, "Expected Response Success is \"true\" and messageError is \"null\" but returned : <br />" + response.asString());
-            throw SuccessError;
-        }
-
+            verifyResponse.validateAssertion();
 
     }
 
@@ -417,21 +295,7 @@ public class Membership extends BaseClass {
         extentTest.log(Status.INFO," POST request Body : <br />"+ jsonBody);
         response = request.post(BASE_URL + testCase);
 
-        try {
-            Assert.assertEquals(response.getStatusCode(), 200);
-            extentTest.log(Status.PASS," Check POST response Code : <br />"+ response.getStatusCode());
-        } catch (AssertionError StatusCodeError) {
-            extentTest.log(Status.FAIL,"Expected Response Code \"200\" but returned : <br />"+ response.getStatusCode());
-            throw StatusCodeError;
-        }
-        try {
-            Assert.assertTrue(response.asString().contains("\"success\":" + "true"));
-            Assert.assertTrue(!response.asString().contains("Object reference not set to an instance of an object"));
-            extentTest.log(Status.PASS," Check POST response Body  has Success is \"true\" and messageError is \"null\" : <br />"+ response.asString());
-        } catch (AssertionError SuccessError) {
-            extentTest.log(Status.FAIL,"Expected Response Success is \"true\" and messageError is \"null\" but returned : <br />"+ response.asString());
-            throw SuccessError;
-        }
+        verifyResponse.validateAssertion();
     }
     @Test(dependsOnMethods = {"CreateContactActivatedAndValidated","CreateMembership"})
     public void CreateMembershipTransactionAndProcessPayment(Method method) {
@@ -457,20 +321,7 @@ public class Membership extends BaseClass {
         extentTest.log(Status.INFO," POST request Body : <br />"+ jsonBody);
         response = request.post(BASE_URL + testCase);
 
-        try {
-            Assert.assertEquals(response.getStatusCode(), 200);
-            extentTest.log(Status.PASS," Check POST response Code : <br />"+ response.getStatusCode());
-        } catch (AssertionError StatusCodeError) {
-            extentTest.log(Status.FAIL,"Expected Response Code \"200\" but returned : <br />"+ response.getStatusCode());
-            throw StatusCodeError;
-        }
-        try {
-            Assert.assertTrue(response.asString().contains("\"success\":" + "true"));
-            extentTest.log(Status.PASS," Check POST response Body  has Success is \"true\", messageError is \"null\" and redirectURL URL : <br />"+ response.asString());
-        } catch (AssertionError SuccessError) {
-            extentTest.log(Status.FAIL,"Expected Response Success is \"true\", messageError is \"null\" and has redirectURL URL but returned : <br />"+ response.asString());
-            throw SuccessError;
-        }
+        verifyResponse.validateAssertion();
     }
 
     @Test(dependsOnMethods = {"CreateContactActivatedAndValidated","CreateMembership"})
@@ -496,21 +347,7 @@ public class Membership extends BaseClass {
         extentTest.log(Status.INFO," POST request Body : <br />"+ jsonBody);
         response = request.post(BASE_URL + testCase);
 
-        try {
-            Assert.assertEquals(response.getStatusCode(), 200);
-            extentTest.log(Status.PASS," Check POST response Code : <br />"+ response.getStatusCode());
-        } catch (AssertionError StatusCodeError) {
-            extentTest.log(Status.FAIL,"Expected Response Code \"200\" but returned : <br />"+ response.getStatusCode());
-            throw StatusCodeError;
-        }
-        try {
-            Assert.assertTrue(response.asString().contains("\"success\":" + "true"));
-            Assert.assertTrue(!response.asString().contains("502 - Web server received an invalid response while acting as a gateway or proxy server"));
-            extentTest.log(Status.PASS," Check POST response Body  has Success is \"true\" and messageError is \"null\" : <br />"+ response.asString());
-        } catch (AssertionError SuccessError) {
-            extentTest.log(Status.FAIL,"Expected Response Success is \"true\" and messageError is \"null\" but returned : <br />"+ response.asString());
-            throw SuccessError;
-        }
+        verifyResponse.validateAssertion();
     }
 
     @Test(dependsOnMethods = {"CreateContactActivatedAndValidated","CreateMembership"})
@@ -534,21 +371,7 @@ public class Membership extends BaseClass {
         extentTest.log(Status.INFO," POST request Body : <br />"+ jsonBody);
         response = request.post(BASE_URL + testCase);
 
-        try {
-            Assert.assertEquals(response.getStatusCode(), 200);
-            extentTest.log(Status.PASS," Check POST response Code : <br />"+ response.getStatusCode());
-        } catch (AssertionError StatusCodeError) {
-            extentTest.log(Status.FAIL,"Expected Response Code \"200\" but returned : <br />"+ response.getStatusCode());
-            throw StatusCodeError;
-        }
-        try {
-            Assert. assertTrue(response.asString().contains("\"success\":" + "true"));
-            Assert.assertTrue(!response.asString().contains("502 - Web server received an invalid response while acting as a gateway or proxy server"));
-            extentTest.log(Status.PASS," Check POST response Body  has Success is \"true\" and messageError is \"null\" : <br />"+ response.asString());
-        } catch (AssertionError SuccessError) {
-            extentTest.log(Status.FAIL,"Expected Response Success is \"true\" and messageError is \"null\" but returned : <br />"+ response.asString());
-            throw SuccessError;
-        }
+        verifyResponse.validateAssertion();
     }
 
     @Test()
@@ -591,20 +414,7 @@ public class Membership extends BaseClass {
         extentTest.log(Status.INFO," POST request Body : <br />"+ jsonBody);
         response = request.post(BASE_URL + testCase);
 
-        try {
-            Assert.assertEquals(response.getStatusCode(), 200);
-            extentTest.log(Status.PASS," Check POST response Code : <br />"+ response.getStatusCode());
-        } catch (AssertionError StatusCodeError) {
-            extentTest.log(Status.FAIL,"Expected Response Code \"200\" but returned : <br />"+ response.getStatusCode());
-            throw StatusCodeError;
-        }
-        try {
-            Assert.assertTrue(response.asString().contains("\"success\":" + "true"));
-            extentTest.log(Status.PASS," Check POST response Body  has Success is \"true\" and messageError is \"null\" : <br />"+ response.asString());
-        } catch (AssertionError SuccessError) {
-            extentTest.log(Status.FAIL,"Expected Response Success is \"true\" and messageError is \"null\" but returned : <br />"+ response.asString());
-            throw SuccessError;
-        }
+        verifyResponse.validateAssertion();
     }
 
     @Test(dependsOnMethods = {"CreateContactActivatedAndValidated","CreateMembership"})
@@ -629,20 +439,7 @@ public class Membership extends BaseClass {
         extentTest.log(Status.INFO," POST request Body : <br />"+ jsonBody);
         response = request.post(BASE_URL + testCase);
 
-        try {
-            Assert.assertEquals(response.getStatusCode(), 200);
-            extentTest.log(Status.PASS," Check POST response Code : <br />"+ response.getStatusCode());
-        } catch (AssertionError StatusCodeError) {
-            extentTest.log(Status.FAIL,"Expected Response Code \"200\" but returned : <br />"+ response.getStatusCode());
-            throw StatusCodeError;
-        }
-        try {
-            Assert.assertTrue(response.asString().contains("\"success\":" + "true"));
-            extentTest.log(Status.PASS," Check POST response Body  has Success is \"true\" and messageError is \"null\" : <br />"+ response.asString());
-        } catch (AssertionError SuccessError) {
-            extentTest.log(Status.FAIL,"Expected Response Success is \"true\" and messageError is \"null\" but returned : <br />"+ response.asString());
-            throw SuccessError;
-        }
+        verifyResponse.validateAssertion();
     }
     @Test()
     public void RetrieveMembershipTransactions(Method method) {
@@ -658,20 +455,7 @@ public class Membership extends BaseClass {
         extentTest.log(Status.INFO," POST request Body : <br />"+ jsonBody);
         response = request.post(BASE_URL + testCase);
 
-        try {
-            Assert.assertEquals(response.getStatusCode(), 200);
-            extentTest.log(Status.PASS," Check POST response Code : <br />"+ response.getStatusCode());
-        } catch (AssertionError StatusCodeError) {
-            extentTest.log(Status.FAIL,"Expected Response Code \"200\" but returned : <br />"+ response.getStatusCode());
-            throw StatusCodeError;
-        }
-        try {
-            Assert.assertTrue(response.asString().contains("\"success\":" + "true"));
-            extentTest.log(Status.PASS," Check POST response Body  has Success is \"true\" and messageError is \"null\" : <br />"+ response.asString());
-        } catch (AssertionError SuccessError) {
-            extentTest.log(Status.FAIL,"Expected Response Success is \"true\" and messageError is \"null\" but returned : <br />"+ response.asString());
-            throw SuccessError;
-        }
+        verifyResponse.validateAssertion();
     }
 
     @Test(dependsOnMethods = {"CreateContactActivatedAndValidated","CreateMembership"})
@@ -693,20 +477,30 @@ public class Membership extends BaseClass {
         extentTest.log(Status.INFO," POST request Body : <br />"+ jsonBody);
         response = request.post(BASE_URL + testCase);
 
-        try {
-            Assert.assertEquals(response.getStatusCode(), 200);
-            extentTest.log(Status.PASS," Check POST response Code : <br />"+ response.getStatusCode());
-        } catch (AssertionError StatusCodeError) {
-            extentTest.log(Status.FAIL,"Expected Response Code \"200\" but returned : <br />"+ response.getStatusCode());
-            throw StatusCodeError;
-        }
-        try {
-            Assert.assertTrue(response.asString().contains("\"success\":" + "true"));
-            extentTest.log(Status.PASS," Check POST response Body  has Success is \"true\" and messageError is \"null\" : <br />"+ response.asString());
-        } catch (AssertionError SuccessError) {
-            extentTest.log(Status.FAIL,"Expected Response Success is \"true\" and messageError is \"null\" but returned : <br />"+ response.asString());
-            throw SuccessError;
-        }
+        verifyResponse.validateAssertion();
+    }
+
+    @Test(dependsOnMethods = {"CreateContactActivatedAndValidated","CreateMembership"})
+    public void CreateMembershipTransactionsAsInvoice(Method method){
+        // status code 200 and result is success but not transaction are created in CRM
+        testCase = method.getName();
+        extentTest = extent.createTest("Create Membership Transactions As Invoice and Validate the response");
+        request.header("Content-Type", "application/json");
+
+        jsonBody = "{\n" +
+                "  \"contactId\": \" "+ contactId + "\",\n" +
+                "   \"membershipGuids\": [\""+ membershipId + "\"\n" +
+                "  ],\n" +
+                "  \"createTransactionAsComplete\": true\n" +
+                "}\n" +
+                "ctionAsComplete\": true }";
+
+        request.body(jsonBody);
+        extentTest.log(Status.INFO," POST request Body : <br />"+ jsonBody);
+        response = request.post(BASE_URL + testCase);
+
+        verifyResponse.validateAssertion();
+
     }
 
 }

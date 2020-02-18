@@ -10,11 +10,13 @@
 
     <properties>
         <suiteXmlFile>tests.xml</suiteXmlFile>
-
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
+
+
 
     <dependencies>
         <dependency>
@@ -45,6 +47,13 @@
             <artifactId>extentreports</artifactId>
             <version>3.1.5</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/commons-net/commons-net -->
+        <dependency>
+            <groupId>commons-net</groupId>
+            <artifactId>commons-net</artifactId>
+            <version>3.6</version>
+        </dependency>
+
 
 
 
@@ -61,7 +70,7 @@
                     <source>1.8</source>
                     <target>1.8</target>
                 </configuration>
-            </plugin>
+             </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -69,7 +78,7 @@
                 <version>3.0.0-M4</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>tests.xml</suiteXmlFile>
+                        <suiteXmlFile>src/test/java/resources/tests.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>

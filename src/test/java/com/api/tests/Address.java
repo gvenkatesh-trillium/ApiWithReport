@@ -14,7 +14,7 @@ public class Address extends BaseClass {
     @Test()
     public void CreateContactActivatedAndValidated(Method method) {
         testCase = method.getName();
-        extentTest = extent.createTest( "Create contact, Activate and Validate");
+        extentTest = extent.createTest( "Test case : Create contact, Activate and Validate");
         request.header("Content-Type", "application/json");
         rNum = String.valueOf(new Random().nextInt(100000 - 10 + 1) + 1);
         jsonBody = "{\n" +
@@ -44,26 +44,18 @@ public class Address extends BaseClass {
         response = request.post(BASE_URL + testCase);
 
         try {
-            Assert.assertEquals(response.getStatusCode(), 200);
-            extentTest.log(Status.PASS, " Check POST response Code : <br />" + response.getStatusCode());
-        } catch (AssertionError StatusCodeError) {
-            extentTest.log(Status.FAIL, "Expected Response Code \"200\" but returned : <br />" + response.getStatusCode());
-            throw StatusCodeError;
+            contactId = response.asString().split("\"")[9];
+            eMail = response.asString().split("\"")[17];
+        } catch (Exception e) {
+            extentTest.log(Status.FAIL, "Failed to extract to Contact ID and eMail from response : <br />" + response.asString());
+            e.printStackTrace();
         }
-        try {
-            Assert.assertTrue(response.asString().contains("\"success\":" + "true"));
-            extentTest.log(Status.PASS, " Check POST response Body  has Success is \"true\" and messageError is \"null\" : <br />" + response.asString());
-        } catch (AssertionError SuccessError) {
-            extentTest.log(Status.FAIL, "Expected Response Success is \"true\" and messageError is \"null\" but returned : <br />" + response.asString());
-            throw SuccessError;
-        }
-
-        contactId = response.asString().split("\"")[9];
-        eMail = response.asString().split("\"")[17];
         if (!eMail.contains("@")) {
             extentTest.log(Status.FAIL, " no email found in response : <br/>" + response.asString());
         }
         Assert.assertTrue(response.asString().contains(contactId));
+
+        verifyResponse.validateAssertion();
 
     }
 
@@ -81,20 +73,8 @@ public class Address extends BaseClass {
         request.body(jsonBody);
         response = request.post(BASE_URL + testCase);
 
-        try {
-            Assert.assertEquals(response.getStatusCode(), 200);
-            extentTest.log(Status.PASS, " Check POST response Code : <br />" + response.getStatusCode());
-        } catch (AssertionError StatusCodeError) {
-            extentTest.log(Status.FAIL, "Expected Response Code \"200\" but returned : <br />" + response.getStatusCode());
-            throw StatusCodeError;
-        }
-        try {
-            Assert.assertTrue(response.asString().contains("\"success\":" + "true"));
-            extentTest.log(Status.PASS, " Check POST response Body  has Success is \"true\" and messageError is \"null\" : <br />" + response.asString());
-        } catch (AssertionError SuccessError) {
-            extentTest.log(Status.FAIL, "Expected Response Success is \"true\" and messageError is \"null\" but returned : <br />" + response.asString());
-            throw SuccessError;
-        }
+        verifyResponse.validateAssertion();
+
 
     }
 
@@ -124,22 +104,16 @@ public class Address extends BaseClass {
         extentTest.log(Status.INFO, " POST request Body : <br />" + jsonBody);
         request.body(jsonBody);
         response = request.post(BASE_URL + testCase);
-        addressId = response.asString().split("\"")[9];
-        System.out.println("address di is = "+addressId);
         try {
-            Assert.assertEquals(response.getStatusCode(), 200);
-            extentTest.log(Status.PASS, " Check POST response Code : <br />" + response.getStatusCode());
-        } catch (AssertionError StatusCodeError) {
-            extentTest.log(Status.FAIL, "Expected Response Code \"200\" but returned : <br />" + response.getStatusCode());
-            throw StatusCodeError;
+            addressId = response.asString().split("\"")[9];
+        } catch (Exception e) {
+            e.printStackTrace();
+            extentTest.log(Status.FAIL, "Failed to extract Address ID from response : <br />" + response.asString());
         }
-        try {
-            Assert.assertTrue(response.asString().contains("\"success\":" + "true"));
-            extentTest.log(Status.PASS, " Check POST response Body  has Success is \"true\" and messageError is \"null\" : <br />" + response.asString());
-        } catch (AssertionError SuccessError) {
-            extentTest.log(Status.FAIL, "Expected Response Success is \"true\" and messageError is \"null\" but returned : <br />" + response.asString());
-            throw SuccessError;
-        }
+
+        verifyResponse.validateAssertion();
+
+
 
     }
     @Test(priority=3, dependsOnMethods = {"CreateAddress"})
@@ -148,7 +122,6 @@ public class Address extends BaseClass {
         testCase = method.getName();
         extentTest = extent.createTest( " Test case :Update Address for a Contact and verify the response");
         request.header("Content-Type", "application/json");
-//        System.out.println("address id is = "+addressId);
         jsonBody = "{\n" +
                 " \"id\": \"" + addressId + "\",\n" +
                 "  \"companyName\": \"UpdateAddressCompanyName1\",\n" +
@@ -165,20 +138,8 @@ public class Address extends BaseClass {
         request.body(jsonBody);
         response = request.post(BASE_URL + testCase);
 
-        try {
-            Assert.assertEquals(response.getStatusCode(), 200);
-            extentTest.log(Status.PASS, " Check POST response Code : <br />" + response.getStatusCode());
-        } catch (AssertionError StatusCodeError) {
-            extentTest.log(Status.FAIL, "Expected Response Code \"200\" but returned : <br />" + response.getStatusCode());
-            throw StatusCodeError;
-        }
-        try {
-            Assert.assertTrue(response.asString().contains("\"success\":" + "true"));
-            extentTest.log(Status.PASS, " Check POST response Body  has Success is \"true\" and messageError is \"null\" : <br />" + response.asString());
-        } catch (AssertionError SuccessError) {
-            extentTest.log(Status.FAIL, "Expected Response Success is \"true\" and messageError is \"null\" but returned : <br />" + response.asString());
-            throw SuccessError;
-        }
+       verifyResponse.validateAssertion();
+
 
     }
     @Test(priority = 4, dependsOnMethods = {"UpdateAddress"})
@@ -187,7 +148,6 @@ public class Address extends BaseClass {
         testCase = method.getName();
         extentTest = extent.createTest( "Deactivate Address for a Contact and verify the response");
         request.header("Content-Type", "application/json");
-        System.out.println("address id is = "+addressId);
         jsonBody = "{\n" +
                 " \"id\": \"" + addressId + "\",\n" +
                 "}";
@@ -195,20 +155,7 @@ public class Address extends BaseClass {
         request.body(jsonBody);
         response = request.post(BASE_URL + testCase);
 
-        try {
-            Assert.assertEquals(response.getStatusCode(), 200);
-            extentTest.log(Status.PASS, " Check POST response Code : <br />" + response.getStatusCode());
-        } catch (AssertionError StatusCodeError) {
-            extentTest.log(Status.FAIL, "Expected Response Code \"200\" but returned : <br />" + response.getStatusCode());
-            throw StatusCodeError;
-        }
-        try {
-            Assert.assertTrue(response.asString().contains("\"success\":" + "true"));
-            extentTest.log(Status.PASS, " Check POST response Body  has Success is \"true\" and messageError is \"null\" : <br />" + response.asString());
-        } catch (AssertionError SuccessError) {
-            extentTest.log(Status.FAIL, "Expected Response Success is \"true\" and messageError is \"null\" but returned : <br />" + response.asString());
-            throw SuccessError;
-        }
+        verifyResponse.validateAssertion();
 
     }
 }

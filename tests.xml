@@ -2,6 +2,11 @@
 
 <suite name="CRM" verbose="1" >
     <test name="CRM API Tests">
+        <groups>
+            <run>
+                <include name ="com.api.tests.Membership."/>
+            </run>
+        </groups>
         <classes>
             <class name="com.api.tests.Contact"/>
             <class name="com.api.tests.Account"/>
@@ -10,4 +15,5 @@
             <class name="com.api.tests.Membership"/>
         </classes>
     </test>
+
 </suite>
