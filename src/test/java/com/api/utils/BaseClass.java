@@ -41,14 +41,14 @@ public class BaseClass {
     public static String membershipBand;
     public static String membershipReasonForJoiningId;
 
+    public static FTPUploadFile ftpUploadFile = new FTPUploadFile();
 
 
 
     @BeforeTest
     public void setExtent() {
 
-        htmlReporter = new ExtentHtmlReporter("c:/work/Project X/ProjectXApiTestingReport.html");
-//        htmlReporter = new ExtentHtmlReporter("./target/ExtentReport/ProjectXApiTestingReport.html");
+        htmlReporter = new ExtentHtmlReporter("./com/api/report/ProjectXApiTestingReport.html");
 
         htmlReporter.config().setDocumentTitle("Project X");
         htmlReporter.config().setReportName("Project X API Testing report");
@@ -69,6 +69,9 @@ public class BaseClass {
     @AfterTest
     public void endReport() {
         extent.flush();
+    }
+    public void uploadReport(){
+        ftpUploadFile.uploadReportToFtpServer();
     }
 
     @BeforeMethod
