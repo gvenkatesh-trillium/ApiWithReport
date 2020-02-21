@@ -1,4 +1,4 @@
-package com.api.tests;
+ package com.api.tests;
 
 import com.api.utils.BaseClass;
 import com.aventstack.extentreports.Status;
@@ -12,6 +12,7 @@ import java.util.regex.Pattern;
 
 
 public class Membership extends BaseClass {
+
 
     @Test(groups = "Membership.CreateContactActivatedAndValidated")
     public void CreateContactActivatedAndValidated(Method method) {
@@ -28,7 +29,6 @@ public class Membership extends BaseClass {
                 "  \"workemail\": \"string\",\n" +
                 "  \"preferredEmailAddress\": {\n" +
                 "    \"value\": 167410000,\n" +
-                "    \"description\": \"work\"\n" +
                 "  },\n" +
                 "\n" +
                 "  \"title\": {\n" +
@@ -217,7 +217,7 @@ public class Membership extends BaseClass {
                     "\"gradeId\": \" " + membershipGrade + "\",\n" +
                     "\"bandId\": \" " + membershipBand + "\",\n" +
 
-                    " \"methodOfPaymentId\": \"77c3741e-2b1c-e511-80c7-005056bf2f1c\",\n" +
+                    "    \"methodOfPaymentId\": "+ data.methodOfPaymentId() +",\n" +
                     "  \"paymentFrequency\": 167410000,\n" +
                     "  \"reasonCodeId\": \"00000000-0000-0000-0000-000000000000\",\n" +
                     "  \"membershipReasonForJoiningId\": \" " + data.reasonForJoining() + "\",\n" +
@@ -313,7 +313,7 @@ public class Membership extends BaseClass {
                 "    \"value\": 167410000,\n" +
                 "    \"description\": \"Annually\"\n" +
                 "  },\n" +
-                "  \"methodOfPaymentId\": \"77c3741e-2b1c-e511-80c7-005056bf2f1c\",\n" +
+                "    \"methodOfPaymentId\": "+ data.methodOfPaymentId() +",\n" +
                 " \"onlinePaymentSuccessURL\":\"https://www.onlinePaymentSuccessURL.co.uk\",\n" +
                 "  \"onlinePaymentFailureURL\": \"https://www.onlinePaymentFailureURL.co.uk\"\n" +
                 "}";
@@ -432,7 +432,7 @@ public class Membership extends BaseClass {
                 "  \"writeoff\": true,\n" +
                 "  \"createPayment\": true,\n" +
                 "  \"createPaymentPlan\": true,\n" +
-                "  \"mothodOfPayment\": \"77c3741e-2b1c-e511-80c7-005056bf2f1c\",\n" +
+                "    \"methodOfPaymentId\": "+ data.methodOfPaymentId() +",\n" +
                 "  \"feeOverride\": 0\n" +
                 "}";
         request.body(jsonBody);

@@ -26,7 +26,7 @@ public class GenericCRM extends BaseClass {
                 "  \"workemail\": \"string\",\n" +
                 "  \"preferredEmailAddress\": {\n" +
                 "    \"value\": 167410000,\n" +
-                "    \"description\": \"work\"\n" +
+
                 "  },\n" +
                 "\n" +
                 "  \"title\": {\n" +
@@ -290,7 +290,7 @@ public class GenericCRM extends BaseClass {
 
         jsonBody = "{\n" +
                 "  \"transactionId\": \"d79e12b4-a99f-4c86-b1e1-e96d4556b372\",\n" +
-                "  \"methodOfPaymentId\": \"77c3741e-2b1c-e511-80c7-005056bf2f1c\",\n" +
+                "  \"methodOfPaymentId\": "+ data.methodOfPaymentId() +",\n" +
                 "  \"onlinePaymentSuccessURL\": \"https://trilliumx.trilliumsystems.net/TrilliumX_Dev/v1.0/PaymentGateways/PaymentGateway/Success.aspx\",\n" +
                 "  \"onlinePaymentFailureURL\": \"www.onlinePaymentFailureURL.com\"\n" +
                 "}";

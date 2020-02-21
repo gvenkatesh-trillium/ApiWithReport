@@ -13,11 +13,16 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class BaseClass {
 
     public static String BASE_URL = "https://trilliumx.azurewebsites.net/TrilliumX_Dev/v1.0/Services/TrilliumWebAPI/";
     //    public static String BASE_URL = "https://rcr-uat-services.azurewebsites.net/TrilliumWebAPI/";
     public static RequestSpecification request = RestAssured.given().auth().basic("77628226-A277-47B5-9409-69D0F26A2DC2", "qwerty123");
+
 
     public static ExtentHtmlReporter htmlReporter;
     public static ExtentReports extent;
@@ -29,6 +34,10 @@ public class BaseClass {
     public static String membershipId;
     public static String organisationId;
     public static String addressId;
+    public static String fundId;
+    public static String donationId;
+    public static String methodOfPaymentId;
+
     public static String eMail;
     public static String testCase;
     public static String jsonBody;
@@ -41,27 +50,27 @@ public class BaseClass {
     public static String membershipBand;
     public static String membershipReasonForJoiningId;
 
+
     public static FTPUploadFile ftpUploadFile = new FTPUploadFile();
+    DateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd-HH-mm");
+    Date date = new Date();
+    public String dateTime = dateformat.format(date);
 
 
 
     @BeforeTest
     public void setExtent() {
 
-        htmlReporter = new ExtentHtmlReporter("./com/api/report/ProjectXApiTestingReport.html");
-
+        htmlReporter = new ExtentHtmlReporter("target/ProjectXApiTestingReport"+dateTime+".html");
         htmlReporter.config().setDocumentTitle("Project X");
         htmlReporter.config().setReportName("Project X API Testing report");
 //        htmlReporter.config().setTheme(Theme.DARK);
-
         extent = new ExtentReports();
         extent.attachReporter(htmlReporter);
-
-
-
         extent.setSystemInfo("Host name", "DESKTOP-QK7P72A");
         extent.setSystemInfo("Environemnt", "Dev");
         extent.setSystemInfo("User", "Gopinath");
+
 
 
     }
@@ -69,10 +78,9 @@ public class BaseClass {
     @AfterTest
     public void endReport() {
         extent.flush();
+//        ftpUploadFile.uploadReportToFtpServer();
     }
-    public void uploadReport(){
-        ftpUploadFile.uploadReportToFtpServer();
-    }
+
 
     @BeforeMethod
     public void beforeMethod() {

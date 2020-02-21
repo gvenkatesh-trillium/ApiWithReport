@@ -28,7 +28,7 @@ public class Contact extends BaseClass {
                 "  \"workemail\": \"string\",\n" +
                 "  \"preferredEmailAddress\": {\n" +
                 "    \"value\": 167410000,\n" +
-                "    \"description\": \"work\"\n" +
+
                 "  },\n" +
                 "\n" +
                 "  \"title\": {\n" +
