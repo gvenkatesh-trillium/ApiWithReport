@@ -5,14 +5,13 @@ import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
-import com.aventstack.extentreports.reporter.configuration.Theme;
 
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -43,15 +42,33 @@ public class BaseClass {
     public static String jsonBody;
     public static String rNum;
 
-    public static ProjectXData data = new ProjectXData();
+    public static ProjectXData data;
+
+    static {
+        try {
+            data = new ProjectXData();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static VerifyResponse verifyResponse = new VerifyResponse();
+    public static DataFeed dataFeed = new DataFeed();
+    public static FTPUploadFile ftpUploadFile = new FTPUploadFile();
+
     public static String membershipTypeId;
     public static String membershipGrade;
     public static String membershipBand;
     public static String membershipReasonForJoiningId;
+    public static String membershipWithTransactionId;
+    public static String unPaidTransactions;
+    public static String vatId;
+    public static String countryId;
+    public static String contactsWithActiveMemberships;
+    public static String giftAidBatch;
 
 
-    public static FTPUploadFile ftpUploadFile = new FTPUploadFile();
+
     DateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd-HH-mm");
     Date date = new Date();
     public String dateTime = dateformat.format(date);

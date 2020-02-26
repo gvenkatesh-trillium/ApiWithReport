@@ -23,7 +23,6 @@ public class Address extends BaseClass {
                 "  \"lastName\": \"API Automation LasttName\",\n" +
                 "\n" +
                 "  \"personalemail\": \"personalemail." + rNum + "GV@Automation.com\",\n" +
-                "  \"workemail\": \"string\",\n" +
                 "  \"preferredEmailAddress\": {\n" +
                 "    \"value\": 167410000,\n" +
 

@@ -5,7 +5,9 @@ import com.aventstack.extentreports.Status;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.io.IOException;
 import java.lang.reflect.Method;
+import java.time.LocalDateTime;
 import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -26,7 +28,6 @@ public class Membership extends BaseClass {
                 "  \"lastName\": \"API Automation LasttName\",\n" +
                 "\n" +
                 "  \"personalemail\": \"personalemail." + rNum + "GV@Automation.com\",\n" +
-                "  \"workemail\": \"string\",\n" +
                 "  \"preferredEmailAddress\": {\n" +
                 "    \"value\": 167410000,\n" +
                 "  },\n" +
@@ -49,7 +50,7 @@ public class Membership extends BaseClass {
             contactId = response.asString().split("\"")[9];
             eMail = response.asString().split("\"")[17];
         } catch (Exception e) {
-            extentTest.log(Status.FAIL, "Failed to extract to Contact ID and eMail from response : <br />" + response.asString());
+            extentTest.log(Status.FAIL, "Failed to extract Contact ID and eMail from response : <br />" + response.asString());
             e.printStackTrace();
         }
         if (!eMail.contains("@")) {
@@ -63,14 +64,14 @@ public class Membership extends BaseClass {
 
 
     @Test
-    public void RetrieveAllMembershipsByContactId(Method method) {
+    public void RetrieveAllMembershipsByContactId(Method method) throws IOException {
 
         testCase = method.getName();
         extentTest = extent.createTest("Retrieve All Memberships By ContactId and Validate the response");
         request.header("Content-Type", "application/json");
 
         jsonBody = "{\n" +
-                "  \"id\": \"cda4ae1d-3042-e811-a958-002248072825\",\n" +
+                "  \"id\":  \" " + data.ContactsWithActiveMemberships() + "\",\n" +
                 "}";
         request.body(jsonBody);
         extentTest.log(Status.INFO," POST request Body : <br />"+ jsonBody);
@@ -80,14 +81,14 @@ public class Membership extends BaseClass {
     }
 
     @Test
-    public void RetrieveActiveMembershipsByContactId(Method method) {
+    public void RetrieveActiveMembershipsByContactId(Method method) throws IOException {
 
         testCase = method.getName();
         extentTest = extent.createTest("Retrieve Active Memberships By ContactId and Validate the response");
         request.header("Content-Type", "application/json");
 
         jsonBody = "{\n" +
-                "  \"id\": \"cda4ae1d-3042-e811-a958-002248072825\",\n" +
+                "  \"id\":  \" " + data.ContactsWithActiveMemberships() + "\",\n" +
                 "}";
         request.body(jsonBody);
         extentTest.log(Status.INFO," POST request Body : <br />"+ jsonBody);
@@ -119,14 +120,14 @@ public class Membership extends BaseClass {
     }
 
     @Test
-    public void RetrieveMembershipGradesByTypeId(Method method) {
+    public void RetrieveMembershipGradesByTypeId(Method method) throws IOException {
 
         testCase = method.getName();
         extentTest = extent.createTest("Retrieve Membership Grades By TypeId and Validate the response");
         request.header("Content-Type", "application/json");
 
         jsonBody = "{\n" +
-                "  \"id\": \"cda4ae1d-3042-e811-a958-002248072825\",\n" +
+                "  \"id\":  \" " + data.ContactsWithActiveMemberships() + "\",\n" +
                 "  \"attributesName\": [\n" +
                 "    \"string\"\n" +
                 "  ]\n" +
@@ -134,6 +135,7 @@ public class Membership extends BaseClass {
         request.body(jsonBody);
         extentTest.log(Status.INFO," POST request Body : <br />"+ jsonBody);
         response = request.post(BASE_URL + testCase);
+
         verifyResponse.validateAssertion();
 
 
@@ -160,20 +162,21 @@ public class Membership extends BaseClass {
     }
 
     @Test
-    public void RetrieveValidMembershipDiscountCodeForWeb(Method method) {
+    public void RetrieveValidMembershipDiscountCodeForWeb(Method method) throws IOException {
 // response code is 200 but response body has an error ""Object reference not set to an instance of an object.","
         testCase = method.getName();
-        extentTest = extent.createTest("Retrieve Valid Membership Discount Code For Web and Validate the response");
+        extentTest = extent.createTest("Retrieve Valid Membership Discount Code For Web and Validate the response(f)");
         request.header("Content-Type", "application/json");
 
         jsonBody = "{\n" +
                 "  \"code\": \"string\",\n" +
-                "  \"membershipId\": \"04db2799-3432-ea11-a810-000d3a7ed588\",\n" +
+                "  \"membershipId\": \" "+ data.MembershipsWithTransactions() +"\",\n" +
                 "  \"attributesName\": [\n" +
                 "    \"string\"\n" +
                 "  ]\n" +
                 "}";
         request.body(jsonBody);
+        extentTest.log(Status.FAIL, "retrieves all membership Grades instead of by membership type ID");
         extentTest.log(Status.INFO," POST request Body : <br />"+ jsonBody);
         response = request.post(BASE_URL + testCase);
         verifyResponse.validateAssertion();
@@ -183,15 +186,15 @@ public class Membership extends BaseClass {
 
 
     @Test
-    public void ApplyMembershipDiscountCodeForWeb(Method method) {
+    public void ApplyMembershipDiscountCodeForWeb(Method method) throws IOException {
 // response code is 200 but response body has an error ""Object reference not set to an instance of an object."
         testCase = method.getName();
-        extentTest = extent.createTest("Apply Membership Discount Code For Web and Validate the response");
+        extentTest = extent.createTest("Apply Membership Discount Code For Web and Validate the response(f)");
         request.header("Content-Type", "application/json");
 
         jsonBody = "{\n" +
                 "  \"code\": \"string\",\n" +
-                "  \"membershipId\": \"04db2799-3432-ea11-a810-000d3a7ed588\",\n" +
+                "  \"membershipId\": \" "+ data.MembershipsWithTransactions() +"\",\n" +
                 "  \"tri_discountcodeid\": [\n" +
                 "    \"CodeODcASA4YLuw\"\n" +
                 "  ]\n" +
@@ -216,12 +219,11 @@ public class Membership extends BaseClass {
                     "\"typeId\": \" " + data.membershipType() + "\",\n" +
                     "\"gradeId\": \" " + membershipGrade + "\",\n" +
                     "\"bandId\": \" " + membershipBand + "\",\n" +
-
-                    "    \"methodOfPaymentId\": "+ data.methodOfPaymentId() +",\n" +
+                    "    \"methodOfPaymentId\": \" " + data.methodOfPaymentId() + "\",\n" +
                     "  \"paymentFrequency\": 167410000,\n" +
                     "  \"reasonCodeId\": \"00000000-0000-0000-0000-000000000000\",\n" +
                     "  \"membershipReasonForJoiningId\": \" " + data.reasonForJoining() + "\",\n" +
-                    "  \"startDate\": \"2020-01-23T16:00:01.254Z\",\n" +
+                    "  \"startDate\": \" " + LocalDateTime.now() + "\",\n" +
                     "  \"membershipStatus\": 167410000\n" +
                     "}";
         request.body(jsonBody);
@@ -242,9 +244,9 @@ public class Membership extends BaseClass {
 
     @Test(dependsOnMethods = {"CreateContactActivatedAndValidated"})
     // response code is 200 but response body has an error "Subsetting 'Fundraising_PaymentFrequency' must be an integer"
-    public void CreateFundraisingMembership(Method method) {
+    public void CreateFundraisingMembership(Method method) throws IOException {
         testCase = method.getName();
-        extentTest = extent.createTest("Create Fundraising Membership and Validate the response");
+        extentTest = extent.createTest("Create Fundraising Membership and Validate the response(f)");
         request.header("Content-Type", "application/json");
 
         jsonBody = "{\n" +
@@ -261,7 +263,7 @@ public class Membership extends BaseClass {
                 "    \"telephone\": \"45546435132\",\n" +
                 "    \"addressPostCode\": \"S1W36GH\",\n" +
                 "    \"addressLine\": \"London \",\n" +
-                "    \"addressCountryId\": \"42579c4a-ebd4-e711-a94b-00224801b4c8\"\n" +
+                "    \"addressCountryId\": \" "+ data.Country() + "\",\n" +
                 "  },\n" +
                 "  \"billingContact\": {\n" +
                 "    \"contactId\": \" "+ contactId + "\",\n" +
@@ -274,7 +276,7 @@ public class Membership extends BaseClass {
                 "    \"telephone\": \"45546435132\",\n" +
                 "    \"addressPostCode\": \"S1W36GH\",\n" +
                 "    \"addressLine\": \"London \",\n" +
-                "    \"addressCountryId\": \"42579c4a-ebd4-e711-a94b-00224801b4c8\"\n" +
+                "    \"addressCountryId\": \" "+ data.Country() + "\",\n" +
                 "  },\n" +
                 " \n" +
                 "  \"giftAidDeclaration\": {\n" +
@@ -313,7 +315,7 @@ public class Membership extends BaseClass {
                 "    \"value\": 167410000,\n" +
                 "    \"description\": \"Annually\"\n" +
                 "  },\n" +
-                "    \"methodOfPaymentId\": "+ data.methodOfPaymentId() +",\n" +
+                "    \"methodOfPaymentID\": \""+ data.methodOfPaymentId() + "\",\n" +
                 " \"onlinePaymentSuccessURL\":\"https://www.onlinePaymentSuccessURL.co.uk\",\n" +
                 "  \"onlinePaymentFailureURL\": \"https://www.onlinePaymentFailureURL.co.uk\"\n" +
                 "}";
@@ -351,21 +353,21 @@ public class Membership extends BaseClass {
     }
 
     @Test(dependsOnMethods = {"CreateContactActivatedAndValidated","CreateMembership"})
-    public void CreateGenericMembershipTransaction(Method method) {
+    public void CreateGenericMembershipTransaction(Method method) throws IOException {
         testCase = method.getName();
         extentTest = extent.createTest("Create Generic Membership Transaction and Validate the response");
         request.header("Content-Type", "application/json");
 
         jsonBody = "{\n" +
                 "  \"netAmount\": 1025,\n" +
-                "  \"vatId\": \"90409d5a-241c-e511-80c7-005056bf2f1c\",\n" +
+                "  \"vatId\": \" "+ data.vat() +"\",\n" +
                 "  \"periodId\": \"ed70628e-8455-e611-80f8-005056bf72c1\",\n" +
                 "  \"createAsComplete\": true,\n" +
                 "  \"createAsInvoice\": true,\n" +
                 "  \"description\": \"CreateGenericMembershipTransaction API Automation\",\n" +
                 " \n" +
                 "  \"contactId\": \" "+ contactId + "\",\n" +
-                "  \"membershipID\": \""+ membershipId + "\",\n" +
+                "  \"membershipId\": \" "+ data.MembershipsWithTransactions() +"\",\n" +
                 "}";
         request.body(jsonBody);
         extentTest.log(Status.INFO," POST request Body : <br />"+ jsonBody);
@@ -407,7 +409,6 @@ public class Membership extends BaseClass {
         jsonBody = "{\n" +
                 "  \"membershipID\": \""+ membershipId + "\",\n" +
                 "  \"expiryType\": 167410004,\n" +
-                "  \"reasonForLeaving\": \"b844025c-9833-ea11-a813-000d3a7ed588\",\n" +
                 "  \"expirePaymentPlans\": true\n" +
                 "}";
         request.body(jsonBody);
@@ -420,19 +421,19 @@ public class Membership extends BaseClass {
     @Test(dependsOnMethods = {"CreateContactActivatedAndValidated","CreateMembership"})
     public void UpgradeMembership(Method method) {
         testCase = method.getName();
-        extentTest = extent.createTest("Upgrade Membership and Validate the response");
+        extentTest = extent.createTest("Upgrade Membership and Validate the response(spelling wrong 'mothodOfPayment')");
         request.header("Content-Type", "application/json");
 
         jsonBody = "{\n" +
                 "  \"membershipID\": \""+ membershipId + "\",\n" +
-                "  \"membershipType\": \"669b36c1-ddfc-e611-8100-005056bf72c1\", \n" +
-                "  \"membershipGrade\": \"0d462ccb-ddfc-e611-8100-005056bf72c1\", \n" +
-                "  \"membershipBand\": \"cdbb5ced-ddfc-e611-8100-005056bf72c1\", \n" +
+                "\"membershipType\": \" " + data.membershipType() + "\",\n" +
+                "\"membershipGrade\": \" " + membershipGrade + "\",\n" +
+                "\"membershipBand\": \" " + membershipBand + "\",\n" +
                 "  \"createTransaction\": true,\n" +
                 "  \"writeoff\": true,\n" +
                 "  \"createPayment\": true,\n" +
                 "  \"createPaymentPlan\": true,\n" +
-                "    \"methodOfPaymentId\": "+ data.methodOfPaymentId() +",\n" +
+                "    \"mothodOfPayment\": \""+ data.methodOfPaymentId() + "\",\n" +
                 "  \"feeOverride\": 0\n" +
                 "}";
         request.body(jsonBody);
@@ -442,14 +443,13 @@ public class Membership extends BaseClass {
         verifyResponse.validateAssertion();
     }
     @Test()
-    public void RetrieveMembershipTransactions(Method method) {
+    public void RetrieveMembershipTransactions(Method method) throws IOException {
         testCase = method.getName();
         extentTest = extent.createTest("Retrieve Membership Transactions and Validate the response");
         request.header("Content-Type", "application/json");
 
         jsonBody = "{\n" +
-                "  \"contactId\": \"552bee56-214c-ea11-a812-000d3a7ed518\",\n" +
-                "  \"membershipId\": \"16d9e85c-214c-ea11-a812-000d3a7ed518\"\n" +
+                "  \"contactId\": \" "+ data.ContactsWithActiveMemberships() + "\",\n" +
                 "}";
         request.body(jsonBody);
         extentTest.log(Status.INFO," POST request Body : <br />"+ jsonBody);
@@ -462,7 +462,7 @@ public class Membership extends BaseClass {
     // Response status is 200 but throwing an error "VAT is mandatory and cannot be empty"
     public void CreateMultipleMembershipInvoiceTransaction(Method method) {
         testCase = method.getName();
-        extentTest = extent.createTest("Create Multiple Membership Invoice Transaction and Validate the response");
+        extentTest = extent.createTest("Create Multiple Membership Invoice Transaction and Validate the response(f)");
         request.header("Content-Type", "application/json");
 
         jsonBody = "{\n" +

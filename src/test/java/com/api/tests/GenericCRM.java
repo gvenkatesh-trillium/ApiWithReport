@@ -5,6 +5,7 @@ import com.aventstack.extentreports.Status;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.Random;
 
@@ -23,7 +24,6 @@ public class GenericCRM extends BaseClass {
                 "  \"lastName\": \"API Automation LasttName\",\n" +
                 "\n" +
                 "  \"personalemail\": \"personalemail." + rNum + "GV@Automation.com\",\n" +
-                "  \"workemail\": \"string\",\n" +
                 "  \"preferredEmailAddress\": {\n" +
                 "    \"value\": 167410000,\n" +
 
@@ -282,15 +282,15 @@ public class GenericCRM extends BaseClass {
     }
 
     @Test
-    public void PayTransaction(Method method) {
+    public void PayTransaction(Method method) throws IOException {
 // response code is 200 but throwing an error "An error occurred calling the Payment Service: Received an unmapped Provider Type."
         testCase = method.getName();
-        extentTest = extent.createTest("Pay Transaction and Validate the response");
+        extentTest = extent.createTest("Pay Transaction and Validate the response(f)");
         request.header("Content-Type", "application/json");
 
         jsonBody = "{\n" +
-                "  \"transactionId\": \"d79e12b4-a99f-4c86-b1e1-e96d4556b372\",\n" +
-                "  \"methodOfPaymentId\": "+ data.methodOfPaymentId() +",\n" +
+                "  \"transactionId\":\""+ data.UnPaidTransactions() +"\",\n" +
+                "  \"methodOfPaymentId\":  \""+ data.methodOfPaymentId() +"\",\n" +
                 "  \"onlinePaymentSuccessURL\": \"https://trilliumx.trilliumsystems.net/TrilliumX_Dev/v1.0/PaymentGateways/PaymentGateway/Success.aspx\",\n" +
                 "  \"onlinePaymentFailureURL\": \"www.onlinePaymentFailureURL.com\"\n" +
                 "}";
