@@ -262,7 +262,7 @@ public class GenericCRM extends BaseClass {
         testCase = method.getName();
         extentTest = extent.createTest("Get Contact Roles By ContactId and Validate(GET Request)");
         request.body(jsonBody);
-        extentTest.log(Status.INFO," POST request Body : "+ jsonBody);
+        extentTest.log(Status.INFO,"Get request Endpoint URL : "+ BASE_URL +"/"+ testCase);
         response = request.get(BASE_URL + testCase+"/"+contactId);
         verifyResponse.validateAssertion();
 
@@ -274,8 +274,8 @@ public class GenericCRM extends BaseClass {
 
         testCase = method.getName();
         extentTest = extent.createTest("Retrieve All Periods and Validate(GET Request)");
-        request.body(jsonBody);
-        extentTest.log(Status.INFO," POST request Body : "+ jsonBody);
+//        request.body(jsonBody);
+        extentTest.log(Status.INFO,"Get request Endpoint URL : "+ BASE_URL +"/"+ testCase);
         response = request.get(BASE_URL + testCase);
         verifyResponse.validateAssertion();
 

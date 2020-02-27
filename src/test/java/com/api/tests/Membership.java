@@ -383,17 +383,18 @@ public class Membership extends BaseClass {
         request.header("Content-Type", "application/json");
 
         response = request.get(BASE_URL + testCase);
+        extentTest.log(Status.INFO,"Get request Endpoint URL : "+ BASE_URL + testCase);
 
         try {
             Assert.assertEquals(response.getStatusCode(), 200);
-            extentTest.log(Status.PASS," Check POST response Code : <br />"+ response.getStatusCode());
+            extentTest.log(Status.PASS," Check GET response Code : <br />"+ response.getStatusCode());
         } catch (AssertionError StatusCodeError) {
             extentTest.log(Status.FAIL,"Expected Response Code \"200\" but returned : <br />"+ response.getStatusCode());
             throw StatusCodeError;
         }
         try {
             Assert.assertTrue(response.asString().contains("\"success\":" + "true"));
-            extentTest.log(Status.PASS," Check POST response Body  has Success is \"true\" and messageError is \"null\" : <br />"+ response.asString());
+            extentTest.log(Status.PASS," Check GET response Body  has Success is \"true\" and messageError is \"null\" : <br />"+ response.asString());
         } catch (AssertionError SuccessError) {
             extentTest.log(Status.FAIL,"Expected Response Success is \"true\" and messageError is \"null\" but returned : <br />"+ response.asString());
             throw SuccessError;

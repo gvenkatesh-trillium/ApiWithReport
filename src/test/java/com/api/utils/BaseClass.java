@@ -12,6 +12,8 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 
 import java.io.IOException;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -53,7 +55,6 @@ public class BaseClass {
     }
 
     public static VerifyResponse verifyResponse = new VerifyResponse();
-    public static DataFeed dataFeed = new DataFeed();
     public static FTPUploadFile ftpUploadFile = new FTPUploadFile();
 
     public static String membershipTypeId;
@@ -66,6 +67,9 @@ public class BaseClass {
     public static String countryId;
     public static String contactsWithActiveMemberships;
     public static String giftAidBatch;
+    public static String contactsWithCPD;
+    public static String cPDdiary;
+    public static String cpdActivity;
 
 
 
@@ -76,7 +80,7 @@ public class BaseClass {
 
 
     @BeforeTest
-    public void setExtent() {
+    public void setExtent() throws UnknownHostException {
 
         htmlReporter = new ExtentHtmlReporter("target/ProjectXApiTestingReport"+dateTime+".html");
         htmlReporter.config().setDocumentTitle("Project X");
@@ -84,8 +88,8 @@ public class BaseClass {
 //        htmlReporter.config().setTheme(Theme.DARK);
         extent = new ExtentReports();
         extent.attachReporter(htmlReporter);
-        extent.setSystemInfo("Host name", "DESKTOP-QK7P72A");
-        extent.setSystemInfo("Environemnt", "Dev");
+        extent.setSystemInfo("Host name", InetAddress.getLocalHost().getHostName());
+        extent.setSystemInfo("Environment", "TrilliumX_Dev");
         extent.setSystemInfo("User", "Gopinath");
 
 
@@ -93,9 +97,9 @@ public class BaseClass {
     }
 
     @AfterTest
-    public void endReport() {
+    public void endReport() throws UnknownHostException {
         extent.flush();
-//        ftpUploadFile.uploadReportToFtpServer();
+        ftpUploadFile.uploadReportToFtpServer();
     }
 
 
