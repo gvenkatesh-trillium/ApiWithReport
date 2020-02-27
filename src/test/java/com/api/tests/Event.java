@@ -16,7 +16,7 @@ public class Event extends BaseClass {
         testCase = method.getName();
         extentTest = extent.createTest("Create Bookings and Validate");
         request.header("Content-Type", "application/json");
-        jsonBody = "to bo added";
+        jsonBody = "Aysegul to add API request details here ";
 
         extentTest.log(Status.INFO," POST request Body : <br /> "+ jsonBody);
         request.body(jsonBody);
