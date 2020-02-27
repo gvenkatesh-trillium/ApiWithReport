@@ -99,7 +99,7 @@ public class BaseClass {
     @AfterTest
     public void endReport() throws UnknownHostException {
         extent.flush();
-        ftpUploadFile.uploadReportToFtpServer();
+//        ftpUploadFile.uploadReportToFtpServer();
     }
 
 

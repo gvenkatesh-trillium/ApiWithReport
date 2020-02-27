@@ -1,0 +1,2510 @@
+
+<!DOCTYPE html>
+<html>
+
+
+<head>
+	<meta charset='utf-8' /> 
+	<meta name='description' content='' />
+	<meta name='robots' content='noodp, noydir' />
+	<meta name='viewport' content='width=device-width, initial-scale=1' />
+	<meta id="timeStampFormat" name="timeStampFormat" content='MMM d, yyyy hh:mm:ss a'/>
+	
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css' />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+		<link href='https://cdn.rawgit.com/anshooarora/extentreports-java/b4a58fcfd1e137bd9287244035a7c80d3d73b3af/dist/css/extent.css' type='text/css' rel='stylesheet' />
+	
+	<title>Project X</title>
+
+	<style type='text/css'>
+	</style>
+</head>
+
+	<body class='extent standard default hide-overflow '>
+		<div id='theme-selector' alt='Click to toggle theme. To enable by default, use theme configuration.' title='Click to toggle theme. To enable by default, use theme configuration.'>
+			<span><i class='material-icons'>desktop_windows</i></span>
+		</div>
+
+<nav>
+	<div class="nav-wrapper">
+		<a href="#!" class="brand-logo blue darken-3">Extent</a>
+
+		<!-- slideout menu -->
+		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
+			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
+						<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></i></a></li>
+		</ul>
+
+		<!-- report name -->
+		<span class='report-name'>Project X API Testing report</span>
+		
+		<!-- report headline -->
+		<span class='report-headline'></span>
+
+		<!-- nav-right -->
+		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
+			<li>
+                <a href='#!'>
+                    <span class='label suite-start-time blue darken-3'>Feb 19, 2020 10:28:30 AM</span>
+				</a>
+			</li>
+			<li>
+                <a href='#!'>
+                    <span class='label blue darken-3'>3.1.5</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+
+		<!-- container -->
+		<div class='container'>
+
+<div id='test-view' class='view'>
+				
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- test toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button tests-toggle' data-activates='tests-toggle' data-constrainwidth='true' data-beloworigin='true' data-hover='true' href='#'>
+					<i class='material-icons'>warning</i> Status
+				</a>
+				<ul id='tests-toggle' class='dropdown-content'>
+											<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+						<li status='fail'><a href='#!'>Fail <i class='material-icons red-text'>cancel</i></a></li>
+					<li class='divider'></li>
+					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
+				</ul>
+			</div>
+			<!-- test toggle -->
+
+			<!-- category toggle -->
+			<!-- category toggle -->
+
+			<!-- clear filters -->
+			<div class='chip transparent hide'>
+				<a class='' id='clear-filters' alt='Clear Filters' title='Clear Filters'>
+					<i class='material-icons'>close</i> Clear
+				</a>
+			</div>
+			<!-- clear filters -->
+
+			<!-- enable dashboard -->
+			<div id='toggle-test-view-charts' class='chip transparent'>
+				<a class='pink-text' id='enable-dashboard' alt='Enable Dashboard' title='Enable Dashboard'>
+					<i class='material-icons'>track_changes</i> Dashboard
+				</a>
+			</div>
+			<!-- enable dashboard -->
+
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+
+<div id='test-view-charts' class='subview-full'>
+	<div id='charts-row' class='row nm-v nm-h'>
+		<div class='col s12 m6 l6 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Tests</div>
+				<div class='chart-box'>
+					<canvas id='parent-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='85.714%'><span class='strong'>36</span> test(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='14.286%'>6</span> test(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+				</div>
+			</div>
+		</div>
+		
+		<div class='col s12 m6 l6 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Steps</div>
+				<div class='chart-box'>
+					<canvas id='child-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='61.905%'><span class='strong'>78</span> step(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='4.762%'>6</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='33.333%'>42</span> others
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</div>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Tests</h5>
+			<ul id='test-collection' class='test-collection'>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='1'>
+					<div class='test-heading'>
+						<span class='test-name'>Test case : Create contact, Activate and Validate</span>
+						<span class='test-time'>Feb 19, 2020 10:28:30 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 19, 2020 10:28:30 AM</span>
+	<span class='label end-time'>Feb 19, 2020 10:28:35 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 4s+394ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:28:31 AM</td>
+					<td class='step-details'>POST request Body : <br />{
+  
+  "firstName": "API Automation FirstName",
+  "lastName": "API Automation LasttName",
+
+  "personalemail": "personalemail.5180GV@Automation.com",
+  "workemail": "string",
+  "preferredEmailAddress": {
+    "value": 167410000,
+    "description": "work"
+  },
+
+  "title": {
+    "value": 167410032,
+    "description": "string"
+},
+ 
+
+  "jobRoleOther": "API jobRoleOther",
+  "jobTitle": "API jobTitle",
+  "organisationText": "OrganisationText"
+}</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:28:35 AM</td>
+					<td class='step-details'>Check POST response Code : <br />200</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:28:35 AM</td>
+					<td class='step-details'>Check POST response Body  has Success is "true" and messageError is "null" : <br />{"success":true,"messageError":null,"result":{"id":"512dd591-0253-ea11-a813-000d3a7ed588","fullName":"API Automation FirstName API Automation LasttName","email1":"personalemail.5180GV@Automation.com","gmcNumber":null,"inArrears":false,"inArrearsSince":null,"branch":null,"nationality":null,"countryOfBirth":null,"organisation":null,"lastModified":"2020-02-19T10:28:34+00:00","homeAddress":null,"workAddress":null,"contactRoles":[],"primaryMembership":{"membershipNumber":"002987","primaryMembershipId":null,"grade":null,"band":null,"startDate":null,"expiryDate":null,"statusReason":null,"membershipStatus":null,"renewalStatus":null,"paymentStatus":null,"paymentFrequency":null,"outstanding":0.0,"outstandingCurrent":0.0,"outstandingArrears":0.0,"paymentMethod":null},"incompleteMembership":{"incompleteMembershipId":null,"incompleteMembershipGrade":null,"incompleteMembershipBand":null,"incompleteMembershipGroup":null,"incompleteMembershipGroupCode":null,"incompleteMembershipStartDate":null,"incompleteMembershipExpiryDate":null,"incompleteMembershipStatus":null},"additionalAttributesValues":[],"hashCode":null,"webUserName":null,"firstName":"API Automation FirstName","lastName":"API Automation LasttName","middleName":null,"personalemail":"personalemail.5180GV@Automation.com","workemail":"string","preferredEmailAddress":{"value":167410000,"description":"Personal"},"dateOfBirth":null,"workTelephone":null,"homeTelephone":null,"mobile":null,"correspondenceAddress":0,"invoiceAddress":0,"overrideBranch":false,"doNotPhone":null,"doNotEmail":null,"title":{"value":167410032,"description":"Mr"},"gender":null,"ethnicity":null,"maritalStatus":null,"jobRole":null,"jobRoleOther":"API jobRoleOther","jobTitle":"API jobTitle","organisationText":"OrganisationText"}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='2'>
+					<div class='test-heading'>
+						<span class='test-name'>Test case : Create contact, Activate and Validate</span>
+						<span class='test-time'>Feb 19, 2020 10:28:35 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 19, 2020 10:28:35 AM</span>
+	<span class='label end-time'>Feb 19, 2020 10:28:37 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 2s+661ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:28:35 AM</td>
+					<td class='step-details'>POST request Body : <br />{
+  
+  "firstName": "API Automation FirstName",
+  "lastName": "API Automation LasttName",
+
+  "personalemail": "personalemail.23956GV@Automation.com",
+  "workemail": "string",
+  "preferredEmailAddress": {
+    "value": 167410000,
+    "description": "work"
+  },
+
+  "title": {
+    "value": 167410032,
+    "description": "string"
+},
+ 
+
+  "jobRoleOther": "API jobRoleOther",
+  "jobTitle": "API jobTitle",
+  "organisationText": "OrganisationText"
+}</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:28:37 AM</td>
+					<td class='step-details'>Check POST response Code : <br />200</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:28:37 AM</td>
+					<td class='step-details'>Check POST response Body  has Success is "true" and messageError is "null" : <br />{"success":true,"messageError":null,"result":{"id":"342ed591-0253-ea11-a813-000d3a7ed588","fullName":"API Automation FirstName API Automation LasttName","email1":"personalemail.23956GV@Automation.com","gmcNumber":null,"inArrears":false,"inArrearsSince":null,"branch":null,"nationality":null,"countryOfBirth":null,"organisation":null,"lastModified":"2020-02-19T10:28:37+00:00","homeAddress":null,"workAddress":null,"contactRoles":[],"primaryMembership":{"membershipNumber":"002988","primaryMembershipId":null,"grade":null,"band":null,"startDate":null,"expiryDate":null,"statusReason":null,"membershipStatus":null,"renewalStatus":null,"paymentStatus":null,"paymentFrequency":null,"outstanding":0.0,"outstandingCurrent":0.0,"outstandingArrears":0.0,"paymentMethod":null},"incompleteMembership":{"incompleteMembershipId":null,"incompleteMembershipGrade":null,"incompleteMembershipBand":null,"incompleteMembershipGroup":null,"incompleteMembershipGroupCode":null,"incompleteMembershipStartDate":null,"incompleteMembershipExpiryDate":null,"incompleteMembershipStatus":null},"additionalAttributesValues":[],"hashCode":null,"webUserName":null,"firstName":"API Automation FirstName","lastName":"API Automation LasttName","middleName":null,"personalemail":"personalemail.23956GV@Automation.com","workemail":"string","preferredEmailAddress":{"value":167410000,"description":"Personal"},"dateOfBirth":null,"workTelephone":null,"homeTelephone":null,"mobile":null,"correspondenceAddress":0,"invoiceAddress":0,"overrideBranch":false,"doNotPhone":null,"doNotEmail":null,"title":{"value":167410032,"description":"Mr"},"gender":null,"ethnicity":null,"maritalStatus":null,"jobRole":null,"jobRoleOther":"API jobRoleOther","jobTitle":"API jobTitle","organisationText":"OrganisationText"}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='3'>
+					<div class='test-heading'>
+						<span class='test-name'>Test case : Create contact, Activate and Validate</span>
+						<span class='test-time'>Feb 19, 2020 10:28:37 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 19, 2020 10:28:37 AM</span>
+	<span class='label end-time'>Feb 19, 2020 10:28:40 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 2s+634ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:28:37 AM</td>
+					<td class='step-details'>POST request Body : <br />{
+  
+  "firstName": "API Automation FirstName",
+  "lastName": "API Automation LasttName",
+
+  "personalemail": "personalemail.60136GV@Automation.com",
+  "workemail": "string",
+  "preferredEmailAddress": {
+    "value": 167410000,
+    "description": "work"
+  },
+
+  "title": {
+    "value": 167410032,
+    "description": "string"
+},
+ 
+
+  "jobRoleOther": "API jobRoleOther",
+  "jobTitle": "API jobTitle",
+  "organisationText": "OrganisationText"
+}</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:28:40 AM</td>
+					<td class='step-details'>Check POST response Code : <br />200</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:28:40 AM</td>
+					<td class='step-details'>Check POST response Body  has Success is "true" and messageError is "null" : <br />{"success":true,"messageError":null,"result":{"id":"f9cfc792-0253-ea11-a813-000d3a7ed518","fullName":"API Automation FirstName API Automation LasttName","email1":"personalemail.60136GV@Automation.com","gmcNumber":null,"inArrears":false,"inArrearsSince":null,"branch":null,"nationality":null,"countryOfBirth":null,"organisation":null,"lastModified":"2020-02-19T10:28:40+00:00","homeAddress":null,"workAddress":null,"contactRoles":[],"primaryMembership":{"membershipNumber":"002989","primaryMembershipId":null,"grade":null,"band":null,"startDate":null,"expiryDate":null,"statusReason":null,"membershipStatus":null,"renewalStatus":null,"paymentStatus":null,"paymentFrequency":null,"outstanding":0.0,"outstandingCurrent":0.0,"outstandingArrears":0.0,"paymentMethod":null},"incompleteMembership":{"incompleteMembershipId":null,"incompleteMembershipGrade":null,"incompleteMembershipBand":null,"incompleteMembershipGroup":null,"incompleteMembershipGroupCode":null,"incompleteMembershipStartDate":null,"incompleteMembershipExpiryDate":null,"incompleteMembershipStatus":null},"additionalAttributesValues":[],"hashCode":null,"webUserName":null,"firstName":"API Automation FirstName","lastName":"API Automation LasttName","middleName":null,"personalemail":"personalemail.60136GV@Automation.com","workemail":"string","preferredEmailAddress":{"value":167410000,"description":"Personal"},"dateOfBirth":null,"workTelephone":null,"homeTelephone":null,"mobile":null,"correspondenceAddress":0,"invoiceAddress":0,"overrideBranch":false,"doNotPhone":null,"doNotEmail":null,"title":{"value":167410032,"description":"Mr"},"gender":null,"ethnicity":null,"maritalStatus":null,"jobRole":null,"jobRoleOther":"API jobRoleOther","jobTitle":"API jobTitle","organisationText":"OrganisationText"}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='4'>
+					<div class='test-heading'>
+						<span class='test-name'>Get All Contact Roles and Validate the response</span>
+						<span class='test-time'>Feb 19, 2020 10:28:40 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 19, 2020 10:28:40 AM</span>
+	<span class='label end-time'>Feb 19, 2020 10:28:41 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 1s+295ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:28:40 AM</td>
+					<td class='step-details'>POST request Body : <br /> {
+  "pagingInformation": {
+    "currentPage": 1,
+    "pageSize": 10,
+    "sortBy": "tri_name",
+    "orderBy": "ASC",
+    "maxResultCount": 1000,
+    "totalCountLimitExceeded": true
+  }
+}</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:28:40 AM</td>
+					<td class='step-details'>POST request Body : {
+  "pagingInformation": {
+    "currentPage": 1,
+    "pageSize": 10,
+    "sortBy": "tri_name",
+    "orderBy": "ASC",
+    "maxResultCount": 1000,
+    "totalCountLimitExceeded": true
+  }
+}</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:28:41 AM</td>
+					<td class='step-details'>Check POST response Code : <br />200</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:28:41 AM</td>
+					<td class='step-details'>Check POST response Body  has Success is "true" and messageError is "null" : <br />{"pagingInformation":{"currentPage":1,"pageSize":50,"sortBy":"tri_name","orderBy":"ASC","maxResultCount":13,"totalCountLimitExceeded":false},"success":true,"messageError":null,"result":[{"id":"44dd34a4-1541-ea11-a812-000d3a7ed588","startDate":null,"endDate":null,"contactId":"3a36c871-fc40-ea11-a812-000d3a7ed588","organisationId":null,"committeeId":null,"roleId":null,"roleType":null,"reasonForLeaving":null,"statusCode":{"value":1,"description":"Active"}},{"id":"7a6af2a2-0ef7-e911-a813-000d3a7ed588","startDate":null,"endDate":null,"contactId":"ce993920-0ef7-e911-a813-000d3a7ed588","organisationId":null,"committeeId":null,"roleId":null,"roleType":null,"reasonForLeaving":null,"statusCode":{"value":1,"description":"Active"}},{"id":"b4ebcb9b-f28b-e811-a961-002248072fe8","startDate":"2018-07-19T23:00:00Z","endDate":null,"contactId":"ed09945f-af52-e811-a959-00224807251a","organisationId":"5778872c-7480-e811-a95e-002248072781","committeeId":null,"roleId":{"entityLogicalName":"tri_role","id":"dddedf1d-6441-e811-a953-002248072abd","name":"Chairman"},"roleType":null,"reasonForLeaving":null,"statusCode":{"value":1,"description":"Active"}},{"id":"36f1379e-1541-ea11-a812-000d3a7ed588","startDate":null,"endDate":null,"contactId":"3a36c871-fc40-ea11-a812-000d3a7ed588","organisationId":null,"committeeId":null,"roleId":{"entityLogicalName":"tri_role","id":"dddedf1d-6441-e811-a953-002248072abd","name":"Chairman"},"roleType":null,"reasonForLeaving":null,"statusCode":{"value":1,"description":"Active"}},{"id":"2fb233b0-1541-ea11-a812-000d3a7ed588","startDate":null,"endDate":null,"contactId":"3a36c871-fc40-ea11-a812-000d3a7ed588","organisationId":null,"committeeId":null,"roleId":{"entityLogicalName":"tri_role","id":"dddedf1d-6441-e811-a953-002248072abd","name":"Chairman"},"roleType":null,"reasonForLeaving":null,"statusCode":{"value":1,"description":"Active"}},{"id":"ad9fa140-14b2-e911-a82c-000d3a0b6439","startDate":null,"endDate":null,"contactId":"7c21ea88-213f-e811-a956-002248072cc3","organisationId":null,"committeeId":"0d2125f6-6341-e811-a953-002248072abd","roleId":{"entityLogicalName":"tri_role","id":"dddedf1d-6441-e811-a953-002248072abd","name":"Chairman"},"roleType":null,"reasonForLeaving":null,"statusCode":{"value":1,"description":"Active"}},{"id":"53108428-6441-e811-a953-002248072abd","startDate":"2018-04-01T00:00:00Z","endDate":null,"contactId":"7d6d7076-093f-e811-a956-002248072cc3","organisationId":null,"committeeId":"0d2125f6-6341-e811-a953-002248072abd","roleId":{"entityLogicalName":"tri_role","id":"dddedf1d-6441-e811-a953-002248072abd","name":"Chairman"},"roleType":{"value":167410001,"description":"Committee"},"reasonForLeaving":null,"statusCode":{"value":1,"description":"Active"}},{"id":"90fef029-90d4-e911-a812-000d3a7ed30d","startDate":null,"endDate":null,"contactId":"87015c60-81d4-e911-a812-000d3a7ed30d","organisationId":"8b1d86b9-83d4-e911-a812-000d3a7ed30d","committeeId":null,"roleId":{"entityLogicalName":"tri_role","id":"dddedf1d-6441-e811-a953-002248072abd","name":"Chairman"},"roleType":null,"reasonForLeaving":null,"statusCode":{"value":1,"description":"Active"}},{"id":"1d7cb123-b233-ea11-a813-000d3a7ed588","startDate":null,"endDate":null,"contactId":"49ee8062-b93e-ea11-a812-000d3a7ed588","organisationId":"c3b99eff-4351-e911-a979-002248072781","committeeId":null,"roleId":{"entityLogicalName":"tri_role","id":"dddedf1d-6441-e811-a953-002248072abd","name":"Chairman"},"roleType":null,"reasonForLeaving":null,"statusCode":{"value":1,"description":"Active"}},{"id":"3900819d-c3f4-e911-a813-000d3a7ed677","startDate":null,"endDate":null,"contactId":"de2a010e-3def-e911-a811-000d3a7ed52b","organisationId":null,"committeeId":null,"roleId":{"entityLogicalName":"tri_role","id":"dddedf1d-6441-e811-a953-002248072abd","name":"Chairman"},"roleType":null,"reasonForLeaving":null,"statusCode":{"value":1,"description":"Active"}},{"id":"56bb779d-c436-ea11-a813-000d3a7ed518","startDate":null,"endDate":null,"contactId":"1669fc29-be36-ea11-a813-000d3a7ed518","organisationId":null,"committeeId":null,"roleId":{"entityLogicalName":"tri_role","id":"dddedf1d-6441-e811-a953-002248072abd","name":"Chairman"},"roleType":null,"reasonForLeaving":null,"statusCode":{"value":1,"description":"Active"}},{"id":"ef847137-6441-e811-a953-002248072abd","startDate":"2018-04-01T00:00:00Z","endDate":null,"contactId":"60a441dd-5641-e811-a953-002248072abd","organisationId":null,"committeeId":"0d2125f6-6341-e811-a953-002248072abd","roleId":null,"roleType":{"value":167410001,"description":"Committee"},"reasonForLeaving":null,"statusCode":{"value":1,"description":"Active"}},{"id":"bea4d93f-6441-e811-a953-002248072abd","startDate":"2018-04-01T00:00:00Z","endDate":null,"contactId":"7c21ea88-213f-e811-a956-002248072cc3","organisationId":null,"committeeId":"0d2125f6-6341-e811-a953-002248072abd","roleId":null,"roleType":{"value":167410001,"description":"Committee"},"reasonForLeaving":null,"statusCode":{"value":1,"description":"Active"}}]}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='5'>
+					<div class='test-heading'>
+						<span class='test-name'>Log Member Value and Validate the response</span>
+						<span class='test-time'>Feb 19, 2020 10:28:41 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 19, 2020 10:28:41 AM</span>
+	<span class='label end-time'>Feb 19, 2020 10:28:42 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 1s+64ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:28:41 AM</td>
+					<td class='step-details'>POST request Body : {
+  "subject": "aaaa",
+  "contactId": "52f749c7-5e8c-e911-a820-000d3a0b5822",
+  "memberusageTypeId": "1666d028-b052-e811-a958-002248072fe8"
+}</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:28:42 AM</td>
+					<td class='step-details'>Check POST response Code : <br />200</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:28:42 AM</td>
+					<td class='step-details'>Check POST response Body  has Success is "true" and messageError is "null" : <br />{"success":true,"messageError":null,"result":{"id":"8913c098-0253-ea11-a813-000d3a7ed518","subject":"aaaa","name":"aaaa","contact":{"entityLogicalName":"contact","id":"52f749c7-5e8c-e911-a820-000d3a0b5822","name":"Hieronymus Reis"},"organisation":null,"memberusageType":{"entityLogicalName":"tri_memberusagetype","id":"1666d028-b052-e811-a958-002248072fe8","name":"Club Visit"},"action":null,"url":null,"channel":null}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  fail' status='fail' bdd='false' test-id='6'>
+					<div class='test-heading'>
+						<span class='test-name'>Pay Transaction and Validate the response</span>
+						<span class='test-time'>Feb 19, 2020 10:28:42 AM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 19, 2020 10:28:42 AM</span>
+	<span class='label end-time'>Feb 19, 2020 10:28:44 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 1s+770ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:28:42 AM</td>
+					<td class='step-details'>POST request Body : {
+  "transactionId": "d79e12b4-a99f-4c86-b1e1-e96d4556b372",
+  "methodOfPaymentId": "77c3741e-2b1c-e511-80c7-005056bf2f1c",
+  "onlinePaymentSuccessURL": "https://trilliumx.trilliumsystems.net/TrilliumX_Dev/v1.0/PaymentGateways/PaymentGateway/Success.aspx",
+  "onlinePaymentFailureURL": "www.onlinePaymentFailureURL.com"
+}</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:28:44 AM</td>
+					<td class='step-details'>Check POST response Code : <br />200</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:28:44 AM</td>
+					<td class='step-details'>Expected Response Success is "true" and messageError is "null" but returned : <br />{"success":false,"messageError":"An error occurred calling the Payment Service: Received an unmapped Provider Type.","result":null}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='7'>
+					<div class='test-heading'>
+						<span class='test-name'>Retrieve All Branches and Validate the response</span>
+						<span class='test-time'>Feb 19, 2020 10:28:44 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 19, 2020 10:28:44 AM</span>
+	<span class='label end-time'>Feb 19, 2020 10:28:45 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+689ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:28:44 AM</td>
+					<td class='step-details'>POST request Body : <br />{
+  "pagingInformation": {
+    "currentPage": 1,
+    "pageSize": 10,
+    "sortBy": "tri_name",
+    "orderBy": "ASC",
+    "maxResultCount": 1000,
+    "totalCountLimitExceeded": true
+  }
+}</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:28:45 AM</td>
+					<td class='step-details'>Check POST response Code : <br />200</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:28:45 AM</td>
+					<td class='step-details'>Check POST response Body  has Success is "true" and messageError is "null" : <br />{"pagingInformation":{"currentPage":1,"pageSize":10,"sortBy":"tri_name","orderBy":"ASC","maxResultCount":4,"totalCountLimitExceeded":false},"success":true,"messageError":null,"result":[{"internalCode":"LND","id":"ead18470-cbe6-e511-80f0-005056bf72c1","name":"London"},{"internalCode":"ML","id":"e4fca101-5552-ea11-a813-000d3a7ed588","name":"Midlands"},{"internalCode":"-1","id":"dd3d40cd-1f1c-e511-80c7-005056bf2f1c","name":"None"},{"internalCode":"LONSWK","id":"9ee78f1c-1c44-ea11-a812-000d3a7ed588","name":"Southwark"}]}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='8'>
+					<div class='test-heading'>
+						<span class='test-name'>Retrieve All Periods and Validate(GET Request)</span>
+						<span class='test-time'>Feb 19, 2020 10:28:45 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 19, 2020 10:28:45 AM</span>
+	<span class='label end-time'>Feb 19, 2020 10:28:45 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+579ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:28:45 AM</td>
+					<td class='step-details'>POST request Body : {
+  "pagingInformation": {
+    "currentPage": 1,
+    "pageSize": 10,
+    "sortBy": "tri_name",
+    "orderBy": "ASC",
+    "maxResultCount": 1000,
+    "totalCountLimitExceeded": true
+  }
+}</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:28:45 AM</td>
+					<td class='step-details'>Check POST response Code : <br />200</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:28:45 AM</td>
+					<td class='step-details'>Check POST response Body  has Success is "true" and messageError is "null" : <br />{"success":true,"messageError":null,"result":[{"id":"e4f3532b-e3f3-e911-a813-000d3a7ed588","name":"2199","startDate":"2199-01-01T00:00:00Z","endDate":"2199-12-31T00:00:00Z"},{"id":"28e5baf2-178c-e811-a96a-002248018b80","name":"2021","startDate":"2021-01-01T00:00:00Z","endDate":"2020-12-31T00:00:00Z"},{"id":"2ae5baf2-178c-e811-a96a-002248018b80","name":"2022","startDate":"2022-01-01T00:00:00Z","endDate":"2021-12-31T00:00:00Z"},{"id":"2ce5baf2-178c-e811-a96a-002248018b80","name":"2023","startDate":"2023-01-01T00:00:00Z","endDate":"2022-12-31T00:00:00Z"},{"id":"2ee5baf2-178c-e811-a96a-002248018b80","name":"2024","startDate":"2024-01-01T00:00:00Z","endDate":"2023-12-31T00:00:00Z"},{"id":"30e5baf2-178c-e811-a96a-002248018b80","name":"2025","startDate":"2024-01-01T00:00:00Z","endDate":"2024-12-31T00:00:00Z"},{"id":"32e5baf2-178c-e811-a96a-002248018b80","name":"2026","startDate":"2025-01-01T00:00:00Z","endDate":"2025-12-31T00:00:00Z"},{"id":"34e5baf2-178c-e811-a96a-002248018b80","name":"2027","startDate":"2026-01-01T00:00:00Z","endDate":"2026-12-31T00:00:00Z"},{"id":"36e5baf2-178c-e811-a96a-002248018b80","name":"2028","startDate":"2027-01-01T00:00:00Z","endDate":"2027-12-31T00:00:00Z"},{"id":"38e5baf2-178c-e811-a96a-002248018b80","name":"2029","startDate":"2028-01-01T00:00:00Z","endDate":"2028-12-31T00:00:00Z"},{"id":"3ae5baf2-178c-e811-a96a-002248018b80","name":"2030","startDate":"2029-01-01T00:00:00Z","endDate":"2029-12-31T00:00:00Z"},{"id":"47adf4f9-271c-e511-80c7-005056bf2f1c","name":"2013","startDate":"2013-01-01T00:00:00Z","endDate":"2013-12-31T00:00:00Z"},{"id":"49adf4f9-271c-e511-80c7-005056bf2f1c","name":"2014","startDate":"2014-01-01T00:00:00Z","endDate":"2014-12-31T00:00:00Z"},{"id":"4badf4f9-271c-e511-80c7-005056bf2f1c","name":"2015","startDate":"2015-01-01T00:00:00Z","endDate":"2015-12-31T00:00:00Z"},{"id":"4dadf4f9-271c-e511-80c7-005056bf2f1c","name":"2016","startDate":"2016-01-01T00:00:00Z","endDate":"2016-12-31T00:00:00Z"},{"id":"4fadf4f9-271c-e511-80c7-005056bf2f1c","name":"2017","startDate":"2017-01-01T00:00:00Z","endDate":"2017-12-31T00:00:00Z"},{"id":"f01e0f79-8455-e611-80f8-005056bf72c1","name":"2018","startDate":"2018-01-01T00:00:00Z","endDate":"2018-12-31T00:00:00Z"},{"id":"cef70686-8455-e611-80f8-005056bf72c1","name":"2019","startDate":"2019-01-01T00:00:00Z","endDate":"2019-12-31T00:00:00Z"},{"id":"ed70628e-8455-e611-80f8-005056bf72c1","name":"2020","startDate":"2020-01-01T00:00:00Z","endDate":"2020-12-31T00:00:00Z"}]}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='9'>
+					<div class='test-heading'>
+						<span class='test-name'>Retrieve Counties and Validate the response</span>
+						<span class='test-time'>Feb 19, 2020 10:28:45 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 19, 2020 10:28:45 AM</span>
+	<span class='label end-time'>Feb 19, 2020 10:28:46 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+640ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:28:45 AM</td>
+					<td class='step-details'>POST request Body : <br />{
+  "pagingInformation": {
+    "currentPage": 1,
+    "pageSize": 10,
+    "sortBy": "tri_name",
+    "orderBy": "ASC",
+    "maxResultCount": 1000,
+    "totalCountLimitExceeded": true
+  }
+}</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:28:46 AM</td>
+					<td class='step-details'>Check POST response Code : <br />200</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:28:46 AM</td>
+					<td class='step-details'>Check POST response Body  has Success is "true" and messageError is "null" : <br />{"pagingInformation":{"currentPage":1,"pageSize":10,"sortBy":"tri_name","orderBy":"ASC","maxResultCount":161,"totalCountLimitExceeded":false},"success":true,"messageError":null,"result":[{"id":"9b81b897-ebd4-e711-a94b-00224801b4c8","name":"Aberdeen","country":{"entityLogicalName":"tri_country","id":"42579c4a-ebd4-e711-a94b-00224801b4c8","name":"United Kingdom"},"internalCode":"809086","lastModified":"2017-11-29T09:56:49Z"},{"id":"9d81b897-ebd4-e711-a94b-00224801b4c8","name":"Aberdeenshire","country":{"entityLogicalName":"tri_country","id":"42579c4a-ebd4-e711-a94b-00224801b4c8","name":"United Kingdom"},"internalCode":"401","lastModified":"2017-11-29T09:56:49Z"},{"id":"9f81b897-ebd4-e711-a94b-00224801b4c8","name":"Anglesey","country":{"entityLogicalName":"tri_country","id":"42579c4a-ebd4-e711-a94b-00224801b4c8","name":"United Kingdom"},"internalCode":null,"lastModified":"2017-11-29T09:56:49Z"},{"id":"a181b897-ebd4-e711-a94b-00224801b4c8","name":"Angus","country":{"entityLogicalName":"tri_country","id":"42579c4a-ebd4-e711-a94b-00224801b4c8","name":"United Kingdom"},"internalCode":"402","lastModified":"2017-11-29T09:56:49Z"},{"id":"a381b897-ebd4-e711-a94b-00224801b4c8","name":"Argyll","country":{"entityLogicalName":"tri_country","id":"42579c4a-ebd4-e711-a94b-00224801b4c8","name":"United Kingdom"},"internalCode":"403","lastModified":"2017-11-29T09:56:49Z"},{"id":"a581b897-ebd4-e711-a94b-00224801b4c8","name":"Argyllshire","country":{"entityLogicalName":"tri_country","id":"42579c4a-ebd4-e711-a94b-00224801b4c8","name":"United Kingdom"},"internalCode":null,"lastModified":"2017-11-29T09:56:49Z"},{"id":"a781b897-ebd4-e711-a94b-00224801b4c8","name":"Ayrshire","country":{"entityLogicalName":"tri_country","id":"42579c4a-ebd4-e711-a94b-00224801b4c8","name":"United Kingdom"},"internalCode":"404","lastModified":"2017-11-29T09:56:49Z"},{"id":"a981b897-ebd4-e711-a94b-00224801b4c8","name":"Banffshire","country":{"entityLogicalName":"tri_country","id":"42579c4a-ebd4-e711-a94b-00224801b4c8","name":"United Kingdom"},"internalCode":"405","lastModified":"2017-11-29T09:56:49Z"},{"id":"ab81b897-ebd4-e711-a94b-00224801b4c8","name":"Bedfordshire","country":{"entityLogicalName":"tri_country","id":"42579c4a-ebd4-e711-a94b-00224801b4c8","name":"United Kingdom"},"internalCode":"1","lastModified":"2017-11-29T09:56:49Z"},{"id":"ad81b897-ebd4-e711-a94b-00224801b4c8","name":"Belgium","country":{"entityLogicalName":"tri_country","id":"42579c4a-ebd4-e711-a94b-00224801b4c8","name":"United Kingdom"},"internalCode":"1010","lastModified":"2017-11-29T09:56:49Z"}]}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='10'>
+					<div class='test-heading'>
+						<span class='test-name'>Retrieve Countries and Validate the response</span>
+						<span class='test-time'>Feb 19, 2020 10:28:46 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 19, 2020 10:28:46 AM</span>
+	<span class='label end-time'>Feb 19, 2020 10:28:47 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+719ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:28:46 AM</td>
+					<td class='step-details'>POST request Body : {
+  "pagingInformation": {
+    "currentPage": 1,
+    "pageSize": 10,
+    "sortBy": "tri_name",
+    "orderBy": "ASC",
+    "maxResultCount": 1000,
+    "totalCountLimitExceeded": true
+  }
+}</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:28:47 AM</td>
+					<td class='step-details'>Check POST response Code : <br />200</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:28:47 AM</td>
+					<td class='step-details'>Check POST response Body  has Success is "true" and messageError is "null" : <br />{"pagingInformation":{"currentPage":1,"pageSize":10,"sortBy":"tri_name","orderBy":"ASC","maxResultCount":248,"totalCountLimitExceeded":false},"success":true,"messageError":null,"result":[{"isoAlpha2":"AF","isoAlpha3":"AFG","isoNumber":null,"isoShortEnglishCountryName":null,"itutDialingCode":null,"lastModified":"2017-11-29T09:54:39Z","internalCode":"AFG","id":"72559c4a-ebd4-e711-a94b-00224801b4c8","name":"Afghanistan"},{"isoAlpha2":"AL","isoAlpha3":"ALB","isoNumber":null,"isoShortEnglishCountryName":null,"itutDialingCode":null,"lastModified":"2017-11-29T09:54:39Z","internalCode":"ALB","id":"74559c4a-ebd4-e711-a94b-00224801b4c8","name":"Albania"},{"isoAlpha2":"DZ","isoAlpha3":"DZA","isoNumber":null,"isoShortEnglishCountryName":null,"itutDialingCode":null,"lastModified":"2017-11-29T09:54:39Z","internalCode":"DZA","id":"76559c4a-ebd4-e711-a94b-00224801b4c8","name":"Algeria"},{"isoAlpha2":"AS","isoAlpha3":"ASM","isoNumber":null,"isoShortEnglishCountryName":null,"itutDialingCode":null,"lastModified":"2017-11-29T09:54:39Z","internalCode":"ASM","id":"78559c4a-ebd4-e711-a94b-00224801b4c8","name":"American Samoa"},{"isoAlpha2":"AD","isoAlpha3":"AND","isoNumber":null,"isoShortEnglishCountryName":null,"itutDialingCode":null,"lastModified":"2017-11-29T09:54:39Z","internalCode":"AND","id":"7a559c4a-ebd4-e711-a94b-00224801b4c8","name":"Andorra"},{"isoAlpha2":"AO","isoAlpha3":"AGO","isoNumber":null,"isoShortEnglishCountryName":null,"itutDialingCode":null,"lastModified":"2018-08-09T09:50:25Z","internalCode":"AGO","id":"7c559c4a-ebd4-e711-a94b-00224801b4c8","name":"Angola"},{"isoAlpha2":"AI","isoAlpha3":"AIA","isoNumber":null,"isoShortEnglishCountryName":null,"itutDialingCode":null,"lastModified":"2017-11-29T09:54:39Z","internalCode":"AIA","id":"7e559c4a-ebd4-e711-a94b-00224801b4c8","name":"Anguilla"},{"isoAlpha2":"AQ","isoAlpha3":"ATA","isoNumber":null,"isoShortEnglishCountryName":null,"itutDialingCode":null,"lastModified":"2017-11-29T09:54:39Z","internalCode":"ATA","id":"80559c4a-ebd4-e711-a94b-00224801b4c8","name":"Antarctica"},{"isoAlpha2":"AG","isoAlpha3":"ATG","isoNumber":null,"isoShortEnglishCountryName":null,"itutDialingCode":null,"lastModified":"2017-11-29T09:54:39Z","internalCode":"ATG","id":"82559c4a-ebd4-e711-a94b-00224801b4c8","name":"Antigua and Barbuda"},{"isoAlpha2":"AR","isoAlpha3":"ARG","isoNumber":null,"isoShortEnglishCountryName":null,"itutDialingCode":null,"lastModified":"2017-11-29T09:54:39Z","internalCode":"ARG","id":"84559c4a-ebd4-e711-a94b-00224801b4c8","name":"Argentina"}]}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='11'>
+					<div class='test-heading'>
+						<span class='test-name'>Retrieve Entities and Validate</span>
+						<span class='test-time'>Feb 19, 2020 10:28:47 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 19, 2020 10:28:47 AM</span>
+	<span class='label end-time'>Feb 19, 2020 10:28:51 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 3s+648ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:28:47 AM</td>
+					<td class='step-details'>POST request Body : <br /> {
+"entityName": "contact",
+  "retrieveAllAttributesValues": true,
+  "pagingInformation": {
+    "currentPage": 1,
+    "pageSize": 10,
+    "sortBy": "tri_title_options",
+   
+
+}</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:28:51 AM</td>
+					<td class='step-details'>Check POST response Code : <br />200</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:28:51 AM</td>
+					<td class='step-details'>Check POST response Body  has Success is "true" and messageError is "null" : <br />{"pagingInformation":{"currentPage":1,"pageSize":10,"sortBy":"tri_title_options","orderBy":"ASC","maxResultCount":1955,"totalCountLimitExceeded":false},"success":true,"messageError":null,"result":[{"id":"2bd5feed-1d48-ea11-a812-000d3a7ed518","name":"contact","attributes":[],"allAttributes":[{"key":"customertypecode","value":{"value":1}},{"key":"tri_pledgesroll_state","value":1},{"key":"tri_sampledataissampledata","value":false},{"key":"merged","value":false},{"key":"tri_engagementscore_state","value":1},{"key":"tri_isprimarycontact","value":false},{"key":"territorycode","value":{"value":1}},{"key":"tri_donationsroll_state","value":1},{"key":"emailaddress2","value":"84864updateContact@API.com"},{"key":"exchangerate","value":1.0000000000},{"key":"preferredappointmenttimecode","value":{"value":1}},{"key":"haschildrencode","value":{"value":1}},{"key":"statuscode","value":{"value":1}},{"key":"address2_shippingmethodcode","value":{"value":1}},{"key":"tri_engagementscore_date","value":"2020-02-18T03:50:19Z"},{"key":"tri_pledgesroll","value":{"value":0.0000000000}},{"key":"tri_donationsroll_date","value":"2020-02-18T03:50:19Z"},{"key":"isbackofficecustomer","value":false},{"key":"owningbusinessunit","value":{"id":"d45f6451-e5cb-e711-a8a1-00224801a6a4","logicalName":"businessunit","name":null,"keyAttributes":[],"rowVersion":null}},{"key":"msdyn_orgchangestatus","value":{"value":0}},{"key":"owninguser","value":{"id":"6f7ba7f6-6a05-42f2-a33d-f06a1eb06e5a","logicalName":"systemuser","name":null,"keyAttributes":[],"rowVersion":null}},{"key":"lastname","value":"UpDateContactLastName"},{"key":"donotpostalmail","value":false},{"key":"ownerid","value":{"id":"6f7ba7f6-6a05-42f2-a33d-f06a1eb06e5a","logicalName":"systemuser","name":"Trillium Systems","keyAttributes":[],"rowVersion":null}},{"key":"tri_organisationtext","value":"Org Text"},{"key":"tri_initials","value":"GA"},{"key":"marketingonly","value":false},{"key":"preferredcontactmethodcode","value":{"value":1}},{"key":"tri_webloginactivated","value":"2020-02-05T13:46:46Z"},{"key":"educationcode","value":{"value":1}},{"key":"tri_softcreditsroll_state","value":1},{"key":"customersizecode","value":{"value":1}},{"key":"emailaddress1","value":"84864updateContact@API.com"},{"key":"yomifullname","value":"UpDateContactLastName"},{"key":"tri_mailname","value":"Mr GA UpDateContactLastName"},{"key":"fullname","value":"UpDateContactLastName"},{"key":"timezoneruleversionnumber","value":0},{"key":"address1_addressid","value":"2cdda990-01d7-4eae-80ab-9de8cc77a813"},{"key":"msdyn_gdproptout","value":false},{"key":"address2_freighttermscode","value":{"value":1}},{"key":"tri_webaccountlocked","value":false},{"key":"createdon","value":"2020-02-05T13:46:45Z"},{"key":"tri_engagementscore","value":0},{"key":"donotsendmm","value":false},{"key":"donotfax","value":false},{"key":"tri_softcreditsroll_date","value":"2020-02-18T03:50:19Z"},{"key":"leadsourcecode","value":{"value":1}},{"key":"modifiedon","value":"2020-02-05T13:46:49Z"},{"key":"creditonhold","value":false},{"key":"tri_delegatefirstevent","value":false},{"key":"tri_membershipnumber","value":"002699"},{"key":"transactioncurrencyid","value":{"id":"4d5b52b6-ebcb-e711-a8a1-00224801a6a4","logicalName":"transactioncurrency","name":"Pound Sterling","keyAttributes":[],"rowVersion":null}},{"key":"address3_addressid","value":"a387c5e3-9727-442f-a2c0-4cc30016d733"},{"key":"donotbulkemail","value":false},{"key":"tri_donationsroll","value":{"value":0.0000000000}},{"key":"salutation","value":"Mr UpDateContactLastName"},{"key":"tri_webvalidationstatus","value":{"value":167410001}},{"key":"modifiedby","value":{"id":"6f7ba7f6-6a05-42f2-a33d-f06a1eb06e5a","logicalName":"systemuser","name":"Trillium Systems","keyAttributes":[],"rowVersion":null}},{"key":"followemail","value":true},{"key":"shippingmethodcode","value":{"value":1}},{"key":"tri_overridebranch","value":false},{"key":"createdby","value":{"id":"6f7ba7f6-6a05-42f2-a33d-f06a1eb06e5a","logicalName":"systemuser","name":"Trillium Systems","keyAttributes":[],"rowVersion":null}},{"key":"donotbulkpostalmail","value":false},{"key":"tri_donotsendjournal","value":true},{"key":"tri_deceased","value":false},{"key":"contactid","value":"2bd5feed-1d48-ea11-a812-000d3a7ed518"},{"key":"tri_webvalidateddate","value":"2020-02-05T13:46:46Z"},{"key":"participatesinworkflow","value":false},{"key":"statecode","value":{"value":0}},{"key":"address2_addressid","value":"7cec038d-3d4b-42ef-adc7-94b81eb05c8a"},{"key":"tri_preferredemail","value":{"value":167410000}},{"key":"tri_pledgesroll_date","value":"2020-02-18T03:50:19Z"},{"key":"tri_softcreditsroll","value":{"value":0.0000000000}},{"key":"tri_overseas","value":false}]},{"id":"7b795e40-2248-ea11-a812-000d3a7ed518","name":"contact","attributes":[],"allAttributes":[{"key":"customertypecode","value":{"value":1}},{"key":"tri_pledgesroll_state","value":1},{"key":"tri_sampledataissampledata","value":false},{"key":"merged","value":false},{"key":"tri_engagementscore_state","value":1},{"key":"tri_isprimarycontact","value":false},{"key":"territorycode","value":{"value":1}},{"key":"tri_donationsroll_state","value":1},{"key":"emailaddress2","value":"62330updateContact@API.com"},{"key":"exchangerate","value":1.0000000000},{"key":"preferredappointmenttimecode","value":{"value":1}},{"key":"haschildrencode","value":{"value":1}},{"key":"statuscode","value":{"value":1}},{"key":"address2_shippingmethodcode","value":{"value":1}},{"key":"tri_engagementscore_date","value":"2020-02-18T03:50:19Z"},{"key":"tri_pledgesroll","value":{"value":0.0000000000}},{"key":"tri_donationsroll_date","value":"2020-02-18T03:50:19Z"},{"key":"isbackofficecustomer","value":false},{"key":"owningbusinessunit","value":{"id":"d45f6451-e5cb-e711-a8a1-00224801a6a4","logicalName":"businessunit","name":null,"keyAttributes":[],"rowVersion":null}},{"key":"msdyn_orgchangestatus","value":{"value":0}},{"key":"owninguser","value":{"id":"6f7ba7f6-6a05-42f2-a33d-f06a1eb06e5a","logicalName":"systemuser","name":null,"keyAttributes":[],"rowVersion":null}},{"key":"lastname","value":"UpDateContactLastName"},{"key":"donotpostalmail","value":false},{"key":"ownerid","value":{"id":"6f7ba7f6-6a05-42f2-a33d-f06a1eb06e5a","logicalName":"systemuser","name":"Trillium Systems","keyAttributes":[],"rowVersion":null}},{"key":"tri_organisationtext","value":"Org Text"},{"key":"tri_initials","value":"GA"},{"key":"marketingonly","value":false},{"key":"preferredcontactmethodcode","value":{"value":1}},{"key":"tri_webloginactivated","value":"2020-02-05T14:17:39Z"},{"key":"educationcode","value":{"value":1}},{"key":"tri_softcreditsroll_state","value":1},{"key":"customersizecode","value":{"value":1}},{"key":"emailaddress1","value":"62330updateContact@API.com"},{"key":"yomifullname","value":"UpDateContactLastName"},{"key":"tri_mailname","value":"Mr GA UpDateContactLastName"},{"key":"fullname","value":"UpDateContactLastName"},{"key":"timezoneruleversionnumber","value":0},{"key":"address1_addressid","value":"ddfe7b3b-0f8e-43e5-9c0b-b5dca21d9ea4"},{"key":"msdyn_gdproptout","value":false},{"key":"address2_freighttermscode","value":{"value":1}},{"key":"tri_webaccountlocked","value":false},{"key":"createdon","value":"2020-02-05T14:17:39Z"},{"key":"tri_engagementscore","value":0},{"key":"donotsendmm","value":false},{"key":"donotfax","value":false},{"key":"tri_softcreditsroll_date","value":"2020-02-18T03:50:19Z"},{"key":"leadsourcecode","value":{"value":1}},{"key":"modifiedon","value":"2020-02-05T14:17:42Z"},{"key":"creditonhold","value":false},{"key":"tri_delegatefirstevent","value":false},{"key":"tri_membershipnumber","value":"002702"},{"key":"transactioncurrencyid","value":{"id":"4d5b52b6-ebcb-e711-a8a1-00224801a6a4","logicalName":"transactioncurrency","name":"Pound Sterling","keyAttributes":[],"rowVersion":null}},{"key":"address3_addressid","value":"1d137aea-07c8-4df8-b0d1-01db652b58d4"},{"key":"donotbulkemail","value":false},{"key":"tri_donationsroll","value":{"value":0.0000000000}},{"key":"salutation","value":"Mr UpDateContactLastName"},{"key":"tri_webvalidationstatus","value":{"value":167410001}},{"key":"modifiedby","value":{"id":"6f7ba7f6-6a05-42f2-a33d-f06a1eb06e5a","logicalName":"systemuser","name":"Trillium Systems","keyAttributes":[],"rowVersion":null}},{"key":"followemail","value":true},{"key":"shippingmethodcode","value":{"value":1}},{"key":"tri_overridebranch","value":false},{"key":"createdby","value":{"id":"6f7ba7f6-6a05-42f2-a33d-f06a1eb06e5a","logicalName":"systemuser","name":"Trillium Systems","keyAttributes":[],"rowVersion":null}},{"key":"donotbulkpostalmail","value":false},{"key":"tri_donotsendjournal","value":true},{"key":"tri_deceased","value":false},{"key":"contactid","value":"7b795e40-2248-ea11-a812-000d3a7ed518"},{"key":"tri_webvalidateddate","value":"2020-02-05T14:17:39Z"},{"key":"participatesinworkflow","value":false},{"key":"statecode","value":{"value":0}},{"key":"address2_addressid","value":"25974c8a-0288-48b0-ac2c-77f97461d24c"},{"key":"tri_preferredemail","value":{"value":167410000}},{"key":"tri_pledgesroll_date","value":"2020-02-18T03:50:19Z"},{"key":"tri_softcreditsroll","value":{"value":0.0000000000}},{"key":"tri_overseas","value":false}]},{"id":"c4414bb3-2c48-ea11-a812-000d3a7ed518","name":"contact","attributes":[],"allAttributes":[{"key":"customertypecode","value":{"value":1}},{"key":"tri_pledgesroll_state","value":1},{"key":"tri_sampledataissampledata","value":false},{"key":"merged","value":false},{"key":"tri_engagementscore_state","value":1},{"key":"tri_isprimarycontact","value":false},{"key":"territorycode","value":{"value":1}},{"key":"tri_donationsroll_state","value":1},{"key":"emailaddress2","value":"74699updateContact@API.com"},{"key":"exchangerate","value":1.0000000000},{"key":"preferredappointmenttimecode","value":{"value":1}},{"key":"haschildrencode","value":{"value":1}},{"key":"statuscode","value":{"value":1}},{"key":"address2_shippingmethodcode","value":{"value":1}},{"key":"tri_engagementscore_date","value":"2020-02-18T03:50:19Z"},{"key":"tri_pledgesroll","value":{"value":0.0000000000}},{"key":"tri_donationsroll_date","value":"2020-02-18T03:50:19Z"},{"key":"isbackofficecustomer","value":false},{"key":"owningbusinessunit","value":{"id":"d45f6451-e5cb-e711-a8a1-00224801a6a4","logicalName":"businessunit","name":null,"keyAttributes":[],"rowVersion":null}},{"key":"msdyn_orgchangestatus","value":{"value":0}},{"key":"owninguser","value":{"id":"6f7ba7f6-6a05-42f2-a33d-f06a1eb06e5a","logicalName":"systemuser","name":null,"keyAttributes":[],"rowVersion":null}},{"key":"lastname","value":"UpDateContactLastName"},{"key":"donotpostalmail","value":false},{"key":"ownerid","value":{"id":"6f7ba7f6-6a05-42f2-a33d-f06a1eb06e5a","logicalName":"systemuser","name":"Trillium Systems","keyAttributes":[],"rowVersion":null}},{"key":"tri_organisationtext","value":"Org Text"},{"key":"tri_initials","value":"GA"},{"key":"marketingonly","value":false},{"key":"preferredcontactmethodcode","value":{"value":1}},{"key":"tri_webloginactivated","value":"2020-02-05T15:32:28Z"},{"key":"educationcode","value":{"value":1}},{"key":"tri_softcreditsroll_state","value":1},{"key":"customersizecode","value":{"value":1}},{"key":"emailaddress1","value":"74699updateContact@API.com"},{"key":"yomifullname","value":"UpDateContactLastName"},{"key":"tri_mailname","value":"Mr GA UpDateContactLastName"},{"key":"fullname","value":"UpDateContactLastName"},{"key":"timezoneruleversionnumber","value":0},{"key":"address1_addressid","value":"a2535f76-6a41-4459-bca8-69441166738a"},{"key":"msdyn_gdproptout","value":false},{"key":"address2_freighttermscode","value":{"value":1}},{"key":"tri_webaccountlocked","value":false},{"key":"createdon","value":"2020-02-05T15:32:27Z"},{"key":"tri_engagementscore","value":0},{"key":"donotsendmm","value":false},{"key":"donotfax","value":false},{"key":"tri_softcreditsroll_date","value":"2020-02-18T03:50:19Z"},{"key":"leadsourcecode","value":{"value":1}},{"key":"modifiedon","value":"2020-02-05T15:32:29Z"},{"key":"creditonhold","value":false},{"key":"tri_delegatefirstevent","value":false},{"key":"tri_membershipnumber","value":"002709"},{"key":"transactioncurrencyid","value":{"id":"4d5b52b6-ebcb-e711-a8a1-00224801a6a4","logicalName":"transactioncurrency","name":"Pound Sterling","keyAttributes":[],"rowVersion":null}},{"key":"address3_addressid","value":"5c9fc9bc-9d4e-440a-9185-ab95a9ff0a0f"},{"key":"donotbulkemail","value":false},{"key":"tri_donationsroll","value":{"value":0.0000000000}},{"key":"salutation","value":"Mr UpDateContactLastName"},{"key":"tri_webvalidationstatus","value":{"value":167410001}},{"key":"modifiedby","value":{"id":"6f7ba7f6-6a05-42f2-a33d-f06a1eb06e5a","logicalName":"systemuser","name":"Trillium Systems","keyAttributes":[],"rowVersion":null}},{"key":"followemail","value":true},{"key":"shippingmethodcode","value":{"value":1}},{"key":"tri_overridebranch","value":false},{"key":"createdby","value":{"id":"6f7ba7f6-6a05-42f2-a33d-f06a1eb06e5a","logicalName":"systemuser","name":"Trillium Systems","keyAttributes":[],"rowVersion":null}},{"key":"donotbulkpostalmail","value":false},{"key":"tri_donotsendjournal","value":true},{"key":"tri_deceased","value":false},{"key":"contactid","value":"c4414bb3-2c48-ea11-a812-000d3a7ed518"},{"key":"tri_webvalidateddate","value":"2020-02-05T15:32:28Z"},{"key":"participatesinworkflow","value":false},{"key":"statecode","value":{"value":0}},{"key":"address2_addressid","value":"5a0d15b0-39f3-45ed-a192-7f2074644554"},{"key":"tri_preferredemail","value":{"value":167410000}},{"key":"tri_pledgesroll_date","value":"2020-02-18T03:50:19Z"},{"key":"tri_softcreditsroll","value":{"value":0.0000000000}},{"key":"tri_overseas","value":false}]},{"id":"ac2085cd-2f48-ea11-a812-000d3a7ed518","name":"contact","attributes":[],"allAttributes":[{"key":"customertypecode","value":{"value":1}},{"key":"tri_pledgesroll_state","value":1},{"key":"tri_sampledataissampledata","value":false},{"key":"merged","value":false},{"key":"tri_engagementscore_state","value":1},{"key":"tri_isprimarycontact","value":false},{"key":"territorycode","value":{"value":1}},{"key":"tri_donationsroll_state","value":1},{"key":"emailaddress2","value":"62100updateContact@API.com"},{"key":"exchangerate","value":1.0000000000},{"key":"preferredappointmenttimecode","value":{"value":1}},{"key":"haschildrencode","value":{"value":1}},{"key":"statuscode","value":{"value":1}},{"key":"address2_shippingmethodcode","value":{"value":1}},{"key":"tri_engagementscore_date","value":"2020-02-18T03:50:19Z"},{"key":"tri_pledgesroll","value":{"value":0.0000000000}},{"key":"tri_donationsroll_date","value":"2020-02-18T03:50:19Z"},{"key":"isbackofficecustomer","value":false},{"key":"owningbusinessunit","value":{"id":"d45f6451-e5cb-e711-a8a1-00224801a6a4","logicalName":"businessunit","name":null,"keyAttributes":[],"rowVersion":null}},{"key":"msdyn_orgchangestatus","value":{"value":0}},{"key":"owninguser","value":{"id":"6f7ba7f6-6a05-42f2-a33d-f06a1eb06e5a","logicalName":"systemuser","name":null,"keyAttributes":[],"rowVersion":null}},{"key":"lastname","value":"UpDateContactLastName"},{"key":"donotpostalmail","value":false},{"key":"ownerid","value":{"id":"6f7ba7f6-6a05-42f2-a33d-f06a1eb06e5a","logicalName":"systemuser","name":"Trillium Systems","keyAttributes":[],"rowVersion":null}},{"key":"tri_organisationtext","value":"Org Text"},{"key":"tri_initials","value":"GA"},{"key":"marketingonly","value":false},{"key":"preferredcontactmethodcode","value":{"value":1}},{"key":"tri_webloginactivated","value":"2020-02-05T15:54:36Z"},{"key":"educationcode","value":{"value":1}},{"key":"tri_softcreditsroll_state","value":1},{"key":"customersizecode","value":{"value":1}},{"key":"emailaddress1","value":"62100updateContact@API.com"},{"key":"yomifullname","value":"UpDateContactLastName"},{"key":"tri_mailname","value":"Mr GA UpDateContactLastName"},{"key":"fullname","value":"UpDateContactLastName"},{"key":"timezoneruleversionnumber","value":0},{"key":"address1_addressid","value":"67bbc5ae-01f6-4bac-bc54-2b0013df136b"},{"key":"msdyn_gdproptout","value":false},{"key":"address2_freighttermscode","value":{"value":1}},{"key":"tri_webaccountlocked","value":false},{"key":"createdon","value":"2020-02-05T15:54:35Z"},{"key":"tri_engagementscore","value":0},{"key":"donotsendmm","value":false},{"key":"donotfax","value":false},{"key":"tri_softcreditsroll_date","value":"2020-02-18T03:50:19Z"},{"key":"leadsourcecode","value":{"value":1}},{"key":"modifiedon","value":"2020-02-05T15:54:38Z"},{"key":"creditonhold","value":false},{"key":"tri_delegatefirstevent","value":false},{"key":"tri_membershipnumber","value":"002710"},{"key":"transactioncurrencyid","value":{"id":"4d5b52b6-ebcb-e711-a8a1-00224801a6a4","logicalName":"transactioncurrency","name":"Pound Sterling","keyAttributes":[],"rowVersion":null}},{"key":"address3_addressid","value":"71636ac6-40fd-4bf5-af05-386ae62bd767"},{"key":"donotbulkemail","value":false},{"key":"tri_donationsroll","value":{"value":0.0000000000}},{"key":"salutation","value":"Mr UpDateContactLastName"},{"key":"tri_webvalidationstatus","value":{"value":167410001}},{"key":"modifiedby","value":{"id":"6f7ba7f6-6a05-42f2-a33d-f06a1eb06e5a","logicalName":"systemuser","name":"Trillium Systems","keyAttributes":[],"rowVersion":null}},{"key":"followemail","value":true},{"key":"shippingmethodcode","value":{"value":1}},{"key":"tri_overridebranch","value":false},{"key":"createdby","value":{"id":"6f7ba7f6-6a05-42f2-a33d-f06a1eb06e5a","logicalName":"systemuser","name":"Trillium Systems","keyAttributes":[],"rowVersion":null}},{"key":"donotbulkpostalmail","value":false},{"key":"tri_donotsendjournal","value":true},{"key":"tri_deceased","value":false},{"key":"contactid","value":"ac2085cd-2f48-ea11-a812-000d3a7ed518"},{"key":"tri_webvalidateddate","value":"2020-02-05T15:54:36Z"},{"key":"participatesinworkflow","value":false},{"key":"statecode","value":{"value":0}},{"key":"address2_addressid","value":"481fcd52-0b51-4fe6-bdf1-f5ab7ad5b43a"},{"key":"tri_preferredemail","value":{"value":167410000}},{"key":"tri_pledgesroll_date","value":"2020-02-18T03:50:19Z"},{"key":"tri_softcreditsroll","value":{"value":0.0000000000}},{"key":"tri_overseas","value":false}]},{"id":"cf046431-c948-ea11-a812-000d3a7ed518","name":"contact","attributes":[],"allAttributes":[{"key":"customertypecode","value":{"value":1}},{"key":"tri_membershipexpirydate","value":"2020-10-31T00:00:00Z"},{"key":"tri_pledgesroll_state","value":1},{"key":"tri_sampledataissampledata","value":false},{"key":"merged","value":false},{"key":"tri_engagementscore_state","value":1},{"key":"tri_isprimarycontact","value":false},{"key":"tri_membershiparrearsamount","value":{"value":0.0000}},{"key":"territorycode","value":{"value":1}},{"key":"tri_donationsroll_state","value":1},{"key":"emailaddress2","value":"52808updateContact@API.com"},{"key":"exchangerate","value":1.0000000000},{"key":"preferredappointmenttimecode","value":{"value":1}},{"key":"haschildrencode","value":{"value":1}},{"key":"address2_shippingmethodcode","value":{"value":1}},{"key":"tri_pledgesroll_date","value":"2020-02-18T03:50:19Z"},{"key":"tri_pledgesroll","value":{"value":0.0000000000}},{"key":"tri_donationsroll_date","value":"2020-02-18T03:50:19Z"},{"key":"isbackofficecustomer","value":false},{"key":"modifiedon","value":"2020-02-12T17:22:24Z"},{"key":"msdyn_orgchangestatus","value":{"value":0}},{"key":"owninguser","value":{"id":"6f7ba7f6-6a05-42f2-a33d-f06a1eb06e5a","logicalName":"systemuser","name":null,"keyAttributes":[],"rowVersion":null}},{"key":"lastname","value":"UpDateContactLastName"},{"key":"tri_donationsroll_base","value":{"value":0.0000000000}},{"key":"donotpostalmail","value":false},{"key":"ownerid","value":{"id":"6f7ba7f6-6a05-42f2-a33d-f06a1eb06e5a","logicalName":"systemuser","name":"Trillium Systems","keyAttributes":[],"rowVersion":null}},{"key":"tri_organisationtext","value":"Org Text"},{"key":"tri_initials","value":"GA"},{"key":"marketingonly","value":false},{"key":"preferredcontactmethodcode","value":{"value":1}},{"key":"tri_overseas","value":false},{"key":"educationcode","value":{"value":1}},{"key":"tri_softcreditsroll_state","value":1},{"key":"customersizecode","value":{"value":1}},{"key":"emailaddress1","value":"52808updateContact@API.com"},{"key":"tri_membershipoutstandingamount_base","value":{"value":3450.0000}},{"key":"tri_membershipstartdate","value":"2020-02-07T00:00:00Z"},{"key":"tri_engagementscore","value":0},{"key":"yomifullname","value":"UpDateContactLastName"},{"key":"tri_membershipgradeid","value":{"id":"03813af9-9cd5-e511-80f0-005056bf72c1","logicalName":"tri_membershipgrade","name":"Individual Fellow (Fixed Renewal)","keyAttributes":[],"rowVersion":null}},{"key":"tri_engagementscore_date","value":"2020-02-18T03:50:19Z"},{"key":"tri_mailname","value":"Mr GA UpDateContactLastName"},{"key":"fullname","value":"UpDateContactLastName"},{"key":"timezoneruleversionnumber","value":0},{"key":"address1_addressid","value":"0a65abde-e198-4ca6-a787-3abafbd6520c"},{"key":"tri_primarymembershipid","value":{"id":"a35ead83-b649-ea11-a812-000d3a7ed518","logicalName":"tri_membership","name":"002712 - Individual Membership (Fixed Renewal) - Individual Fellow (Fixed Renewal) - Individual Fellow - UK (Fixed Renewal)   ","keyAttributes":[],"rowVersion":null}},{"key":"address2_freighttermscode","value":{"value":1}},{"key":"tri_webaccountlocked","value":false},{"key":"createdon","value":"2020-02-06T10:12:38Z"},{"key":"msdyn_gdproptout","value":false},{"key":"tri_delegatefirstevent","value":false},{"key":"donotsendmm","value":false},{"key":"donotfax","value":false},{"key":"tri_membershiprenewalstatus","value":{"value":167410002}},{"key":"tri_softcreditsroll_date","value":"2020-02-18T03:50:19Z"},{"key":"leadsourcecode","value":{"value":1}},{"key":"tri_membershipmethodofpaymentid","value":{"id":"77c3741e-2b1c-e511-80c7-005056bf2f1c","logicalName":"tri_methodofpayment","name":"Cash","keyAttributes":[],"rowVersion":null}},{"key":"tri_webloginactivated","value":"2020-02-06T10:12:42Z"},{"key":"tri_pledgesroll_base","value":{"value":0.0000000000}},{"key":"creditonhold","value":false},{"key":"tri_membershippaymentstatus","value":{"value":167410001}},{"key":"tri_membershipnumber","value":"002712"},{"key":"transactioncurrencyid","value":{"id":"4d5b52b6-ebcb-e711-a8a1-00224801a6a4","logicalName":"transactioncurrency","name":"Pound Sterling","keyAttributes":[],"rowVersion":null}},{"key":"address3_addressid","value":"dc1a6d40-3af3-41f1-adc0-184ec994f432"},{"key":"donotbulkemail","value":false},{"key":"tri_donationsroll","value":{"value":0.0000000000}},{"key":"salutation","value":"Mr UpDateContactLastName"},{"key":"tri_webvalidationstatus","value":{"value":167410001}},{"key":"modifiedby","value":{"id":"6f7ba7f6-6a05-42f2-a33d-f06a1eb06e5a","logicalName":"systemuser","name":"Trillium Systems","keyAttributes":[],"rowVersion":null}},{"key":"followemail","value":true},{"key":"tri_softcreditsroll_base","value":{"value":0.0000000000}},{"key":"tri_membershiparrearsamount_base","value":{"value":0.0000}},{"key":"tri_overridebranch","value":false},{"key":"createdby","value":{"id":"6f7ba7f6-6a05-42f2-a33d-f06a1eb06e5a","logicalName":"systemuser","name":"Trillium Systems","keyAttributes":[],"rowVersion":null}},{"key":"donotbulkpostalmail","value":false},{"key":"tri_donotsendjournal","value":true},{"key":"statuscode","value":{"value":1}},{"key":"tri_membershipbandid","value":{"id":"4d3e850e-9ed5-e511-80f0-005056bf72c1","logicalName":"tri_membershipband","name":"Individual Fellow - UK (Fixed Renewal)","keyAttributes":[],"rowVersion":null}},{"key":"tri_deceased","value":false},{"key":"contactid","value":"cf046431-c948-ea11-a812-000d3a7ed518"},{"key":"tri_webvalidateddate","value":"2020-02-06T10:12:42Z"},{"key":"tri_membershipstatus","value":"Expired"},{"key":"tri_membershipoutstandingamount","value":{"value":3450.0000}},{"key":"participatesinworkflow","value":false},{"key":"statecode","value":{"value":0}},{"key":"owningbusinessunit","value":{"id":"d45f6451-e5cb-e711-a8a1-00224801a6a4","logicalName":"businessunit","name":null,"keyAttributes":[],"rowVersion":null}},{"key":"address2_addressid","value":"44d10b10-f751-443f-9180-de9fed0d95e3"},{"key":"tri_preferredemail","value":{"value":167410000}},{"key":"shippingmethodcode","value":{"value":1}},{"key":"tri_softcreditsroll","value":{"value":0.0000000000}}]},{"id":"1bea6b64-ef48-ea11-a812-000d3a7ed518","name":"contact","attributes":[],"allAttributes":[{"key":"customertypecode","value":{"value":1}},{"key":"tri_pledgesroll_state","value":1},{"key":"tri_sampledataissampledata","value":false},{"key":"merged","value":false},{"key":"tri_engagementscore_state","value":1},{"key":"tri_isprimarycontact","value":false},{"key":"territorycode","value":{"value":1}},{"key":"tri_donationsroll_state","value":1},{"key":"emailaddress2","value":"25300updateContact@API.com"},{"key":"exchangerate","value":1.0000000000},{"key":"preferredappointmenttimecode","value":{"value":1}},{"key":"haschildrencode","value":{"value":1}},{"key":"statuscode","value":{"value":1}},{"key":"address2_shippingmethodcode","value":{"value":1}},{"key":"tri_engagementscore_date","value":"2020-02-18T03:50:19Z"},{"key":"tri_pledgesroll","value":{"value":0.0000000000}},{"key":"tri_donationsroll_date","value":"2020-02-18T03:50:19Z"},{"key":"isbackofficecustomer","value":false},{"key":"owningbusinessunit","value":{"id":"d45f6451-e5cb-e711-a8a1-00224801a6a4","logicalName":"businessunit","name":null,"keyAttributes":[],"rowVersion":null}},{"key":"msdyn_orgchangestatus","value":{"value":0}},{"key":"owninguser","value":{"id":"6f7ba7f6-6a05-42f2-a33d-f06a1eb06e5a","logicalName":"systemuser","name":null,"keyAttributes":[],"rowVersion":null}},{"key":"lastname","value":"UpDateContactLastName"},{"key":"donotpostalmail","value":false},{"key":"ownerid","value":{"id":"6f7ba7f6-6a05-42f2-a33d-f06a1eb06e5a","logicalName":"systemuser","name":"Trillium Systems","keyAttributes":[],"rowVersion":null}},{"key":"tri_organisationtext","value":"Org Text"},{"key":"tri_initials","value":"GA"},{"key":"marketingonly","value":false},{"key":"preferredcontactmethodcode","value":{"value":1}},{"key":"tri_webloginactivated","value":"2020-02-06T14:46:10Z"},{"key":"educationcode","value":{"value":1}},{"key":"tri_softcreditsroll_state","value":1},{"key":"customersizecode","value":{"value":1}},{"key":"emailaddress1","value":"25300updateContact@API.com"},{"key":"yomifullname","value":"UpDateContactLastName"},{"key":"tri_mailname","value":"Mr GA UpDateContactLastName"},{"key":"fullname","value":"UpDateContactLastName"},{"key":"timezoneruleversionnumber","value":0},{"key":"address1_addressid","value":"e272d84e-4413-43b5-ba73-1141f8ce0072"},{"key":"msdyn_gdproptout","value":false},{"key":"address2_freighttermscode","value":{"value":1}},{"key":"tri_webaccountlocked","value":false},{"key":"createdon","value":"2020-02-06T14:46:08Z"},{"key":"tri_engagementscore","value":0},{"key":"donotsendmm","value":false},{"key":"donotfax","value":false},{"key":"tri_softcreditsroll_date","value":"2020-02-18T03:50:19Z"},{"key":"leadsourcecode","value":{"value":1}},{"key":"modifiedon","value":"2020-02-06T14:46:13Z"},{"key":"creditonhold","value":false},{"key":"tri_delegatefirstevent","value":false},{"key":"tri_membershipnumber","value":"002714"},{"key":"transactioncurrencyid","value":{"id":"4d5b52b6-ebcb-e711-a8a1-00224801a6a4","logicalName":"transactioncurrency","name":"Pound Sterling","keyAttributes":[],"rowVersion":null}},{"key":"address3_addressid","value":"9fcf4022-e646-4ab7-963b-9f3f11e090ca"},{"key":"donotbulkemail","value":false},{"key":"tri_donationsroll","value":{"value":0.0000000000}},{"key":"salutation","value":"Mr UpDateContactLastName"},{"key":"tri_webvalidationstatus","value":{"value":167410001}},{"key":"modifiedby","value":{"id":"6f7ba7f6-6a05-42f2-a33d-f06a1eb06e5a","logicalName":"systemuser","name":"Trillium Systems","keyAttributes":[],"rowVersion":null}},{"key":"followemail","value":true},{"key":"shippingmethodcode","value":{"value":1}},{"key":"tri_overridebranch","value":false},{"key":"createdby","value":{"id":"6f7ba7f6-6a05-42f2-a33d-f06a1eb06e5a","logicalName":"systemuser","name":"Trillium Systems","keyAttributes":[],"rowVersion":null}},{"key":"donotbulkpostalmail","value":false},{"key":"tri_donotsendjournal","value":true},{"key":"tri_deceased","value":false},{"key":"contactid","value":"1bea6b64-ef48-ea11-a812-000d3a7ed518"},{"key":"tri_webvalidateddate","value":"2020-02-06T14:46:10Z"},{"key":"participatesinworkflow","value":false},{"key":"statecode","value":{"value":0}},{"key":"address2_addressid","value":"577d8fcc-d1bb-41a4-94d4-1abdf9b42f98"},{"key":"tri_preferredemail","value":{"value":167410000}},{"key":"tri_pledgesroll_date","value":"2020-02-18T03:50:19Z"},{"key":"tri_softcreditsroll","value":{"value":0.0000000000}},{"key":"tri_overseas","value":false}]},{"id":"08185127-ed4b-ea11-a812-000d3a7ed518","name":"contact","attributes":[],"allAttributes":[{"key":"customertypecode","value":{"value":1}},{"key":"tri_pledgesroll_state","value":1},{"key":"tri_sampledataissampledata","value":false},{"key":"merged","value":false},{"key":"tri_engagementscore_state","value":1},{"key":"tri_isprimarycontact","value":false},{"key":"territorycode","value":{"value":1}},{"key":"tri_donationsroll_state","value":1},{"key":"emailaddress2","value":"49199updateContact@API.com"},{"key":"exchangerate","value":1.0000000000},{"key":"preferredappointmenttimecode","value":{"value":1}},{"key":"haschildrencode","value":{"value":1}},{"key":"statuscode","value":{"value":1}},{"key":"address2_shippingmethodcode","value":{"value":1}},{"key":"tri_engagementscore_date","value":"2020-02-18T03:50:19Z"},{"key":"tri_pledgesroll","value":{"value":0.0000000000}},{"key":"tri_donationsroll_date","value":"2020-02-18T03:50:19Z"},{"key":"isbackofficecustomer","value":false},{"key":"owningbusinessunit","value":{"id":"d45f6451-e5cb-e711-a8a1-00224801a6a4","logicalName":"businessunit","name":null,"keyAttributes":[],"rowVersion":null}},{"key":"msdyn_orgchangestatus","value":{"value":0}},{"key":"owninguser","value":{"id":"6f7ba7f6-6a05-42f2-a33d-f06a1eb06e5a","logicalName":"systemuser","name":null,"keyAttributes":[],"rowVersion":null}},{"key":"lastname","value":"UpDateContactLastName"},{"key":"donotpostalmail","value":false},{"key":"ownerid","value":{"id":"6f7ba7f6-6a05-42f2-a33d-f06a1eb06e5a","logicalName":"systemuser","name":"Trillium Systems","keyAttributes":[],"rowVersion":null}},{"key":"tri_organisationtext","value":"Org Text"},{"key":"tri_initials","value":"GA"},{"key":"marketingonly","value":false},{"key":"preferredcontactmethodcode","value":{"value":1}},{"key":"tri_webloginactivated","value":"2020-02-10T10:07:48Z"},{"key":"educationcode","value":{"value":1}},{"key":"tri_softcreditsroll_state","value":1},{"key":"customersizecode","value":{"value":1}},{"key":"emailaddress1","value":"49199updateContact@API.com"},{"key":"yomifullname","value":"UpDateContactLastName"},{"key":"tri_mailname","value":"Mr GA UpDateContactLastName"},{"key":"fullname","value":"UpDateContactLastName"},{"key":"timezoneruleversionnumber","value":0},{"key":"address1_addressid","value":"afb87f4e-96ca-4f7a-9443-2633b3c09c4c"},{"key":"msdyn_gdproptout","value":false},{"key":"address2_freighttermscode","value":{"value":1}},{"key":"tri_webaccountlocked","value":false},{"key":"createdon","value":"2020-02-10T10:07:37Z"},{"key":"tri_engagementscore","value":0},{"key":"donotsendmm","value":false},{"key":"donotfax","value":false},{"key":"tri_softcreditsroll_date","value":"2020-02-18T03:50:19Z"},{"key":"leadsourcecode","value":{"value":1}},{"key":"modifiedon","value":"2020-02-10T10:07:56Z"},{"key":"creditonhold","value":false},{"key":"tri_delegatefirstevent","value":false},{"key":"tri_membershipnumber","value":"002734"},{"key":"transactioncurrencyid","value":{"id":"4d5b52b6-ebcb-e711-a8a1-00224801a6a4","logicalName":"transactioncurrency","name":"Pound Sterling","keyAttributes":[],"rowVersion":null}},{"key":"address3_addressid","value":"b67fa757-21fd-4e20-a226-9b71910a557b"},{"key":"donotbulkemail","value":false},{"key":"tri_donationsroll","value":{"value":0.0000000000}},{"key":"salutation","value":"Mr UpDateContactLastName"},{"key":"tri_webvalidationstatus","value":{"value":167410001}},{"key":"modifiedby","value":{"id":"6f7ba7f6-6a05-42f2-a33d-f06a1eb06e5a","logicalName":"systemuser","name":"Trillium Systems","keyAttributes":[],"rowVersion":null}},{"key":"followemail","value":true},{"key":"shippingmethodcode","value":{"value":1}},{"key":"tri_overridebranch","value":false},{"key":"createdby","value":{"id":"6f7ba7f6-6a05-42f2-a33d-f06a1eb06e5a","logicalName":"systemuser","name":"Trillium Systems","keyAttributes":[],"rowVersion":null}},{"key":"donotbulkpostalmail","value":false},{"key":"tri_donotsendjournal","value":true},{"key":"tri_deceased","value":false},{"key":"contactid","value":"08185127-ed4b-ea11-a812-000d3a7ed518"},{"key":"tri_webvalidateddate","value":"2020-02-10T10:07:48Z"},{"key":"participatesinworkflow","value":false},{"key":"statecode","value":{"value":0}},{"key":"address2_addressid","value":"8bb139cd-2190-4285-9bba-ca1dc68388e6"},{"key":"tri_preferredemail","value":{"value":167410000}},{"key":"tri_pledgesroll_date","value":"2020-02-18T03:50:19Z"},{"key":"tri_softcreditsroll","value":{"value":0.0000000000}},{"key":"tri_overseas","value":false}]},{"id":"c2bbbf61-314c-ea11-a812-000d3a7ed518","name":"contact","attributes":[],"allAttributes":[{"key":"customertypecode","value":{"value":1}},{"key":"tri_pledgesroll_state","value":1},{"key":"tri_sampledataissampledata","value":false},{"key":"merged","value":false},{"key":"tri_engagementscore_state","value":1},{"key":"tri_isprimarycontact","value":false},{"key":"territorycode","value":{"value":1}},{"key":"tri_donationsroll_state","value":1},{"key":"emailaddress2","value":"updateContact@API111.com"},{"key":"exchangerate","value":1.0000000000},{"key":"preferredappointmenttimecode","value":{"value":1}},{"key":"haschildrencode","value":{"value":1}},{"key":"statuscode","value":{"value":1}},{"key":"address2_shippingmethodcode","value":{"value":1}},{"key":"tri_engagementscore_date","value":"2020-02-18T03:50:19Z"},{"key":"tri_pledgesroll","value":{"value":0.0000000000}},{"key":"tri_donationsroll_date","value":"2020-02-18T03:50:19Z"},{"key":"isbackofficecustomer","value":false},{"key":"owningbusinessunit","value":{"id":"d45f6451-e5cb-e711-a8a1-00224801a6a4","logicalName":"businessunit","name":null,"keyAttributes":[],"rowVersion":null}},{"key":"msdyn_orgchangestatus","value":{"value":0}},{"key":"owninguser","value":{"id":"6f7ba7f6-6a05-42f2-a33d-f06a1eb06e5a","logicalName":"systemuser","name":null,"keyAttributes":[],"rowVersion":null}},{"key":"lastname","value":"UpDateContactLastName"},{"key":"donotpostalmail","value":false},{"key":"ownerid","value":{"id":"6f7ba7f6-6a05-42f2-a33d-f06a1eb06e5a","logicalName":"systemuser","name":"Trillium Systems","keyAttributes":[],"rowVersion":null}},{"key":"tri_organisationtext","value":"OrganisationText"},{"key":"tri_initials","value":"AAF"},{"key":"marketingonly","value":false},{"key":"preferredcontactmethodcode","value":{"value":1}},{"key":"tri_webloginactivated","value":"2020-02-10T18:16:00Z"},{"key":"educationcode","value":{"value":1}},{"key":"tri_softcreditsroll_state","value":1},{"key":"customersizecode","value":{"value":1}},{"key":"emailaddress1","value":"updateContact@API111.com"},{"key":"yomifullname","value":"UpDateContactLastName"},{"key":"middlename","value":"UpDateMiddleName"},{"key":"tri_mailname","value":"AAF U UpDateContactLastName"},{"key":"fullname","value":"UpDateContactLastName"},{"key":"timezoneruleversionnumber","value":0},{"key":"address1_addressid","value":"120186ae-0486-4c82-ae5a-384b8e829559"},{"key":"msdyn_gdproptout","value":false},{"key":"address2_freighttermscode","value":{"value":1}},{"key":"tri_webaccountlocked","value":false},{"key":"createdon","value":"2020-02-10T18:15:59Z"},{"key":"tri_engagementscore","value":0},{"key":"donotsendmm","value":false},{"key":"donotfax","value":false},{"key":"tri_softcreditsroll_date","value":"2020-02-18T03:50:19Z"},{"key":"leadsourcecode","value":{"value":1}},{"key":"modifiedon","value":"2020-02-11T09:59:56Z"},{"key":"creditonhold","value":false},{"key":"tri_delegatefirstevent","value":false},{"key":"tri_membershipnumber","value":"002773"},{"key":"transactioncurrencyid","value":{"id":"4d5b52b6-ebcb-e711-a8a1-00224801a6a4","logicalName":"transactioncurrency","name":"Pound Sterling","keyAttributes":[],"rowVersion":null}},{"key":"address3_addressid","value":"9d1b17f0-0cec-4140-a236-a70a6059e1c9"},{"key":"donotbulkemail","value":false},{"key":"tri_donationsroll","value":{"value":0.0000000000}},{"key":"salutation","value":"UpDateContactLastName"},{"key":"tri_webvalidationstatus","value":{"value":167410001}},{"key":"modifiedby","value":{"id":"6f7ba7f6-6a05-42f2-a33d-f06a1eb06e5a","logicalName":"systemuser","name":"Trillium Systems","keyAttributes":[],"rowVersion":null}},{"key":"followemail","value":true},{"key":"shippingmethodcode","value":{"value":1}},{"key":"tri_overridebranch","value":false},{"key":"createdby","value":{"id":"6f7ba7f6-6a05-42f2-a33d-f06a1eb06e5a","logicalName":"systemuser","name":"Trillium Systems","keyAttributes":[],"rowVersion":null}},{"key":"donotbulkpostalmail","value":false},{"key":"tri_donotsendjournal","value":true},{"key":"tri_deceased","value":false},{"key":"contactid","value":"c2bbbf61-314c-ea11-a812-000d3a7ed518"},{"key":"tri_webvalidateddate","value":"2020-02-10T18:16:00Z"},{"key":"participatesinworkflow","value":false},{"key":"statecode","value":{"value":0}},{"key":"address2_addressid","value":"64854b25-8003-4252-a6a6-70319d18c216"},{"key":"tri_preferredemail","value":{"value":167410000}},{"key":"tri_pledgesroll_date","value":"2020-02-18T03:50:19Z"},{"key":"tri_softcreditsroll","value":{"value":0.0000000000}},{"key":"tri_overseas","value":false}]},{"id":"b03b503f-b74c-ea11-a812-000d3a7ed518","name":"contact","attributes":[],"allAttributes":[{"key":"customertypecode","value":{"value":1}},{"key":"tri_pledgesroll_state","value":1},{"key":"tri_sampledataissampledata","value":false},{"key":"merged","value":false},{"key":"tri_engagementscore_state","value":1},{"key":"tri_isprimarycontact","value":false},{"key":"territorycode","value":{"value":1}},{"key":"tri_donationsroll_state","value":1},{"key":"emailaddress2","value":"updateContact44598@API.com"},{"key":"exchangerate","value":1.0000000000},{"key":"preferredappointmenttimecode","value":{"value":1}},{"key":"haschildrencode","value":{"value":1}},{"key":"statuscode","value":{"value":1}},{"key":"address2_shippingmethodcode","value":{"value":1}},{"key":"tri_engagementscore_date","value":"2020-02-18T03:50:19Z"},{"key":"tri_pledgesroll","value":{"value":0.0000000000}},{"key":"tri_donationsroll_date","value":"2020-02-18T03:50:19Z"},{"key":"isbackofficecustomer","value":false},{"key":"owningbusinessunit","value":{"id":"d45f6451-e5cb-e711-a8a1-00224801a6a4","logicalName":"businessunit","name":null,"keyAttributes":[],"rowVersion":null}},{"key":"msdyn_orgchangestatus","value":{"value":0}},{"key":"owninguser","value":{"id":"6f7ba7f6-6a05-42f2-a33d-f06a1eb06e5a","logicalName":"systemuser","name":null,"keyAttributes":[],"rowVersion":null}},{"key":"lastname","value":"UpDateContactLastName"},{"key":"donotpostalmail","value":false},{"key":"ownerid","value":{"id":"6f7ba7f6-6a05-42f2-a33d-f06a1eb06e5a","logicalName":"systemuser","name":"Trillium Systems","keyAttributes":[],"rowVersion":null}},{"key":"tri_organisationtext","value":"OrganisationText"},{"key":"tri_initials","value":"AAF"},{"key":"marketingonly","value":false},{"key":"preferredcontactmethodcode","value":{"value":1}},{"key":"tri_webloginactivated","value":"2020-02-11T10:14:20Z"},{"key":"educationcode","value":{"value":1}},{"key":"tri_softcreditsroll_state","value":1},{"key":"customersizecode","value":{"value":1}},{"key":"emailaddress1","value":"updateContact44598@API.com"},{"key":"yomifullname","value":"UpDateContactLastName"},{"key":"middlename","value":"UpDateMiddleName"},{"key":"tri_mailname","value":"Mr AAF U UpDateContactLastName"},{"key":"fullname","value":"UpDateContactLastName"},{"key":"timezoneruleversionnumber","value":0},{"key":"address1_addressid","value":"b5cccc52-e2fe-4dea-a9b9-8cbe0a5b306c"},{"key":"msdyn_gdproptout","value":false},{"key":"address2_freighttermscode","value":{"value":1}},{"key":"tri_webaccountlocked","value":false},{"key":"createdon","value":"2020-02-11T10:14:19Z"},{"key":"tri_engagementscore","value":0},{"key":"donotsendmm","value":false},{"key":"donotfax","value":false},{"key":"tri_softcreditsroll_date","value":"2020-02-18T03:50:19Z"},{"key":"leadsourcecode","value":{"value":1}},{"key":"modifiedon","value":"2020-02-11T10:14:22Z"},{"key":"creditonhold","value":false},{"key":"tri_delegatefirstevent","value":false},{"key":"tri_membershipnumber","value":"002782"},{"key":"transactioncurrencyid","value":{"id":"4d5b52b6-ebcb-e711-a8a1-00224801a6a4","logicalName":"transactioncurrency","name":"Pound Sterling","keyAttributes":[],"rowVersion":null}},{"key":"address3_addressid","value":"ac9c8020-2666-4e3f-b2d1-670ed0d0a31a"},{"key":"donotbulkemail","value":false},{"key":"tri_donationsroll","value":{"value":0.0000000000}},{"key":"salutation","value":"Mr UpDateContactLastName"},{"key":"tri_webvalidationstatus","value":{"value":167410001}},{"key":"modifiedby","value":{"id":"6f7ba7f6-6a05-42f2-a33d-f06a1eb06e5a","logicalName":"systemuser","name":"Trillium Systems","keyAttributes":[],"rowVersion":null}},{"key":"followemail","value":true},{"key":"shippingmethodcode","value":{"value":1}},{"key":"tri_overridebranch","value":false},{"key":"createdby","value":{"id":"6f7ba7f6-6a05-42f2-a33d-f06a1eb06e5a","logicalName":"systemuser","name":"Trillium Systems","keyAttributes":[],"rowVersion":null}},{"key":"donotbulkpostalmail","value":false},{"key":"tri_donotsendjournal","value":true},{"key":"tri_deceased","value":false},{"key":"contactid","value":"b03b503f-b74c-ea11-a812-000d3a7ed518"},{"key":"tri_webvalidateddate","value":"2020-02-11T10:14:20Z"},{"key":"participatesinworkflow","value":false},{"key":"statecode","value":{"value":0}},{"key":"address2_addressid","value":"b6f5bdf7-7df5-4b67-8d99-9984763f2f0d"},{"key":"tri_preferredemail","value":{"value":167410000}},{"key":"tri_pledgesroll_date","value":"2020-02-18T03:50:19Z"},{"key":"tri_softcreditsroll","value":{"value":0.0000000000}},{"key":"tri_overseas","value":false}]},{"id":"0d88859a-924d-ea11-a812-000d3a7ed518","name":"contact","attributes":[],"allAttributes":[{"key":"customertypecode","value":{"value":1}},{"key":"tri_pledgesroll_state","value":1},{"key":"tri_sampledataissampledata","value":false},{"key":"merged","value":false},{"key":"tri_engagementscore_state","value":1},{"key":"tri_isprimarycontact","value":false},{"key":"territorycode","value":{"value":1}},{"key":"tri_donationsroll_state","value":1},{"key":"emailaddress2","value":"updateContact15303@API.com"},{"key":"exchangerate","value":1.0000000000},{"key":"preferredappointmenttimecode","value":{"value":1}},{"key":"haschildrencode","value":{"value":1}},{"key":"statuscode","value":{"value":1}},{"key":"address2_shippingmethodcode","value":{"value":1}},{"key":"tri_engagementscore_date","value":"2020-02-18T03:50:19Z"},{"key":"tri_pledgesroll","value":{"value":0.0000000000}},{"key":"tri_donationsroll_date","value":"2020-02-18T03:50:19Z"},{"key":"isbackofficecustomer","value":false},{"key":"owningbusinessunit","value":{"id":"d45f6451-e5cb-e711-a8a1-00224801a6a4","logicalName":"businessunit","name":null,"keyAttributes":[],"rowVersion":null}},{"key":"msdyn_orgchangestatus","value":{"value":0}},{"key":"owninguser","value":{"id":"6f7ba7f6-6a05-42f2-a33d-f06a1eb06e5a","logicalName":"systemuser","name":null,"keyAttributes":[],"rowVersion":null}},{"key":"lastname","value":"UpDateContactLastName"},{"key":"donotpostalmail","value":false},{"key":"ownerid","value":{"id":"6f7ba7f6-6a05-42f2-a33d-f06a1eb06e5a","logicalName":"systemuser","name":"Trillium Systems","keyAttributes":[],"rowVersion":null}},{"key":"tri_organisationtext","value":"OrganisationText"},{"key":"tri_initials","value":"AAF"},{"key":"marketingonly","value":false},{"key":"preferredcontactmethodcode","value":{"value":1}},{"key":"tri_webloginactivated","value":"2020-02-12T12:24:26Z"},{"key":"educationcode","value":{"value":1}},{"key":"tri_softcreditsroll_state","value":1},{"key":"customersizecode","value":{"value":1}},{"key":"emailaddress1","value":"updateContact15303@API.com"},{"key":"yomifullname","value":"UpDateContactLastName"},{"key":"middlename","value":"UpDateMiddleName"},{"key":"tri_mailname","value":"Mr AAF U UpDateContactLastName"},{"key":"fullname","value":"UpDateContactLastName"},{"key":"timezoneruleversionnumber","value":0},{"key":"address1_addressid","value":"baa47c4c-3c7e-448e-9796-195434c03bbc"},{"key":"msdyn_gdproptout","value":false},{"key":"address2_freighttermscode","value":{"value":1}},{"key":"tri_webaccountlocked","value":false},{"key":"createdon","value":"2020-02-12T12:24:25Z"},{"key":"tri_engagementscore","value":0},{"key":"donotsendmm","value":false},{"key":"donotfax","value":false},{"key":"tri_softcreditsroll_date","value":"2020-02-18T03:50:19Z"},{"key":"leadsourcecode","value":{"value":1}},{"key":"modifiedon","value":"2020-02-12T12:24:28Z"},{"key":"creditonhold","value":false},{"key":"tri_delegatefirstevent","value":false},{"key":"tri_membershipnumber","value":"002828"},{"key":"transactioncurrencyid","value":{"id":"4d5b52b6-ebcb-e711-a8a1-00224801a6a4","logicalName":"transactioncurrency","name":"Pound Sterling","keyAttributes":[],"rowVersion":null}},{"key":"address3_addressid","value":"68b0d602-115d-48ef-ad3c-8a5055c48dfe"},{"key":"donotbulkemail","value":false},{"key":"tri_donationsroll","value":{"value":0.0000000000}},{"key":"salutation","value":"Mr UpDateContactLastName"},{"key":"tri_webvalidationstatus","value":{"value":167410001}},{"key":"modifiedby","value":{"id":"6f7ba7f6-6a05-42f2-a33d-f06a1eb06e5a","logicalName":"systemuser","name":"Trillium Systems","keyAttributes":[],"rowVersion":null}},{"key":"followemail","value":true},{"key":"shippingmethodcode","value":{"value":1}},{"key":"tri_overridebranch","value":false},{"key":"createdby","value":{"id":"6f7ba7f6-6a05-42f2-a33d-f06a1eb06e5a","logicalName":"systemuser","name":"Trillium Systems","keyAttributes":[],"rowVersion":null}},{"key":"donotbulkpostalmail","value":false},{"key":"tri_donotsendjournal","value":true},{"key":"tri_deceased","value":false},{"key":"contactid","value":"0d88859a-924d-ea11-a812-000d3a7ed518"},{"key":"tri_webvalidateddate","value":"2020-02-12T12:24:26Z"},{"key":"participatesinworkflow","value":false},{"key":"statecode","value":{"value":0}},{"key":"address2_addressid","value":"163c742c-b0d8-4ae3-aa4b-f04ee62870d0"},{"key":"tri_preferredemail","value":{"value":167410000}},{"key":"tri_pledgesroll_date","value":"2020-02-18T03:50:19Z"},{"key":"tri_softcreditsroll","value":{"value":0.0000000000}},{"key":"tri_overseas","value":false}]}]}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='12'>
+					<div class='test-heading'>
+						<span class='test-name'>Retrieve Multiples OptionsSet and Validate the response</span>
+						<span class='test-time'>Feb 19, 2020 10:28:51 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 19, 2020 10:28:51 AM</span>
+	<span class='label end-time'>Feb 19, 2020 10:28:51 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+926ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:28:51 AM</td>
+					<td class='step-details'>POST request Body : <br />  { "optionsSet": [ { "entityName": "contact", "optionSetName": "preferredcontactmethodcode" } ], "optionsSet": [ { "entityName": "contact", "optionSetName": "tri_engagementlevel" } ] }</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:28:51 AM</td>
+					<td class='step-details'>Check POST response Code : <br />200</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:28:51 AM</td>
+					<td class='step-details'>Check POST response Body  has Success is "true" and messageError is "null" : <br />{"success":true,"messageError":null,"result":[{"optionSetName":"preferredcontactmethodcode","options":[{"value":1,"description":"Any"},{"value":2,"description":"Email"},{"value":3,"description":"Phone"},{"value":4,"description":"Fax"},{"value":5,"description":"Mail"}]},{"optionSetName":"tri_engagementlevel","options":[{"value":167410000,"description":"Low"},{"value":167410001,"description":"Medium"},{"value":167410002,"description":"High"}]}]}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='13'>
+					<div class='test-heading'>
+						<span class='test-name'>Retrieve OptionSet and Validate</span>
+						<span class='test-time'>Feb 19, 2020 10:28:51 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 19, 2020 10:28:51 AM</span>
+	<span class='label end-time'>Feb 19, 2020 10:28:52 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+625ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:28:51 AM</td>
+					<td class='step-details'>POST request Body : <br /> {
+  "entityName": "contact",
+  "optionSetName": "tri_title_options"
+}</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:28:52 AM</td>
+					<td class='step-details'>Check POST response Code : <br />200</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:28:52 AM</td>
+					<td class='step-details'>Check POST response Body  has Success is "true" and messageError is "null" : <br />{"success":true,"messageError":null,"result":[{"value":167410015,"description":"Dr"},{"value":167410031,"description":"Miss"},{"value":167410032,"description":"Mr"},{"value":167410033,"description":"Mrs"},{"value":167410034,"description":"Ms"},{"value":167410000,"description":"Air M Sir"},{"value":167410001,"description":"Air Mshl"},{"value":167410002,"description":"Air V Mshl"},{"value":167410003,"description":"Air V Mshl Sir"},{"value":167410004,"description":"Assoc Prof"},{"value":167410005,"description":"Asst Prof"},{"value":167410006,"description":"Baroness"},{"value":167410007,"description":"Brig"},{"value":167410008,"description":"Brig Gen"},{"value":167410009,"description":"Capt"},{"value":167410010,"description":"Col"},{"value":167410011,"description":"Col Sir"},{"value":167410012,"description":"Colonel"},{"value":167410013,"description":"Countess"},{"value":167410014,"description":"Dame"},{"value":167410016,"description":"Eur Ing"},{"value":167410017,"description":"Flt Lt"},{"value":167410018,"description":"Gp Capt"},{"value":167410019,"description":"HM"},{"value":167410020,"description":"Hon"},{"value":167410021,"description":"HRH"},{"value":167410022,"description":"Lady"},{"value":167410023,"description":"Lord"},{"value":167410024,"description":"Lord Just"},{"value":167410025,"description":"Lt"},{"value":167410026,"description":"Lt Col"},{"value":167410027,"description":"Lt Gen"},{"value":167410028,"description":"Lt Gen Sir"},{"value":167410029,"description":"Maj"},{"value":167410030,"description":"Maj Gen"},{"value":167410035,"description":"Prof Baroness"},{"value":167410036,"description":"Prof Col"},{"value":167410037,"description":"Prof Dame"},{"value":167410038,"description":"Prof Lord"},{"value":167410039,"description":"Prof Sir"},{"value":167410040,"description":"Professor"},{"value":167410041,"description":"R Adm"},{"value":167410042,"description":"Rev"},{"value":167410043,"description":"Rev Dr"},{"value":167410044,"description":"Rev Prof"},{"value":167410045,"description":"Rt Hon Dame"},{"value":167410046,"description":"Rt Hon Sir"},{"value":167410047,"description":"Sir"},{"value":167410048,"description":"Sqdn Ldr"},{"value":167410049,"description":"Surg Capt"},{"value":167410050,"description":"Surg Cdr"},{"value":167410051,"description":"Surg Cdre"},{"value":167410052,"description":"Surg Lt"},{"value":167410053,"description":"Surg R Adm"},{"value":167410054,"description":"Surg VA Sir"},{"value":167410055,"description":"V Adm Sir"},{"value":167410056,"description":"Viscount"},{"value":167410057,"description":"Wg Cdr"}]}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  fail' status='fail' bdd='false' test-id='14'>
+					<div class='test-heading'>
+						<span class='test-name'>Apply Membership Discount Code For Web and Validate the response</span>
+						<span class='test-time'>Feb 19, 2020 10:28:52 AM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 19, 2020 10:28:52 AM</span>
+	<span class='label end-time'>Feb 19, 2020 10:28:53 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+578ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:28:52 AM</td>
+					<td class='step-details'>POST request Body : <br />{
+  "code": "string",
+  "membershipId": "04db2799-3432-ea11-a810-000d3a7ed588",
+  "tri_discountcodeid": [
+    "CodeODcASA4YLuw"
+  ]
+}</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:28:53 AM</td>
+					<td class='step-details'>Check POST response Code : <br />200</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:28:53 AM</td>
+					<td class='step-details'>Expected Response Success is "true" and messageError is "null" but returned : <br />{"success":false,"messageError":"Object reference not set to an instance of an object.","result":null}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='15'>
+					<div class='test-heading'>
+						<span class='test-name'>Test case : Create contact, Activate and Validate</span>
+						<span class='test-time'>Feb 19, 2020 10:28:53 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 19, 2020 10:28:53 AM</span>
+	<span class='label end-time'>Feb 19, 2020 10:28:56 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 3s+410ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:28:53 AM</td>
+					<td class='step-details'>POST request Body : <br />{
+  
+  "firstName": "API Automation FirstName",
+  "lastName": "API Automation LasttName",
+
+  "personalemail": "personalemail.25014GV@Automation.com",
+  "workemail": "string",
+  "preferredEmailAddress": {
+    "value": 167410000,
+    "description": "work"
+  },
+
+  "title": {
+    "value": 167410032,
+    "description": "string"
+},
+ 
+
+  "jobRoleOther": "API jobRoleOther",
+  "jobTitle": "API jobTitle",
+  "organisationText": "OrganisationText"
+}</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:28:56 AM</td>
+					<td class='step-details'>Check POST response Code : <br />200</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:28:56 AM</td>
+					<td class='step-details'>Check POST response Body  has Success is "true" and messageError is "null" : <br />{"success":true,"messageError":null,"result":{"id":"0cdbcc9d-0253-ea11-a813-000d3a7ed588","fullName":"API Automation FirstName API Automation LasttName","email1":"personalemail.25014GV@Automation.com","gmcNumber":null,"inArrears":false,"inArrearsSince":null,"branch":null,"nationality":null,"countryOfBirth":null,"organisation":null,"lastModified":"2020-02-19T10:28:55+00:00","homeAddress":null,"workAddress":null,"contactRoles":[],"primaryMembership":{"membershipNumber":"002990","primaryMembershipId":null,"grade":null,"band":null,"startDate":null,"expiryDate":null,"statusReason":null,"membershipStatus":null,"renewalStatus":null,"paymentStatus":null,"paymentFrequency":null,"outstanding":0.0,"outstandingCurrent":0.0,"outstandingArrears":0.0,"paymentMethod":null},"incompleteMembership":{"incompleteMembershipId":null,"incompleteMembershipGrade":null,"incompleteMembershipBand":null,"incompleteMembershipGroup":null,"incompleteMembershipGroupCode":null,"incompleteMembershipStartDate":null,"incompleteMembershipExpiryDate":null,"incompleteMembershipStatus":null},"additionalAttributesValues":[],"hashCode":null,"webUserName":null,"firstName":"API Automation FirstName","lastName":"API Automation LasttName","middleName":null,"personalemail":"personalemail.25014GV@Automation.com","workemail":"string","preferredEmailAddress":{"value":167410000,"description":"Personal"},"dateOfBirth":null,"workTelephone":null,"homeTelephone":null,"mobile":null,"correspondenceAddress":0,"invoiceAddress":0,"overrideBranch":false,"doNotPhone":null,"doNotEmail":null,"title":{"value":167410032,"description":"Mr"},"gender":null,"ethnicity":null,"maritalStatus":null,"jobRole":null,"jobRoleOther":"API jobRoleOther","jobTitle":"API jobTitle","organisationText":"OrganisationText"}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='16'>
+					<div class='test-heading'>
+						<span class='test-name'>Retrieve Active Memberships By ContactId and Validate the response</span>
+						<span class='test-time'>Feb 19, 2020 10:28:56 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 19, 2020 10:28:56 AM</span>
+	<span class='label end-time'>Feb 19, 2020 10:28:59 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 2s+498ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:28:56 AM</td>
+					<td class='step-details'>POST request Body : <br />{
+  "id": "cda4ae1d-3042-e811-a958-002248072825",
+}</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:28:59 AM</td>
+					<td class='step-details'>Check POST response Code : <br />200</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:28:59 AM</td>
+					<td class='step-details'>Check POST response Body  has Success is "true" and messageError is "null" : <br />{"success":true,"messageError":null,"result":[{"id":"aabe3f3f-3042-e811-a959-00224807251a","name":"000045 - Individual Membership - Affiliate Individual Member - Standard Affiliate   ","contactId":"cda4ae1d-3042-e811-a958-002248072825","organisationId":"00000000-0000-0000-0000-000000000000","contactMembershipNumber":"000045","organisationMembershipNumber":null,"startDate":"2018-04-17T12:12:02+00:00","expiryDate":"2019-04-15T23:00:00+00:00","status":"Active","paymentStatus":"Unpaid","paymentDirectDebitSet":true,"reasonCodeId":"d2587331-f11c-e511-80c7-005056bf2f1c","reasonForJoining":null,"renewalStatus":{"value":167410003,"description":"Overdue"},"renewalPeriod":{"entityLogicalName":"tri_period","id":"cef70686-8455-e611-80f8-005056bf72c1","name":"2019"},"grade":{"id":"bcfb495c-033f-e811-a956-002248072cc3","name":"Affiliate Individual Member","description":null,"code":"AIM","webFriendlyName":null,"enabledOnWeb":true,"status":0,"statusReason":1,"membershipType":{"id":"7fd94cb0-ff3e-e811-a956-002248072cc3","name":"Individual Perpetual Membership","type":{"value":167410000,"description":"Individual"},"status":0,"statusReason":1,"additionalAttributesValues":[]},"additionalAttributesValues":[]},"band":{"id":"ddc4faa3-033f-e811-a956-002248072cc3","name":"Standard Affiliate","gradeId":"bcfb495c-033f-e811-a956-002248072cc3","code":null,"includesPTB":null,"includesJournal":null,"includesCME":null,"bandGroup":{"value":167410000,"description":"Standard"},"enabledOnWeb":false,"rate":50.0000,"entryFee":null,"vatPercentage":0.0000000000,"totalAmount":50.00000000000000,"status":0,"statusReason":1,"additionalAttributesValues":[]},"transactionsFee":[{"transactionID":"bb1b584a-3042-e811-a958-002248072825","name":"Membership - Tx00000196 - 17/04/2018","reference":"Tx00000196","outstandingAmount":50.0000,"transactionCategory":{"entityLogicalName":"tri_transactioncategory","id":"9f09ca48-2d1c-e511-80c7-005056bf2f1c","name":"Fee"},"transactionType":{"entityLogicalName":"tri_transactiontype","id":"be1dd57e-421c-e511-80c7-005056bf2f1c","name":"Membership"},"transactionPeriod":{"entityLogicalName":"tri_period","id":"f01e0f79-8455-e611-80f8-005056bf72c1","name":"2018"},"paymentStatus":{"value":167410000,"description":"Unpaid"},"statusReason":{"value":167410000,"description":"Complete"}},{"transactionID":"607f6d3c-ed7d-e811-a95e-002248072781","name":"Membership - Tx00000401 - 02/07/2018","reference":"Tx00000401","outstandingAmount":70.0000,"transactionCategory":{"entityLogicalName":"tri_transactioncategory","id":"9f09ca48-2d1c-e511-80c7-005056bf2f1c","name":"Fee"},"transactionType":{"entityLogicalName":"tri_transactiontype","id":"be1dd57e-421c-e511-80c7-005056bf2f1c","name":"Membership"},"transactionPeriod":{"entityLogicalName":"tri_period","id":"cef70686-8455-e611-80f8-005056bf72c1","name":"2019"},"paymentStatus":{"value":167410000,"description":"Unpaid"},"statusReason":{"value":1,"description":"Incomplete"}}],"additionalAttributesValues":[]}]}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='17'>
+					<div class='test-heading'>
+						<span class='test-name'>Retrieve All Membership Types and Validate the response</span>
+						<span class='test-time'>Feb 19, 2020 10:28:59 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 19, 2020 10:28:59 AM</span>
+	<span class='label end-time'>Feb 19, 2020 10:29:00 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 1s+45ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:28:59 AM</td>
+					<td class='step-details'>POST request Body : <br />{
+  "attributesName": [
+    "string"
+  ]
+}</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:29:00 AM</td>
+					<td class='step-details'>Check POST response Code : <br />200</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:29:00 AM</td>
+					<td class='step-details'>Check POST response Body  has Success is "true" and messageError is "null" : <br />{"success":true,"messageError":null,"result":[{"id":"7f5bd9fd-e736-ea11-a813-000d3a7ed518","name":"GV New Individual Membership Type","type":{"value":167410000,"description":"Individual"},"status":0,"statusReason":1,"additionalAttributesValues":[{"type":"NotFound","attribute":"string","value":null}]},{"id":"25420a09-f032-ea11-a813-000d3a7ed588","name":"Trillium Membership","type":{"value":167410000,"description":"Individual"},"status":0,"statusReason":1,"additionalAttributesValues":[{"type":"NotFound","attribute":"string","value":null}]},{"id":"e28f2470-c033-ea11-a813-000d3a7ed588","name":"Individual Membership 1 (Fixed length)","type":{"value":167410000,"description":"Individual"},"status":0,"statusReason":1,"additionalAttributesValues":[{"type":"NotFound","attribute":"string","value":null}]},{"id":"d4418c41-4651-e911-a979-002248072781","name":"Season 1","type":{"value":167410000,"description":"Individual"},"status":1,"statusReason":2,"additionalAttributesValues":[{"type":"NotFound","attribute":"string","value":null}]},{"id":"7fd94cb0-ff3e-e811-a956-002248072cc3","name":"Individual Perpetual Membership","type":{"value":167410000,"description":"Individual"},"status":0,"statusReason":1,"additionalAttributesValues":[{"type":"NotFound","attribute":"string","value":null}]},{"id":"f6665f9d-441c-e511-80c7-005056bf2f1c","name":"Individual Membership (Fixed Renewal)","type":{"value":167410000,"description":"Individual"},"status":0,"statusReason":1,"additionalAttributesValues":[{"type":"NotFound","attribute":"string","value":null}]},{"id":"f8665f9d-441c-e511-80c7-005056bf2f1c","name":"Individual Subscription (Fixed Renewal)","type":{"value":167410000,"description":"Individual"},"status":0,"statusReason":1,"additionalAttributesValues":[{"type":"NotFound","attribute":"string","value":null}]},{"id":"0c92d6ca-9fbf-e511-80cf-005056bf2f1c","name":"Corporate Membership (Fixed Length)","type":{"value":167410001,"description":"Corporate"},"status":0,"statusReason":1,"additionalAttributesValues":[{"type":"NotFound","attribute":"string","value":null}]},{"id":"e13dbb65-e0d3-e511-80ee-005056bf72c1","name":"Corporate Subscription (Fixed Length)","type":{"value":167410001,"description":"Corporate"},"status":0,"statusReason":1,"additionalAttributesValues":[{"type":"NotFound","attribute":"string","value":null}]},{"id":"669b36c1-ddfc-e611-8100-005056bf72c1","name":"Individual Membership (Fixed length)","type":{"value":167410000,"description":"Individual"},"status":0,"statusReason":1,"additionalAttributesValues":[{"type":"NotFound","attribute":"string","value":null}]},{"id":"781ec7e9-d212-e711-8103-005056bf72c1","name":"Corporate Membership (Fixed Renewal)","type":{"value":167410001,"description":"Corporate"},"status":0,"statusReason":1,"additionalAttributesValues":[{"type":"NotFound","attribute":"string","value":null}]}]}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='18'>
+					<div class='test-heading'>
+						<span class='test-name'>Retrieve All Memberships By ContactId and Validate the response</span>
+						<span class='test-time'>Feb 19, 2020 10:29:00 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 19, 2020 10:29:00 AM</span>
+	<span class='label end-time'>Feb 19, 2020 10:29:02 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 2s+292ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:29:00 AM</td>
+					<td class='step-details'>POST request Body : <br />{
+  "id": "cda4ae1d-3042-e811-a958-002248072825",
+}</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:29:02 AM</td>
+					<td class='step-details'>Check POST response Code : <br />200</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:29:02 AM</td>
+					<td class='step-details'>Check POST response Body  has Success is "true" and messageError is "null" : <br />{"success":true,"messageError":null,"result":[{"id":"aabe3f3f-3042-e811-a959-00224807251a","name":"000045 - Individual Membership - Affiliate Individual Member - Standard Affiliate   ","contactId":"cda4ae1d-3042-e811-a958-002248072825","organisationId":"00000000-0000-0000-0000-000000000000","contactMembershipNumber":"000045","organisationMembershipNumber":null,"startDate":"2018-04-17T12:12:02+00:00","expiryDate":"2019-04-15T23:00:00+00:00","status":"Active","paymentStatus":"Unpaid","paymentDirectDebitSet":true,"reasonCodeId":"d2587331-f11c-e511-80c7-005056bf2f1c","reasonForJoining":null,"renewalStatus":{"value":167410003,"description":"Overdue"},"renewalPeriod":{"entityLogicalName":"tri_period","id":"cef70686-8455-e611-80f8-005056bf72c1","name":"2019"},"grade":{"id":"bcfb495c-033f-e811-a956-002248072cc3","name":"Affiliate Individual Member","description":null,"code":"AIM","webFriendlyName":null,"enabledOnWeb":true,"status":0,"statusReason":1,"membershipType":{"id":"7fd94cb0-ff3e-e811-a956-002248072cc3","name":"Individual Perpetual Membership","type":{"value":167410000,"description":"Individual"},"status":0,"statusReason":1,"additionalAttributesValues":[]},"additionalAttributesValues":[]},"band":{"id":"ddc4faa3-033f-e811-a956-002248072cc3","name":"Standard Affiliate","gradeId":"bcfb495c-033f-e811-a956-002248072cc3","code":null,"includesPTB":null,"includesJournal":null,"includesCME":null,"bandGroup":{"value":167410000,"description":"Standard"},"enabledOnWeb":false,"rate":50.0000,"entryFee":null,"vatPercentage":0.0000000000,"totalAmount":50.00000000000000,"status":0,"statusReason":1,"additionalAttributesValues":[]},"transactionsFee":[{"transactionID":"bb1b584a-3042-e811-a958-002248072825","name":"Membership - Tx00000196 - 17/04/2018","reference":"Tx00000196","outstandingAmount":50.0000,"transactionCategory":{"entityLogicalName":"tri_transactioncategory","id":"9f09ca48-2d1c-e511-80c7-005056bf2f1c","name":"Fee"},"transactionType":{"entityLogicalName":"tri_transactiontype","id":"be1dd57e-421c-e511-80c7-005056bf2f1c","name":"Membership"},"transactionPeriod":{"entityLogicalName":"tri_period","id":"f01e0f79-8455-e611-80f8-005056bf72c1","name":"2018"},"paymentStatus":{"value":167410000,"description":"Unpaid"},"statusReason":{"value":167410000,"description":"Complete"}},{"transactionID":"607f6d3c-ed7d-e811-a95e-002248072781","name":"Membership - Tx00000401 - 02/07/2018","reference":"Tx00000401","outstandingAmount":70.0000,"transactionCategory":{"entityLogicalName":"tri_transactioncategory","id":"9f09ca48-2d1c-e511-80c7-005056bf2f1c","name":"Fee"},"transactionType":{"entityLogicalName":"tri_transactiontype","id":"be1dd57e-421c-e511-80c7-005056bf2f1c","name":"Membership"},"transactionPeriod":{"entityLogicalName":"tri_period","id":"cef70686-8455-e611-80f8-005056bf72c1","name":"2019"},"paymentStatus":{"value":167410000,"description":"Unpaid"},"statusReason":{"value":1,"description":"Incomplete"}}],"additionalAttributesValues":[]}]}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='19'>
+					<div class='test-heading'>
+						<span class='test-name'>Retrieve All Methods Of Payment and Validate the response(GET Request)</span>
+						<span class='test-time'>Feb 19, 2020 10:29:02 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 19, 2020 10:29:02 AM</span>
+	<span class='label end-time'>Feb 19, 2020 10:29:02 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+581ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:29:02 AM</td>
+					<td class='step-details'>Check POST response Code : <br />200</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:29:02 AM</td>
+					<td class='step-details'>Check POST response Body  has Success is "true" and messageError is "null" : <br />{"success":true,"messageError":null,"result":[{"id":"77c3741e-2b1c-e511-80c7-005056bf2f1c","name":"Cash","code":"CSH","transactionTypeName":"Cash Payment","transactionItemTypeName":"Cash Payment","onlinePaymentProviderType":null,"onlinePaymentProviderAccountID":null},{"id":"7bc3741e-2b1c-e511-80c7-005056bf2f1c","name":"Cheque","code":"CHQ","transactionTypeName":"Cheque Payment","transactionItemTypeName":"Cheque Payment","onlinePaymentProviderType":null,"onlinePaymentProviderAccountID":null}]}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='20'>
+					<div class='test-heading'>
+						<span class='test-name'>Retrieve Membership Bands and Validate the response</span>
+						<span class='test-time'>Feb 19, 2020 10:29:02 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 19, 2020 10:29:02 AM</span>
+	<span class='label end-time'>Feb 19, 2020 10:29:03 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+664ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:29:02 AM</td>
+					<td class='step-details'>POST request Body : <br />{
+  "gradeId": "00000000-0000-0000-0000-000000000000",
+  "attributesName": [
+    "string"
+  ]
+}</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:29:03 AM</td>
+					<td class='step-details'>Check POST response Code : <br />200</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:29:03 AM</td>
+					<td class='step-details'>Check POST response Body  has Success is "true" and messageError is "null" : <br />{"success":true,"messageError":null,"result":[]}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='21'>
+					<div class='test-heading'>
+						<span class='test-name'>Retrieve Membership Grades By TypeId and Validate the response</span>
+						<span class='test-time'>Feb 19, 2020 10:29:03 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 19, 2020 10:29:03 AM</span>
+	<span class='label end-time'>Feb 19, 2020 10:29:11 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 7s+710ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:29:03 AM</td>
+					<td class='step-details'>POST request Body : <br />{
+  "id": "cda4ae1d-3042-e811-a958-002248072825",
+  "attributesName": [
+    "string"
+  ]
+}</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:29:11 AM</td>
+					<td class='step-details'>Check POST response Code : <br />200</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:29:11 AM</td>
+					<td class='step-details'>Check POST response Body  has Success is "true" and messageError is "null" : <br />{"success":true,"messageError":null,"result":[{"id":"e7dbd00c-b936-ea11-a813-000d3a7ed518","name":"New Membership Grade","description":null,"code":"MG1234","webFriendlyName":null,"enabledOnWeb":true,"status":0,"statusReason":1,"membershipType":{"id":"25420a09-f032-ea11-a813-000d3a7ed588","name":"Trillium Membership","type":{"value":167410000,"description":"Individual"},"status":0,"statusReason":1,"additionalAttributesValues":[]},"additionalAttributesValues":[{"type":"NotFound","attribute":"string","value":null}]},{"id":"6badccb7-e836-ea11-a813-000d3a7ed518","name":"GV New Membership Grade","description":null,"code":"ABCD","webFriendlyName":null,"enabledOnWeb":true,"status":0,"statusReason":1,"membershipType":{"id":"7f5bd9fd-e736-ea11-a813-000d3a7ed518","name":"GV New Individual Membership Type","type":{"value":167410000,"description":"Individual"},"status":0,"statusReason":1,"additionalAttributesValues":[]},"additionalAttributesValues":[{"type":"NotFound","attribute":"string","value":null}]},{"id":"da208e9d-2d3d-ea11-a812-000d3a7ed588","name":"new grade","description":null,"code":"codecode","webFriendlyName":null,"enabledOnWeb":true,"status":0,"statusReason":1,"membershipType":{"id":"669b36c1-ddfc-e611-8100-005056bf72c1","name":"Individual Membership (Fixed length)","type":{"value":167410000,"description":"Individual"},"status":0,"statusReason":1,"additionalAttributesValues":[]},"additionalAttributesValues":[{"type":"NotFound","attribute":"string","value":null}]},{"id":"1c306f87-02b0-e711-80e3-000d3ab05959","name":"Full Member","description":null,"code":"FN","webFriendlyName":null,"enabledOnWeb":true,"status":0,"statusReason":1,"membershipType":{"id":"f6665f9d-441c-e511-80c7-005056bf2f1c","name":"Individual Membership (Fixed Renewal)","type":{"value":167410000,"description":"Individual"},"status":0,"statusReason":1,"additionalAttributesValues":[]},"additionalAttributesValues":[{"type":"NotFound","attribute":"string","value":null}]},{"id":"61fe897e-4f51-e911-a979-002248072781","name":"30 Minutes","description":null,"code":"30MIN","webFriendlyName":null,"enabledOnWeb":true,"status":1,"statusReason":2,"membershipType":{"id":"d4418c41-4651-e911-a979-002248072781","name":"Season 1","type":{"value":167410000,"description":"Individual"},"status":1,"statusReason":2,"additionalAttributesValues":[]},"additionalAttributesValues":[{"type":"NotFound","attribute":"string","value":null}]},{"id":"0d3d9d05-013f-e811-a956-002248072cc3","name":"Full Individual Member","description":null,"code":"FIM","webFriendlyName":null,"enabledOnWeb":true,"status":0,"statusReason":1,"membershipType":{"id":"7fd94cb0-ff3e-e811-a956-002248072cc3","name":"Individual Perpetual Membership","type":{"value":167410000,"description":"Individual"},"status":0,"statusReason":1,"additionalAttributesValues":[]},"additionalAttributesValues":[{"type":"NotFound","attribute":"string","value":null}]},{"id":"bcfb495c-033f-e811-a956-002248072cc3","name":"Affiliate Individual Member","description":null,"code":"AIM","webFriendlyName":null,"enabledOnWeb":true,"status":0,"statusReason":1,"membershipType":{"id":"7fd94cb0-ff3e-e811-a956-002248072cc3","name":"Individual Perpetual Membership","type":{"value":167410000,"description":"Individual"},"status":0,"statusReason":1,"additionalAttributesValues":[]},"additionalAttributesValues":[{"type":"NotFound","attribute":"string","value":null}]},{"id":"da00644d-15f7-e811-a96f-002248072fe8","name":"Product Grade 1","description":null,"code":"G1","webFriendlyName":null,"enabledOnWeb":true,"status":0,"statusReason":1,"membershipType":{"id":"f6665f9d-441c-e511-80c7-005056bf2f1c","name":"Individual Membership (Fixed Renewal)","type":{"value":167410000,"description":"Individual"},"status":0,"statusReason":1,"additionalAttributesValues":[]},"additionalAttributesValues":[{"type":"NotFound","attribute":"string","value":null}]},{"id":"ab933519-f01c-e511-80c7-005056bf2f1c","name":"Individual Member (Fixed Renewal)","description":null,"code":"MEM","webFriendlyName":null,"enabledOnWeb":true,"status":0,"statusReason":1,"membershipType":{"id":"f6665f9d-441c-e511-80c7-005056bf2f1c","name":"Individual Membership (Fixed Renewal)","type":{"value":167410000,"description":"Individual"},"status":0,"statusReason":1,"additionalAttributesValues":[]},"additionalAttributesValues":[{"type":"NotFound","attribute":"string","value":null}]},{"id":"2f0b3721-a0bf-e511-80cf-005056bf2f1c","name":"Corporate Member (Fixed Length)","description":null,"code":"CMEM","webFriendlyName":null,"enabledOnWeb":true,"status":0,"statusReason":1,"membershipType":{"id":"0c92d6ca-9fbf-e511-80cf-005056bf2f1c","name":"Corporate Membership (Fixed Length)","type":{"value":167410001,"description":"Corporate"},"status":0,"statusReason":1,"additionalAttributesValues":[]},"additionalAttributesValues":[{"type":"NotFound","attribute":"string","value":null}]},{"id":"158bd765-dfd3-e511-80ee-005056bf72c1","name":"Corporate Fellow (Fixed Length)","description":null,"code":"CFEL","webFriendlyName":null,"enabledOnWeb":true,"status":0,"statusReason":1,"membershipType":{"id":"0c92d6ca-9fbf-e511-80cf-005056bf2f1c","name":"Corporate Membership (Fixed Length)","type":{"value":167410001,"description":"Corporate"},"status":0,"statusReason":1,"additionalAttributesValues":[]},"additionalAttributesValues":[{"type":"NotFound","attribute":"string","value":null}]},{"id":"2d9daf98-e0d3-e511-80ee-005056bf72c1","name":"Corporate Subscription (Fixed Length)","description":null,"code":"CSUBS","webFriendlyName":null,"enabledOnWeb":true,"status":0,"statusReason":1,"membershipType":{"id":"e13dbb65-e0d3-e511-80ee-005056bf72c1","name":"Corporate Subscription (Fixed Length)","type":{"value":167410001,"description":"Corporate"},"status":0,"statusReason":1,"additionalAttributesValues":[]},"additionalAttributesValues":[{"type":"NotFound","attribute":"string","value":null}]},{"id":"7a03a913-e1d3-e511-80ee-005056bf72c1","name":"Individual Subscription (Fixed Renewal)","description":null,"code":"ISUBS","webFriendlyName":null,"enabledOnWeb":true,"status":0,"statusReason":1,"membershipType":{"id":"f8665f9d-441c-e511-80c7-005056bf2f1c","name":"Individual Subscription (Fixed Renewal)","type":{"value":167410000,"description":"Individual"},"status":0,"statusReason":1,"additionalAttributesValues":[]},"additionalAttributesValues":[{"type":"NotFound","attribute":"string","value":null}]},{"id":"03813af9-9cd5-e511-80f0-005056bf72c1","name":"Individual Fellow (Fixed Renewal)","description":null,"code":"FEL","webFriendlyName":null,"enabledOnWeb":true,"status":0,"statusReason":1,"membershipType":{"id":"f6665f9d-441c-e511-80c7-005056bf2f1c","name":"Individual Membership (Fixed Renewal)","type":{"value":167410000,"description":"Individual"},"status":0,"statusReason":1,"additionalAttributesValues":[]},"additionalAttributesValues":[{"type":"NotFound","attribute":"string","value":null}]},{"id":"0d462ccb-ddfc-e611-8100-005056bf72c1","name":"Individual Membership (Fixed Length)","description":null,"code":"fdsdf","webFriendlyName":null,"enabledOnWeb":true,"status":0,"statusReason":1,"membershipType":{"id":"669b36c1-ddfc-e611-8100-005056bf72c1","name":"Individual Membership (Fixed length)","type":{"value":167410000,"description":"Individual"},"status":0,"statusReason":1,"additionalAttributesValues":[]},"additionalAttributesValues":[{"type":"NotFound","attribute":"string","value":null}]},{"id":"966b6127-d312-e711-8103-005056bf72c1","name":"Corporate Membership (Fixed Renewal)","description":null,"code":"A","webFriendlyName":null,"enabledOnWeb":true,"status":0,"statusReason":1,"membershipType":{"id":"781ec7e9-d212-e711-8103-005056bf72c1","name":"Corporate Membership (Fixed Renewal)","type":{"value":167410001,"description":"Corporate"},"status":0,"statusReason":1,"additionalAttributesValues":[]},"additionalAttributesValues":[{"type":"NotFound","attribute":"string","value":null}]}]}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='22'>
+					<div class='test-heading'>
+						<span class='test-name'>Retrieve Membership Transactions and Validate the response</span>
+						<span class='test-time'>Feb 19, 2020 10:29:11 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 19, 2020 10:29:11 AM</span>
+	<span class='label end-time'>Feb 19, 2020 10:29:17 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 6s+321ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:29:11 AM</td>
+					<td class='step-details'>POST request Body : <br />{
+  "contactId": "552bee56-214c-ea11-a812-000d3a7ed518",
+  "membershipId": "16d9e85c-214c-ea11-a812-000d3a7ed518"
+}</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:29:17 AM</td>
+					<td class='step-details'>Check POST response Code : <br />200</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:29:17 AM</td>
+					<td class='step-details'>Check POST response Body  has Success is "true" and messageError is "null" : <br />{"success":true,"messageError":null,"result":[{"upfrontPaymentStatusText":null,"memberships":[{"id":"16d9e85c-214c-ea11-a812-000d3a7ed518","name":"002767 - Individual Membership (Fixed length) - Individual Membership (Fixed Length) - Individual Membership (Fixed Length)   "}],"transactionID":"ee46e862-214c-ea11-a812-000d3a7ed518","name":"Membership Invoice - INV001321 - 10/02/2020","reference":null,"outstandingAmount":1025.0000,"transactionCategory":{"entityLogicalName":"tri_transactioncategory","id":"a109ca48-2d1c-e511-80c7-005056bf2f1c","name":"Invoice"},"transactionType":{"entityLogicalName":"tri_transactiontype","id":"cb70e8cc-ef23-e611-80f6-005056bf72c1","name":"Membership Invoice"},"transactionPeriod":{"entityLogicalName":"tri_period","id":"ed70628e-8455-e611-80f8-005056bf72c1","name":"2020"},"paymentStatus":{"value":167410000,"description":"Unpaid"},"statusReason":{"value":167410000,"description":"Complete"}},{"upfrontPaymentStatusText":null,"memberships":[{"id":"16d9e85c-214c-ea11-a812-000d3a7ed518","name":"002767 - Individual Membership (Fixed length) - Individual Membership (Fixed Length) - Individual Membership (Fixed Length)   "}],"transactionID":"4390e068-214c-ea11-a812-000d3a7ed518","name":"Membership - Tx00002711 - 10/02/2020","reference":null,"outstandingAmount":-1047.0000,"transactionCategory":{"entityLogicalName":"tri_transactioncategory","id":"9f09ca48-2d1c-e511-80c7-005056bf2f1c","name":"Fee"},"transactionType":{"entityLogicalName":"tri_transactiontype","id":"be1dd57e-421c-e511-80c7-005056bf2f1c","name":"Membership"},"transactionPeriod":{"entityLogicalName":"tri_period","id":"ed70628e-8455-e611-80f8-005056bf72c1","name":"2020"},"paymentStatus":{"value":167410002,"description":"Paid"},"statusReason":{"value":167410000,"description":"Complete"}},{"upfrontPaymentStatusText":null,"memberships":[{"id":"16d9e85c-214c-ea11-a812-000d3a7ed518","name":"002767 - Individual Membership (Fixed length) - Individual Membership (Fixed Length) - Individual Membership (Fixed Length)   "}],"transactionID":"97da8f5f-214c-ea11-a812-000d3a7ed588","name":"Membership - Tx00002710 - 10/02/2020","reference":null,"outstandingAmount":12.0000,"transactionCategory":{"entityLogicalName":"tri_transactioncategory","id":"9f09ca48-2d1c-e511-80c7-005056bf2f1c","name":"Fee"},"transactionType":{"entityLogicalName":"tri_transactiontype","id":"be1dd57e-421c-e511-80c7-005056bf2f1c","name":"Membership"},"transactionPeriod":{"entityLogicalName":"tri_period","id":"ed70628e-8455-e611-80f8-005056bf72c1","name":"2020"},"paymentStatus":{"value":167410000,"description":"Unpaid"},"statusReason":{"value":167410000,"description":"Complete"}}]}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  fail' status='fail' bdd='false' test-id='23'>
+					<div class='test-heading'>
+						<span class='test-name'>Retrieve Valid Membership Discount Code For Web and Validate the response</span>
+						<span class='test-time'>Feb 19, 2020 10:29:17 AM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 19, 2020 10:29:17 AM</span>
+	<span class='label end-time'>Feb 19, 2020 10:29:18 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+672ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:29:17 AM</td>
+					<td class='step-details'>POST request Body : <br />{
+  "code": "string",
+  "membershipId": "04db2799-3432-ea11-a810-000d3a7ed588",
+  "attributesName": [
+    "string"
+  ]
+}</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:29:18 AM</td>
+					<td class='step-details'>Check POST response Code : <br />200</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:29:18 AM</td>
+					<td class='step-details'>Expected Response Success is "true" and messageError is "null" but returned : <br />{"success":false,"messageError":"Object reference not set to an instance of an object.","result":null}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='24'>
+					<div class='test-heading'>
+						<span class='test-name'>Test case : Retrieve Organisations By Name and Validate</span>
+						<span class='test-time'>Feb 19, 2020 10:29:18 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 19, 2020 10:29:18 AM</span>
+	<span class='label end-time'>Feb 19, 2020 10:29:19 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+945ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:29:18 AM</td>
+					<td class='step-details'>POST request Body : <br /> {
+  "name": "O",
+  "pagingInformation": {
+    "currentPage": 1,
+    "pageSize": 100,
+    
+    "orderBy": "ASC",
+    "maxResultCount": 1000,
+    "totalCountLimitExceeded": true
+  }
+}</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:29:19 AM</td>
+					<td class='step-details'>Check POST response Code : <br />200</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:29:19 AM</td>
+					<td class='step-details'>Check POST response Body  has Success is "true" and messageError is "null" : <br />{"pagingInformation":{"currentPage":1,"pageSize":100,"sortBy":"name","orderBy":"ASC","maxResultCount":29,"totalCountLimitExceeded":false},"success":true,"messageError":null,"result":[{"id":"676c5425-b749-ea11-a812-000d3a7ed518","name":"account name11"},{"id":"c3b99eff-4351-e911-a979-002248072781","name":"Carrington Atlantic"},{"id":"bcc16931-5f3c-ea11-a812-000d3a7ed588","name":"Chris Test Company"},{"id":"c3e099f8-583b-e911-a975-002248072781","name":"Corporate Ms Test"},{"id":"6279d2be-5643-ea11-a812-000d3a7ed518","name":"Donals House"},{"id":"e9215b14-ec15-ea11-a811-000d3a7ed588","name":"Dorn Enterprises Ltd"},{"id":"e306ae0e-2b1c-ea11-a811-000d3a7ed518","name":"Dre Corporation"},{"id":"684175da-473c-ea11-a812-000d3a7ed588","name":"GV Accountname Updated from API2"},{"id":"28dc3013-dc36-ea11-a813-000d3a7ed518","name":"GV Organisation12-02-2020"},{"id":"d453102d-88c9-e911-a832-000d3a0b6439","name":"GV Organisation14-02-2020"},{"id":"fa07b2fa-89c9-e911-a832-000d3a0b6439","name":"GV Organisation14-02-2020"},{"id":"9194c24e-8dc9-e911-a832-000d3a0b6439","name":"GV Organisation14-02-2020"},{"id":"df49549b-8137-ea11-a813-000d3a7ed518","name":"GV Organisation14-02-2020"},{"id":"c982f930-4f39-ea11-a813-000d3a7ed518","name":"GV Organisation14-02-2020"},{"id":"c817273c-c120-ea11-a810-000d3a7ed588","name":"GV Organisation14-02-2020"},{"id":"5a37dfc2-b133-ea11-a813-000d3a7ed588","name":"GV Organisation14-02-2020"},{"id":"d7b3d585-ea7a-e811-a95e-002248072781","name":"GV Organisation14-02-2020"},{"id":"3f50bde2-97c5-e911-a82f-000d3a0b6c55","name":"GV Organisation18-02-2020"},{"id":"8b1d86b9-83d4-e911-a812-000d3a7ed30d","name":"GV Organisation18-02-2020"},{"id":"d0955a92-1032-ea11-a810-000d3a7ed518","name":"GV Organisation18-02-2020"},{"id":"04d9c72a-6f17-ea11-a811-000d3a7ed518","name":"GV Organisation18-02-2020"},{"id":"8a4ae010-5643-ea11-a812-000d3a7ed518","name":"GV Organisation18-02-2020"},{"id":"8ca7d894-5643-ea11-a812-000d3a7ed518","name":"GV Organisation18-02-2020"},{"id":"a7b00752-5643-ea11-a812-000d3a7ed588","name":"GV Organisation18-02-2020"},{"id":"a1b679f5-5643-ea11-a812-000d3a7ed588","name":"GV Organisation18-02-2020"},{"id":"1dc5a836-4cf5-e711-a94c-002248072781","name":"GV Organisation18-02-2020"},{"id":"5778872c-7480-e811-a95e-002248072781","name":"GV Organisation18-02-2020"},{"id":"36b8ac46-093f-e811-a956-002248072cc3","name":"GV Organisation18-02-2020"},{"id":"1059b175-a9da-e711-a94a-002248072fe8","name":"GV Organisation19-02-2020"}]}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='25'>
+					<div class='test-heading'>
+						<span class='test-name'>Update Organisation and Validate</span>
+						<span class='test-time'>Feb 19, 2020 10:29:19 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 19, 2020 10:29:19 AM</span>
+	<span class='label end-time'>Feb 19, 2020 10:29:21 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 2s+383ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:29:19 AM</td>
+					<td class='step-details'>POST request Body : <br /> {
+  "clearOrganisationDataForEmptyParams": true,
+ "id": " 1059b175-a9da-e711-a94a-002248072fe8",
+  "name": "GV Organisation19-02-2020"
+}</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:29:21 AM</td>
+					<td class='step-details'>Check POST response Code : <br />200</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:29:21 AM</td>
+					<td class='step-details'>Check POST response Body  has Success is "true" and messageError is "null" : <br />{"success":true,"messageError":null,"result":{"id":"1059b175-a9da-e711-a94a-002248072fe8","name":"GV Organisation19-02-2020"}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='26'>
+					<div class='test-heading'>
+						<span class='test-name'>Get Contact Roles By ContactId and Validate(GET Request)</span>
+						<span class='test-time'>Feb 19, 2020 10:29:21 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 19, 2020 10:29:21 AM</span>
+	<span class='label end-time'>Feb 19, 2020 10:29:22 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 1s+172ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:29:21 AM</td>
+					<td class='step-details'>POST request Body : {
+  "clearOrganisationDataForEmptyParams": true,
+ "id": " 1059b175-a9da-e711-a94a-002248072fe8",
+  "name": "GV Organisation19-02-2020"
+}</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:29:22 AM</td>
+					<td class='step-details'>Check POST response Code : <br />200</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:29:22 AM</td>
+					<td class='step-details'>Check POST response Body  has Success is "true" and messageError is "null" : <br />{"success":true,"messageError":null,"result":[]}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  fail' status='fail' bdd='false' test-id='27'>
+					<div class='test-heading'>
+						<span class='test-name'>Create Fundraising Membership and Validate the response</span>
+						<span class='test-time'>Feb 19, 2020 10:29:22 AM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 19, 2020 10:29:22 AM</span>
+	<span class='label end-time'>Feb 19, 2020 10:29:37 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 14s+617ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:29:22 AM</td>
+					<td class='step-details'>POST request Body : <br />{
+  "isGift": true,
+  "member": {
+    "contactId": "00000000-0000-0000-0000-000000000000",
+    "emailAddress": "string",
+    "title": {
+      "value": 0,
+      "description": "string"
+    },
+    "fistName": "API test",
+    "lastName": "API Last Name",
+    "telephone": "45546435132",
+    "addressPostCode": "S1W36GH",
+    "addressLine": "London ",
+    "addressCountryId": "42579c4a-ebd4-e711-a94b-00224801b4c8"
+  },
+  "billingContact": {
+    "contactId": " 0cdbcc9d-0253-ea11-a813-000d3a7ed588",
+    "title": {
+      "value": 167410032,
+      "description": "Mr"
+    },
+    "fistName": "API test",
+    "lastName": "API Last Name",
+    "telephone": "45546435132",
+    "addressPostCode": "S1W36GH",
+    "addressLine": "London ",
+    "addressCountryId": "42579c4a-ebd4-e711-a94b-00224801b4c8"
+  },
+ 
+  "giftAidDeclaration": {
+    "optIn": true,
+    "date": "2020-01-23T16:00:01.289Z"
+  },
+  "paymentDetails": {
+    "onlinePayment": true,
+    "amount": 122
+  },
+  "directDebit": {
+    "accountName": "API Testing",
+    "accountNumber": "12341234",
+    "sortCode": "121212"
+  }
+}</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:29:37 AM</td>
+					<td class='step-details'>Check POST response Code : <br />200</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:29:37 AM</td>
+					<td class='step-details'>Expected Response Success is "true" and messageError is "null" but returned : <br />{"success":false,"messageError":"Object reference not set to an instance of an object.\r\n","result":null}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='28'>
+					<div class='test-heading'>
+						<span class='test-name'>Create Membership for Contact and Validate the response</span>
+						<span class='test-time'>Feb 19, 2020 10:29:37 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 19, 2020 10:29:37 AM</span>
+	<span class='label end-time'>Feb 19, 2020 10:29:39 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 2s+296ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:29:37 AM</td>
+					<td class='step-details'>POST request Body : <br />{
+ "contactId": " 0cdbcc9d-0253-ea11-a813-000d3a7ed588",
+"typeId": " f6665f9d-441c-e511-80c7-005056bf2f1c",
+"gradeId": " 1c306f87-02b0-e711-80e3-000d3ab05959",
+"bandId": " 41aaad99-02b0-e711-80e3-000d3ab05959",
+ "methodOfPaymentId": "77c3741e-2b1c-e511-80c7-005056bf2f1c",
+  "paymentFrequency": 167410000,
+  "reasonCodeId": "00000000-0000-0000-0000-000000000000",
+  "membershipReasonForJoiningId": " 5532e343-9833-ea11-a813-000d3a7ed588",
+  "startDate": "2020-01-23T16:00:01.254Z",
+  "membershipStatus": 167410000
+}</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:29:39 AM</td>
+					<td class='step-details'>Check POST response Code : <br />200</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:29:39 AM</td>
+					<td class='step-details'>Check POST response Body  has Success is "true" and messageError is "null" : <br />{"success":true,"messageError":null,"result":{"membershipId":"a39bbfb6-0253-ea11-a813-000d3a7ed518","dues":100.0000,"totalFees":100.0000,"discountCode":null}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='29'>
+					<div class='test-heading'>
+						<span class='test-name'>Test case : Create Address for a Contact and verify the response</span>
+						<span class='test-time'>Feb 19, 2020 10:29:39 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 19, 2020 10:29:39 AM</span>
+	<span class='label end-time'>Feb 19, 2020 10:29:41 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 1s+417ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:29:39 AM</td>
+					<td class='step-details'>POST request Body : <br />{
+ "contactId": "0cdbcc9d-0253-ea11-a813-000d3a7ed588",
+
+  "addressTypeCodeValue": 1,
+  "countryId": "42579c4a-ebd4-e711-a94b-00224801b4c8",
+  "countyId": "eb81b897-ebd4-e711-a94b-00224801b4c8",
+  "companyName": "Trillium automation",
+  "street1": "London street 1",
+  "street2": "Street 2",
+  "street3": "Street 3",
+  "city": "London",
+  "countyText": "string",
+  "postalCode": "S1WE34GV",
+  "isCorrespondence": true,
+  "isInvoice": true,
+  "stopMail": true
+}</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:29:41 AM</td>
+					<td class='step-details'>Check POST response Code : <br />200</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:29:41 AM</td>
+					<td class='step-details'>Check POST response Body  has Success is "true" and messageError is "null" : <br />{"success":true,"messageError":null,"result":{"id":"fe2ec5bb-0253-ea11-a813-000d3a7ed588","addressTypeCode":{"value":1,"description":"Home"},"contact":{"entityLogicalName":"contact","id":"0cdbcc9d-0253-ea11-a813-000d3a7ed588","name":"API test API Last Name"},"organisation":null,"country":{"entityLogicalName":"tri_country","id":"42579c4a-ebd4-e711-a94b-00224801b4c8","name":"United Kingdom"},"county":{"entityLogicalName":"tri_county","id":"eb81b897-ebd4-e711-a94b-00224801b4c8","name":"County Londonderry"},"companyName":"Trillium automation","street1":"London street 1","street2":"Street 2","street3":"Street 3","city":"London","countyText":null,"postalCode":"S1WE34GV","isCorrespondence":true,"isInvoice":true,"stopMail":false}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='30'>
+					<div class='test-heading'>
+						<span class='test-name'>Updating  firstName, lastName and eMail for id : <br />0cdbcc9d-0253-ea11-a813-000d3a7ed588</span>
+						<span class='test-time'>Feb 19, 2020 10:29:41 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 19, 2020 10:29:41 AM</span>
+	<span class='label end-time'>Feb 19, 2020 10:29:44 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 3s+298ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:29:41 AM</td>
+					<td class='step-details'>POST request Body : <br />{
+  "clearContactDataForEmptyParams": true,
+ "id": "0cdbcc9d-0253-ea11-a813-000d3a7ed588",
+  "validateContact": true,
+  "lastName": "UpDateContactLastName",
+  "middleName": "UpDateMiddleName",
+  "personalemail": "updateContact50651@API.com"
+ 
+}</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:29:44 AM</td>
+					<td class='step-details'>Check POST response Code : <br />200</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:29:44 AM</td>
+					<td class='step-details'>Check POST response Body  has Success is "true" and messageError is "null" : <br />{"success":true,"messageError":null,"result":{"id":"0cdbcc9d-0253-ea11-a813-000d3a7ed588","fullName":"UpDateContactLastName","email1":"updateContact50651@API.com","gmcNumber":null,"inArrears":false,"inArrearsSince":null,"branch":null,"nationality":null,"countryOfBirth":null,"organisation":null,"lastModified":"2020-02-19T10:29:43+00:00","homeAddress":{"id":"fe2ec5bb-0253-ea11-a813-000d3a7ed588","addressTypeCode":{"value":1,"description":"Home"},"contact":null,"organisation":null,"country":{"entityLogicalName":"tri_country","id":"42579c4a-ebd4-e711-a94b-00224801b4c8","name":"United Kingdom"},"county":{"entityLogicalName":"tri_county","id":"eb81b897-ebd4-e711-a94b-00224801b4c8","name":"County Londonderry"},"companyName":"Trillium automation","street1":"London street 1","street2":"Street 2","street3":"Street 3","city":"London","countyText":null,"postalCode":"S1WE34GV","isCorrespondence":true,"isInvoice":true,"stopMail":false},"workAddress":null,"contactRoles":[],"primaryMembership":{"membershipNumber":"002990","primaryMembershipId":null,"grade":null,"band":null,"startDate":null,"expiryDate":null,"statusReason":null,"membershipStatus":null,"renewalStatus":null,"paymentStatus":null,"paymentFrequency":null,"outstanding":0.0,"outstandingCurrent":0.0,"outstandingArrears":0.0,"paymentMethod":null},"incompleteMembership":{"incompleteMembershipId":"a39bbfb6-0253-ea11-a813-000d3a7ed518","incompleteMembershipGrade":"Full Member","incompleteMembershipBand":"Full Member","incompleteMembershipGroup":"Standard","incompleteMembershipGroupCode":"167410000","incompleteMembershipStartDate":"2020-01-23T16:00:01+00:00","incompleteMembershipExpiryDate":"2020-12-31T00:00:00+00:00","incompleteMembershipStatus":"Incomplete"},"additionalAttributesValues":[],"hashCode":null,"webUserName":null,"firstName":null,"lastName":"UpDateContactLastName","middleName":"UpDateMiddleName","personalemail":"updateContact50651@API.com","workemail":null,"preferredEmailAddress":{"value":167410000,"description":"Personal"},"dateOfBirth":null,"workTelephone":null,"homeTelephone":null,"mobile":null,"correspondenceAddress":1,"invoiceAddress":1,"overrideBranch":false,"doNotPhone":null,"doNotEmail":null,"title":null,"gender":null,"ethnicity":null,"maritalStatus":null,"jobRole":null,"jobRoleOther":null,"jobTitle":null,"organisationText":"OrganisationText"}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='31'>
+					<div class='test-heading'>
+						<span class='test-name'>Retrieve Contact by eMail and verify the response</span>
+						<span class='test-time'>Feb 19, 2020 10:29:44 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 19, 2020 10:29:44 AM</span>
+	<span class='label end-time'>Feb 19, 2020 10:29:45 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+740ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:29:44 AM</td>
+					<td class='step-details'>POST request Body : <br />{
+  "email":"personalemail.25014GV@Automation.com",
+ 
+}</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:29:45 AM</td>
+					<td class='step-details'>Check POST response Code : <br />200</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:29:45 AM</td>
+					<td class='step-details'>Check POST response Body  has Success is "true" and messageError is "null" : <br />{"success":true,"messageError":null,"result":null}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='32'>
+					<div class='test-heading'>
+						<span class='test-name'>Create Generic Membership Transaction and Validate the response</span>
+						<span class='test-time'>Feb 19, 2020 10:29:45 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 19, 2020 10:29:45 AM</span>
+	<span class='label end-time'>Feb 19, 2020 10:29:48 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 3s+683ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:29:45 AM</td>
+					<td class='step-details'>POST request Body : <br />{
+  "netAmount": 1025,
+  "vatId": "90409d5a-241c-e511-80c7-005056bf2f1c",
+  "periodId": "ed70628e-8455-e611-80f8-005056bf72c1",
+  "createAsComplete": true,
+  "createAsInvoice": true,
+  "description": "CreateGenericMembershipTransaction API Automation",
+ 
+  "contactId": " 0cdbcc9d-0253-ea11-a813-000d3a7ed588",
+  "membershipID": "a39bbfb6-0253-ea11-a813-000d3a7ed518",
+}</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:29:48 AM</td>
+					<td class='step-details'>Check POST response Code : <br />200</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:29:48 AM</td>
+					<td class='step-details'>Check POST response Body  has Success is "true" and messageError is "null" : <br />{"success":true,"messageError":null,"result":"7de0b7bc-0253-ea11-a813-000d3a7ed518"}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  fail' status='fail' bdd='false' test-id='33'>
+					<div class='test-heading'>
+						<span class='test-name'>Create Membership Transaction And DirectDebit and Validate the response</span>
+						<span class='test-time'>Feb 19, 2020 10:29:48 AM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 19, 2020 10:29:48 AM</span>
+	<span class='label end-time'>Feb 19, 2020 10:29:51 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 2s+938ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:29:48 AM</td>
+					<td class='step-details'>POST request Body : <br />{
+  "directDebitInfo": {
+    "type": 167410000,
+    "accountNumber": "12341234",
+    "accountName": "API Testing",
+    "sortCode": "121212",
+    "bankName": "API Bank Ltd",
+    "branchAddress": "string",
+    "paymentFrequency": 167410000
+  },
+  "contactId": " 0cdbcc9d-0253-ea11-a813-000d3a7ed588",
+  "membershipID": "a39bbfb6-0253-ea11-a813-000d3a7ed518",
+}</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:29:51 AM</td>
+					<td class='step-details'>Check POST response Code : <br />200</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:29:51 AM</td>
+					<td class='step-details'>Expected Response Success is "true" and messageError is "null" but returned : <br />{"success":false,"messageError":null,"result":{"transactionId":"00000000-0000-0000-0000-000000000000","directDebitId":"00000000-0000-0000-0000-000000000000","paymentPlanId":"00000000-0000-0000-0000-000000000000"}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='34'>
+					<div class='test-heading'>
+						<span class='test-name'>Create Membership Transaction And Process Payment and Validate the response</span>
+						<span class='test-time'>Feb 19, 2020 10:29:51 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 19, 2020 10:29:51 AM</span>
+	<span class='label end-time'>Feb 19, 2020 10:29:59 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 7s+251ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:29:51 AM</td>
+					<td class='step-details'>POST request Body : <br />{
+  "isDirectDebit": true,
+  "directDebitCallbackURL": "string",
+  "isOnlinePayment": true,
+  "contactId": " 0cdbcc9d-0253-ea11-a813-000d3a7ed588",
+  "membershipID": "a39bbfb6-0253-ea11-a813-000d3a7ed518",
+  "frequencyOfPayment": {
+    "value": 167410000,
+    "description": "Annually"
+  },
+  "methodOfPaymentId": "77c3741e-2b1c-e511-80c7-005056bf2f1c",
+ "onlinePaymentSuccessURL":"https://www.onlinePaymentSuccessURL.co.uk",
+  "onlinePaymentFailureURL": "https://www.onlinePaymentFailureURL.co.uk"
+}</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:29:59 AM</td>
+					<td class='step-details'>Check POST response Code : <br />200</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:29:59 AM</td>
+					<td class='step-details'>Check POST response Body  has Success is "true" and messageError is "null" : <br />{"success":true,"messageError":null,"result":{"redirectURL":"https://trilliumx.trilliumsystems.net/TrilliumX_Dev/v1.0/GoCardless/RedirectFlows/CreateRedirectFlow.aspx?DDID=1a7abec2-0253-ea11-a813-000d3a7ed518&endcallback=string"}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='35'>
+					<div class='test-heading'>
+						<span class='test-name'>Create Membership Transactions As Invoice and Validate the response</span>
+						<span class='test-time'>Feb 19, 2020 10:29:59 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 19, 2020 10:29:59 AM</span>
+	<span class='label end-time'>Feb 19, 2020 10:30:03 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 4s+459ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:29:59 AM</td>
+					<td class='step-details'>POST request Body : <br />{
+  "contactId": " 0cdbcc9d-0253-ea11-a813-000d3a7ed588",
+   "membershipGuids": ["a39bbfb6-0253-ea11-a813-000d3a7ed518"
+  ],
+  "createTransactionAsComplete": true
+}
+ctionAsComplete": true }</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:30:03 AM</td>
+					<td class='step-details'>Check POST response Code : <br />200</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:30:03 AM</td>
+					<td class='step-details'>Check POST response Body  has Success is "true" and messageError is "null" : <br />{"success":true,"messageError":null,"result":[{"transactionID":"541ad7c7-0253-ea11-a813-000d3a7ed588","name":"Membership Invoice - INV001354 - 19/02/2020","reference":"INV001354","outstandingAmount":120.0000,"transactionCategory":{"entityLogicalName":"tri_transactioncategory","id":"a109ca48-2d1c-e511-80c7-005056bf2f1c","name":"Invoice"},"transactionType":{"entityLogicalName":"tri_transactiontype","id":"cb70e8cc-ef23-e611-80f6-005056bf72c1","name":"Membership Invoice"},"transactionPeriod":{"entityLogicalName":"tri_period","id":"ed70628e-8455-e611-80f8-005056bf72c1","name":"2020"},"paymentStatus":{"value":167410000,"description":"Unpaid"},"statusReason":{"value":167410000,"description":"Complete"}}]}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  fail' status='fail' bdd='false' test-id='36'>
+					<div class='test-heading'>
+						<span class='test-name'>Create Multiple Membership Invoice Transaction and Validate the response</span>
+						<span class='test-time'>Feb 19, 2020 10:30:03 AM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 19, 2020 10:30:03 AM</span>
+	<span class='label end-time'>Feb 19, 2020 10:30:04 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 1s+109ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:30:03 AM</td>
+					<td class='step-details'>POST request Body : <br />{
+  "contactId": " 0cdbcc9d-0253-ea11-a813-000d3a7ed588",
+  "poNumber": "poNumber",
+  "transactionIds": "1a1a5b0d-194c-ea11-a812-000d3a7ed588",
+"transactionIds": "5523ba2f-450c-438c-b1d0-459a91780a15",
+  "membershipID": "a39bbfb6-0253-ea11-a813-000d3a7ed518",
+"membershipIds": "e896fa0a-fb40-ea11-a812-000d3a7ed588"
+}</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:30:04 AM</td>
+					<td class='step-details'>Check POST response Code : <br />200</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:30:04 AM</td>
+					<td class='step-details'>Expected Response Success is "true" and messageError is "null" but returned : <br />{"success":false,"messageError":"VAT is mandatory and cannot be empty\r\n\r\n   at Trillium.Xrm.tri_transaction.BuildCreateTxObject(String txTypeName, Int32 txFor, Guid txForContactId, Guid txForOrganisationId, Guid vatId, Guid txPeriod, XrmServerObjects ServerObject, Boolean setPaymentStatusAsUnpaid, Nullable`1 parentTransactionId, Boolean isMultiplePayment, Nullable`1 isNewMembership, Nullable`1 collectionType, Nullable`1 transactionDate, Nullable`1 ignoreVATValidation, EntityReference currencyId, EntityReference priceListId) in C:\\VS\\ProjectX\\Dev\\CRM Modules\\CRM_Transaction-Main\\BusinessLayer\\Transaction.cs:line 386\r\n   at Trillium.Webservices.Entities.TransactionEntity.createInvoiceTransaction(XrmServerObjects serverObject, Guid orgId, Guid contactId, Guid vatId, EntityReference currencyId, String type, String poNumber, List`1 txItems, Boolean asComplete) in C:\\VS\\ProjectX\\Dev\\Main\\TrilliumApi\\TrilliumApi\\Entities\\Transaction\\TransactionEntity.cs:line 2689\r\n   at Trillium.Webservices.Entities.TransactionEntity.CreateMultipleMembershipInvoiceTransaction(Guid orgId, Guid contactId, String poNumber, String transactionIds, String membershipIds, Nullable`1 callerId) in C:\\VS\\ProjectX\\Dev\\Main\\TrilliumApi\\TrilliumApi\\Entities\\Transaction\\TransactionEntity.cs:line 1889\r\n   at Business.Services.MembershipService.CreateMultipleMembershipInvoiceTransaction(CreateMultipleMembershipInvoiceTxDto request, Nullable`1 callerId) in C:\\VS\\ProjectX\\Dev\\Main\\TrilliumWebAPI\\Business\\Services\\MembershipService.cs:line 577","result":null}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='37'>
+					<div class='test-heading'>
+						<span class='test-name'>Lapse Membership and Validate the response</span>
+						<span class='test-time'>Feb 19, 2020 10:30:04 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 19, 2020 10:30:04 AM</span>
+	<span class='label end-time'>Feb 19, 2020 10:30:06 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 1s+726ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:30:04 AM</td>
+					<td class='step-details'>POST request Body : <br />{
+  "membershipID": "a39bbfb6-0253-ea11-a813-000d3a7ed518",
+  "expiryType": 167410004,
+  "reasonForLeaving": "b844025c-9833-ea11-a813-000d3a7ed588",
+  "expirePaymentPlans": true
+}</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:30:06 AM</td>
+					<td class='step-details'>Check POST response Code : <br />200</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:30:06 AM</td>
+					<td class='step-details'>Check POST response Body  has Success is "true" and messageError is "null" : <br />{"success":true,"messageError":null,"result":true}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='38'>
+					<div class='test-heading'>
+						<span class='test-name'>Upgrade Membership and Validate the response</span>
+						<span class='test-time'>Feb 19, 2020 10:30:06 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 19, 2020 10:30:06 AM</span>
+	<span class='label end-time'>Feb 19, 2020 10:30:13 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 7s+69ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:30:06 AM</td>
+					<td class='step-details'>POST request Body : <br />{
+  "membershipID": "a39bbfb6-0253-ea11-a813-000d3a7ed518",
+  "membershipType": "669b36c1-ddfc-e611-8100-005056bf72c1", 
+  "membershipGrade": "0d462ccb-ddfc-e611-8100-005056bf72c1", 
+  "membershipBand": "cdbb5ced-ddfc-e611-8100-005056bf72c1", 
+  "createTransaction": true,
+  "writeoff": true,
+  "createPayment": true,
+  "createPaymentPlan": true,
+  "mothodOfPayment": "77c3741e-2b1c-e511-80c7-005056bf2f1c",
+  "feeOverride": 0
+}</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:30:13 AM</td>
+					<td class='step-details'>Check POST response Code : <br />200</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:30:13 AM</td>
+					<td class='step-details'>Check POST response Body  has Success is "true" and messageError is "null" : <br />{"success":true,"messageError":null,"result":"e91bd7c7-0253-ea11-a813-000d3a7ed588"}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='39'>
+					<div class='test-heading'>
+						<span class='test-name'>Test case: Retrieve Addresses and verify the response</span>
+						<span class='test-time'>Feb 19, 2020 10:30:13 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 19, 2020 10:30:13 AM</span>
+	<span class='label end-time'>Feb 19, 2020 10:30:14 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+638ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:30:13 AM</td>
+					<td class='step-details'>POST request Body : <br />{
+  "contactId": "7c21ea88-213f-e811-a956-002248072cc3",
+ 
+}</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:30:14 AM</td>
+					<td class='step-details'>Check POST response Code : <br />200</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:30:14 AM</td>
+					<td class='step-details'>Check POST response Body  has Success is "true" and messageError is "null" : <br />{"success":true,"messageError":null,"result":[{"id":"c18b409f-213f-e811-a965-002248014c7d","addressTypeCode":{"value":2,"description":"Work"},"contact":{"entityLogicalName":"contact","id":"7c21ea88-213f-e811-a956-002248072cc3","name":"Bruce Wayne"},"organisation":null,"country":{"entityLogicalName":"tri_country","id":"42579c4a-ebd4-e711-a94b-00224801b4c8","name":"United Kingdom"},"county":null,"companyName":"Superheroes Ltd","street1":"3 HIGH STREET","street2":"CRAFTY VALLEY","street3":null,"city":"BIG CITY","countyText":null,"postalCode":"SS9 4NL","isCorrespondence":false,"isInvoice":false,"stopMail":false},{"id":"150e7eca-6641-e811-a953-002248072abd","addressTypeCode":{"value":4,"description":"Additional Contact"},"contact":{"entityLogicalName":"contact","id":"7c21ea88-213f-e811-a956-002248072cc3","name":"Bruce Wayne"},"organisation":null,"country":{"entityLogicalName":"tri_country","id":"42579c4a-ebd4-e711-a94b-00224801b4c8","name":"United Kingdom"},"county":{"entityLogicalName":"tri_county","id":"bf82b897-ebd4-e711-a94b-00224801b4c8","name":"Surrey"},"companyName":"A 2 B Transfers","street1":"Crown House","street2":"1 Crown Square","street3":null,"city":"Woking","countyText":null,"postalCode":"se1 0bd","isCorrespondence":true,"isInvoice":true,"stopMail":false},{"id":"fca9bbac-213f-e811-a956-002248072cc3","addressTypeCode":{"value":1,"description":"Home"},"contact":{"entityLogicalName":"contact","id":"7c21ea88-213f-e811-a956-002248072cc3","name":"Bruce Wayne"},"organisation":null,"country":{"entityLogicalName":"tri_country","id":"42579c4a-ebd4-e711-a94b-00224801b4c8","name":"United Kingdom"},"county":{"entityLogicalName":"tri_county","id":"6182b897-ebd4-e711-a94b-00224801b4c8","name":"London"},"companyName":null,"street1":"1 Batmobile Lane","street2":null,"street3":null,"city":"London","countyText":null,"postalCode":"W2 7HG","isCorrespondence":false,"isInvoice":false,"stopMail":false}]}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='40'>
+					<div class='test-heading'>
+						<span class='test-name'>Test case :Update Address for a Contact and verify the response</span>
+						<span class='test-time'>Feb 19, 2020 10:30:14 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 19, 2020 10:30:14 AM</span>
+	<span class='label end-time'>Feb 19, 2020 10:30:15 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 1s+465ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:30:14 AM</td>
+					<td class='step-details'>POST request Body : <br />{
+ "id": "fe2ec5bb-0253-ea11-a813-000d3a7ed588",
+  "companyName": "UpdateAddressCompanyName1",
+  "street1": "UpdateAddressStree1",
+  "street2": "UpdateAddressStree2",
+  "street3": "UpdateAddressStree3",
+  "city": "UpdateAddressCity",
+  "postalCode": "NEW 90 STCD",
+  "isCorrespondence": true,
+  "isInvoice": true,
+  "stopMail": true
+}</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:30:15 AM</td>
+					<td class='step-details'>Check POST response Code : <br />200</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:30:15 AM</td>
+					<td class='step-details'>Check POST response Body  has Success is "true" and messageError is "null" : <br />{"success":true,"messageError":null,"result":{"id":"fe2ec5bb-0253-ea11-a813-000d3a7ed588","addressTypeCode":{"value":1,"description":"Home"},"contact":{"entityLogicalName":"contact","id":"0cdbcc9d-0253-ea11-a813-000d3a7ed588","name":"UpDateContactLastName"},"organisation":null,"country":null,"county":null,"companyName":"UpdateAddressCompanyName1","street1":"UpdateAddressStree1","street2":"UpdateAddressStree2","street3":"UpdateAddressStree3","city":"UpdateAddressCity","countyText":null,"postalCode":"NEW 90 STCD","isCorrespondence":true,"isInvoice":true,"stopMail":false}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='41'>
+					<div class='test-heading'>
+						<span class='test-name'>Test case: Check Contact Exists by eMail and verify the response</span>
+						<span class='test-time'>Feb 19, 2020 10:30:15 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 19, 2020 10:30:15 AM</span>
+	<span class='label end-time'>Feb 19, 2020 10:30:16 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+863ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:30:15 AM</td>
+					<td class='step-details'>POST request Body : <br />{
+  "email": "test@Automation1.com"
+ 
+}</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:30:16 AM</td>
+					<td class='step-details'>Check POST response Code : <br />200</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:30:16 AM</td>
+					<td class='step-details'>Check POST response Body  has Success is "true" and messageError is "null" : <br />{"success":true,"messageError":null,"result":true}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='42'>
+					<div class='test-heading'>
+						<span class='test-name'>Deactivate Address for a Contact and verify the response</span>
+						<span class='test-time'>Feb 19, 2020 10:30:16 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 19, 2020 10:30:16 AM</span>
+	<span class='label end-time'>Feb 19, 2020 10:30:18 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 1s+594ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:30:16 AM</td>
+					<td class='step-details'>POST request Body : <br />{
+ "id": "fe2ec5bb-0253-ea11-a813-000d3a7ed588",
+}</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:30:18 AM</td>
+					<td class='step-details'>Check POST response Code : <br />200</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:30:18 AM</td>
+					<td class='step-details'>Check POST response Body  has Success is "true" and messageError is "null" : <br />{"success":true,"messageError":null,"result":true}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- subview left -->
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='test-name'></h5>
+
+			<div id='step-filters' class="right">
+				<span class="blue-text" status="info" alt="info" title="info"><i class="material-icons">info_outline</i></span>
+				<span class="green-text" status="pass" alt="pass" title="pass"><i class="material-icons">check_circle</i></span>
+				<span class="red-text" status="fail" alt="fail" title="fail"><i class="material-icons">cancel</i></span>
+				<span class="red-text text-darken-4" status="fatal" alt="fatal" title="fatal"><i class="material-icons">cancel</i></span>
+				<span class="pink-text text-lighten-1" status="error" alt="error" title="error"><i class="material-icons">error</i></span>
+				<span class="orange-text" alt="warning" status="warning" title="warning"><i class="material-icons">warning</i></span>
+				<span class="teal-text" status="skip" alt="skip" title="skip"><i class="material-icons">redo</i></span>
+				<span status="clear" alt="Clear filters" title="Clear filters"><i class="material-icons">clear</i></span>
+			</div>
+		</div>
+	</div>
+	<!-- subview right -->
+
+</div>
+<!-- test view -->
+<!-- category view -->
+<!-- exception view -->
+<div id='dashboard-view' class='view hide'>
+	<div class='card-panel transparent np-v'>
+		<h5>Dashboard</h5>
+
+		<div class='row'>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Tests
+					<div class='panel-lead'>42</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Steps
+					<div class='panel-lead'>126</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Start
+					<div class='panel-lead'>Feb 19, 2020 10:28:30 AM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+			 		End
+			 		<div class='panel-lead'>Feb 19, 2020 10:30:18 AM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Time Taken
+					<div class='panel-lead'>0h 1m 47s+395ms</div>
+				</div>
+			</div>
+			<div class='col s4'>
+				<div class='card-panel dashboard-environment'>
+					<span class='right label cyan white-text'>Environment</span><p>&nbsp;</p>
+					
+					<table>
+						<tr>
+							<th>Name</th>
+							<th>Value</th>
+						</tr>
+							<tr>
+								<td>Host name</td>
+								<td>DESKTOP-QK7P72A</td>
+							</tr>
+							<tr>
+								<td>Environemnt</td>
+								<td>Dev</td>
+							</tr>
+							<tr>
+								<td>User</td>
+								<td>Gopinath</td>
+							</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- dashboard view -->
+<!-- testrunner-logs view -->
+		</div>
+		<!-- container -->
+
+		<script>
+			var statusGroup = {
+				passParent: 36,
+				failParent: 6,
+				fatalParent: 0,
+				errorParent: 0,
+				warningParent: 0,
+				skipParent: 0,
+				exceptionsParent: 6,
+				
+				passChild: 78,
+				failChild: 6,
+				fatalChild: 0,
+				errorChild: 0,
+				warningChild: 0,
+				skipChild: 0,
+				infoChild: 42,
+				exceptionsChild: 6,
+				
+				passGrandChild: 0,
+				failGrandChild: 0,
+				fatalGrandChild: 0,
+				errorGrandChild: 0,
+				warningGrandChild: 0,
+				skipGrandChild: 0,
+				infoGrandChild: 0,
+				exceptionsGrandChild: 0,
+			};
+		</script>
+		
+			<script src='https://cdn.rawgit.com/anshooarora/extentreports-java/fca20fb7653aade98810546ab96a2a4360e3e712/dist/js/extent.js' type='text/javascript'></script>
+		
+		
+ 		<script type='text/javascript'>
+ 		</script>
+	</body>
+	
+</html>
